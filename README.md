@@ -33,12 +33,18 @@ The dataset contains 27 factors that could be segmented into 5 categories.
    
  ## Data Visualization and Analysis
  
- - Data Cleaning - Python Pandas 
- - Database -  Postgresql
+ - Data Cleaning 
+     - Python Pandas 
+ - Database 
+     -  Postgresql
  - Exploratory analysis and visualization on the major variables
      - Python Matplotlib, Tableau, JavaScript Plotly, JavaScript D3.js, JavaScript Leaflet 
- - Front End - HTML,CSS,Bootstrap,JavaScript
- - Machine Learning Model- sklearn.DecisionTreeClassifire, and regression to find the hierarchy of leading predictors,
+ - Front End 
+     - HTML,CSS,Bootstrap,JavaScript
+ - Machine Learning Model
+     - sklearn.DecisionTreeClassifire, and regression to find the hierarchy of leading predictors
+ - Deployment 
+     - Horoku
   
   ## Data Architecture
  
