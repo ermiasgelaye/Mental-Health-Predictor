@@ -1,4 +1,4 @@
-# What The Future Mental Health Conditions in the Tech Workplace: Exploring Mental Health Predictors in the Tech Workplace
+# Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
 
 
 ## Background
