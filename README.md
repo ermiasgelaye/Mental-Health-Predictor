@@ -1,5 +1,5 @@
 # Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
-<img src="/img/google-medic-update-1533729137.gif" height="500" width="900" />
+<img src="worldmentalhealthday_16x9.jpg" height="500" width="900" />
 
 
 ## Background
