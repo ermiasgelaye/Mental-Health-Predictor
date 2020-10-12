@@ -42,7 +42,7 @@ The dataset contains 27 factors that could be segmented into 5 categories.
  - Front End 
      - HTML,CSS,Bootstrap,JavaScript
  - Machine Learning Model
-     - sklearn.DecisionTreeClassifire, and regression to find the hierarchy of leading predictors
+     - sklearn.DecisionTreeClassifire(), and regression to find the hierarchy of leading predictors
  - Deployment 
      - Horoku
   
