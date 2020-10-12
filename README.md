@@ -20,7 +20,7 @@ Identifying personal and work related attributes are the top predictors in deter
 
 ## Data Source
 
-The data sourced the survey data from the 2014, 2016, 2017 and 2018 OSMI mental health in technology surveys used to facilitate analysis.
+The data sourced the survey data from the 2014, 2016, 2017 and 2018 OSMI mental health in technology surveys, and used to facilitate analysis.
 - https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016?select=survey_2014.csv
 
 The dataset contains 27 factors that could be segmented into 5 categories.
