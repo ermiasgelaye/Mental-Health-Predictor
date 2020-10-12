@@ -1,6 +1,6 @@
 # Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
 
-<img src="Image/worldmentalhealthday_16x9.jpg" height="500" width="850" />
+<img src="Image/worldmentalhealthday_16x9.jpg" height="500" width="900" />
 
 
 ## Background
