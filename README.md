@@ -16,7 +16,7 @@ This important health issue warrants further investigation. This Project, based 
 
 ## Project Goal
 
-Identifying personal and work related attributes are the top predictors in determining whether or not the person seek mental health health condition. 
+Identifying personal and work related attributes are the top predictors in determining whether or not the person seek mental health condition. 
 
 ## Data Source
 
