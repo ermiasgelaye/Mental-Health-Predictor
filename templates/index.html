@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <title>Mind Health</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="header">
+                <a href="index.html"><img src="../static/images/logo.png" alt="logo" style="background-color: rgb(255,255,255);" />
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Visualizations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="../WebVisualizations/main.html">Exploratory Data Analysis</a>
+                            <a class="dropdown-item" href="../WebVisualizations/machine-learning.html">Machine Learning Analysis</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../WebVisualizations/data.html">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor">Our Repo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- title -->
+    <div class="col-md-12 jumbotron text-center" style="background-image:url(../static/images/banner.png);; width: 3500px; " class="main-header ">
+        <a><img src="../static/images/logo.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
+        </a>
+        <hr>
+        <p style="color: rgb(255, 255, 255); font-size: 35px; "> Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
+        </p>
+    </div>
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-7 col-md-12 ">
+                <div class="box " style="padding-bottom: 20px; ">
+                    <h3 class="title ">Background: Why do we need to study this ?</h3>
+                    <hr>
+                    <img src="../static/images/brain2.gif " alt="Mental Health ">
+                    <br>
+                    <br>
+                    <p> Mental illness is a global health problem. It has critically high prevalence, yielding severe health outcomes. One in four adults suffers from a diagnosable mental illness in any given year (National Alliance on Mental Health, 2013).
+                        In the tech industry, 50% of individuals have sought treatment for mental illness, according to Finkler, 2015.
+                        <br>
+                        <br> This important health issue warrants further investigation. This Project, based on the 2014 Mental Health in Tech Survey from Open Sourcing Mental Illness, will performs a complete data visualization, machine learning model
+                        and statistical analyses among the mental illness and various factors in order to answer following questions:
+
+                        <ul>
+                            <li>What are the strongest groups of predictors of mental health illness in the workplace ?</li>
+                            <li>What might be the causes of the high mental illnesses prevalence in the tech industry other than some common thoughts?</li>
+                            <li>How is the representativeness of the survey, is other factors involved: geographic locations, ages, etc.?</li>
+                            <li>How does the frequency of mental health illness and attitudes towards mental health vary by geographic location?</li>
+                        </ul>
+                        <br>
+                        <h4 class="title ">Project Goal</h4>
+                        <hr>
+                        <p>Identifying personal and work related attributes are the top predictors in determining whether or not the person seek mental health condition.</p>
+
+                    </p>
+                    <h4 class="title ">Data Source</h4>
+                    <hr>
+                    <p>
+                        <a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey/home ">The data sourced the survey data from OSMI mental health in technology surveys, and used to facilitate analysis.</a><br>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-mt-12 ">
+                <div class="box ">
+                    <h3 class="title ">Visualization
+
+                    </h3>
+                    <hr>
+                    <div class="container ">
+                        <div class="row " style="padding-bottom: 70px; ">
+                            <div class="col-6 ">
+                                <div class="title ">Exploratory Data Analysis</div>
+                                <a href="../WebVisualizations/main.html ">
+                                    <img class="panel " src="../static/images/exploratory.png " alt="Tableau Notebook ">
+                                </a>
+                            </div>
+                            <div class="col-6 ">
+                                <div class="title ">Machine Learning Analysis</div>
+                                <a href="../WebVisualizations/machine-learning.html ">
+                                    <img class="panel " src="../static/images/learning.png" alt="Machine Learning Visualization ">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box ">
+                    <h3 class="title ">Models Used</h3>
+                    <hr>
+                    <div class="container ">
+                        <div class="row ">
+                            <p>
+                                <ul>
+                                    <li>Scikit-Learn-Decision Tree Classifire - to find the hierarchy of leading predictors</li>
+                                    <li>Python Pandas</li>
+                                    <li>Python Matplotlib</li>
+                                    <li>HTML/CSS/Bootstrap</li>
+                                    <li>Tableau</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <h3 class="title ">Team members</h3>
+                        <hr>
+                        <div class="row ">
+                            <p>
+                                <ul>
+                                    <li>Adedamola Atekoja (‘Damola)</li>
+                                    <li>Amanda Qianyue Ma</li>
+                                    <li>Amos Johnson</li>
+                                    <li>Ermias Gaga </li>
+                                    <li>Maria Lorena</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer> </footer>
+</body>
+
+</html>
