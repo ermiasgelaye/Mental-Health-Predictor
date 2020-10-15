@@ -29,10 +29,8 @@ The dataset contains 27 factors that could be segmented into 5 categories.
    - Mental Health Condition : treatment, work interference, family history etc.
    - Employment Background : tech, remote, employee number, size etc.
    - Organizational Policies on Mental Health : benefit, wellness program etc.
-   - Openness about Mental Health : self awareness, coworkers, supervisors, openness to discuss etc.
-   
- * The Survey data is maped as follows:
- 
+   - Openness about Mental Health : self awareness, coworkers, supervisors, openness to discuss etc. 
+ #### The Survey data is maped as follows:
  <img src="Image/data_map.png" height="500" width="900" />
    
  ## Data Visualization and Analysis
