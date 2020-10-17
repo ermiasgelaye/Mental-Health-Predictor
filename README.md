@@ -5,7 +5,7 @@
 
 ## Background
 
-Mental illness is a global health problem. It has critically high prevalence, yielding severe health outcomes. One in four adults suffer from a diagnosable mental illness in any given year (National Alliance on Mental Health, 2013). In the tech industry, 50% of individuals have sought treatment for mental illness, according to Finkler, 2015.
+Mental illness is a global health problem. It has critically high prevalence, yielding severe health outcomes. One in four adults suffer from a diagnosable mental illness in any given year (National Alliance on Mental Health, 2013).
 
 This important health issue warrants further investigation. This Project, based on the 2014 Mental Health in Tech Survey from Open Sourcing Mental Illness, will performs a complete data visualization, machine learning model and statistical analyses among the mental illness and various factors in order to answer following questions:
 
