@@ -24,6 +24,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Visualizations
@@ -35,6 +38,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../WebVisualizations/data.html">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api">Api</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor">Our Repo</a>
@@ -79,7 +85,7 @@
     <!-- <head> -->
     <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <script type="text/javascript">
-        var vizList = [];
+        var vizList = ["https://public.tableau.com/shared/C2T5TMT2J?:display_count=y&:origin=viz_share_link"];
 
         var viz,
             vizLen = vizList.length,
@@ -111,7 +117,7 @@
     <!-- </head> -->
 
     <!-- <body onload="createViz(0);"> -->
-    <div id="vizContainer" class="m-auto mt-4" style="width:1300px; height:700px;"></div>
+    <div id="vizContainer" class="m-auto mt-4" style="width:1300px; height:1900px;"></div>
     <div id="controls" style="padding-bottom: 50px;">
         <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
         <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>

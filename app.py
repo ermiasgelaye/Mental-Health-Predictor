@@ -41,7 +41,16 @@ def index():
     return render_template("index.html")
 
 
-
+@app.route("/api")
+def searchbyyear():
+    sqlStatement = """
+    SELECT * FROM mental_health;
+    """
+    df = pdsql.read_sql(sqlStatement, engine)
+    df.set_index('Timestamp', inplace=True)
+    df = df.to_json(orient='table')
+    result = json.loads(df)
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)
