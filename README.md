@@ -43,8 +43,8 @@ The dataset contains 27 factors that could be segmented into 5 categories.
      - Python Matplotlib, Tableau, JavaScript Plotly, JavaScript D3.js, JavaScript Leaflet 
  - Front End 
      - HTML,CSS,Bootstrap,JavaScript
- - Machine Learning Model
-     - sklearn.DecisionTreeClassifire()to find the hierarchy of leading predictors, and regression model
+ - Machine Learning Models
+     - Machine Learning Models: Linear Regression, Logistic Regression, Decision Tree, Random Forest, Support Vector Machine(SVM) Models and Natural Language Processing(NLP) algorithm
  - Deployment 
      - Horoku
   
