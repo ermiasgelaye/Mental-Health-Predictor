@@ -46,7 +46,7 @@ The dataset contains 27 factors that could be segmented into 5 categories.
  - Machine Learning Models
      - Machine Learning Models: Linear Regression, Logistic Regression, Decision Tree, Random Forest, Support Vector Machine(SVM) Models and Natural Language Processing(NLP) algorithm
  - Deployment 
-     - Horoku
+     - Heroku
   
   ## Data Architecture
  
