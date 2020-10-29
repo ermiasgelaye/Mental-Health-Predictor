@@ -7,16 +7,16 @@
 
 Mental illness is a global health problem. It has critically high prevalence, yielding severe health outcomes. One in four adults suffer from a diagnosable mental illness in any given year (National Alliance on Mental Health, 2013).
 
-This important health issue warrants further investigation. This Project, based on the 2014 Mental Health in Tech Survey from Open Sourcing Mental Illness, will performs a complete data visualization, machine learning model and statistical analyses among the mental illness and various factors in order to answer following questions:
+These important health issues warrant further investigation. This Project is based on the 2014 Mental Health in Tech Survey from Open Sourcing Mental Illness. It will perform a complete data visualization, machine learning model and statistical analysis among mental illness and various factors in order to answer following questions:
 
-- What are the strongest groups of predictors of mental health illness in the workplace ?
-- What might be the causes of the high mental illnesses prevalence in the tech industry other than some common thoughts?
-- How is the representativeness of the survey, is other factors involved: geographic locations, ages, etc.?
-- How does the frequency of mental health illness and attitudes towards mental health vary by geographic location?
+- What are the strongest groups of predictors for mental health illness in the workplace?
+- What might be some of the causes for high mental illnesses presence in the tech industry other than personal problems? e.g.) addiction, income, etc.
+- How is the representativeness of the survey? Are other factors involved such as geographic locations, age or gender?
+- How does the frequency of mental health illness and attitude towards mental health vary by geographical location?
 
 ## Project Goal
 
-Identifying personal and work related attributes are the top predictors in determining whether or not the person seek mental health condition. 
+Identifying personal and work related attributes are the top predictors in determining whether or not the person has a mental health condition. 
 
 ## Data Source
 
@@ -25,7 +25,7 @@ The data sourced the survey data from OSMI mental health in technology surveys, 
 
 The dataset contains 27 factors that could be segmented into 5 categories.
 
-   - Demographics: age, gender, country, state etc
+   - Demographics: age, gender, country, state etc.
    - Mental Health Condition : treatment, work interference, family history etc.
    - Employment Background : tech, remote, employee number, size etc.
    - Organizational Policies on Mental Health : benefit, wellness program etc.
@@ -42,7 +42,7 @@ The dataset contains 27 factors that could be segmented into 5 categories.
  - Exploratory analysis and visualization on the major variables
      - Python Matplotlib, Tableau, JavaScript Plotly, JavaScript D3.js, JavaScript Leaflet 
  - Front End 
-     - HTML,CSS,Bootstrap,JavaScript
+     - HTML, CSS, Bootstrap, JavaScript
  - Machine Learning Models
      - Machine Learning Models: Linear Regression, Logistic Regression, Decision Tree, Random Forest, Support Vector Machine(SVM) Models and Natural Language Processing(NLP) algorithm
  - Deployment 
