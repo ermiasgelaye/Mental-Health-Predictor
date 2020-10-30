@@ -48,6 +48,20 @@ The dataset contains 27 factors that could be segmented into 5 categories.
  - Deployment 
      - Heroku
   
-  ## Data Architecture
+  ## Task 
+  
+  - Adedamola Atekoja (‘Damola) -  
+  - Amanda Qianyue Ma - 
+  - Amos Johnson - 
+  - Ermias Gaga - 
+  - Maria Loren -
+  
+* building an interface
+* documenting the process
+* task classification
+* creating Exploratory analysis and visualization
+* building ML
+  
+
  
 
