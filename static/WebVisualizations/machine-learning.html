@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
             <div class="header">
-                <a href="/"><img src="../images/logo.png" alt="logo" style="background-color: rgb(255,255,255);" />
+                <a href="/"><img src="../images/logo1.png" alt="logo" style="background-color: rgb(255,255,255);" />
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +50,8 @@
         </nav>
     </div>
     <!-- title -->
-    <div class="col-md-12 jumbotron text-center" style="background-image:url(../images/banner.png);; width: 3500px; " class="main-header ">
-        <a><img src="../images/logo.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
+    <div class="col-md-12 jumbotron text-center" style="background-image:url(../images/banner1.png);; width: 3500px; " class="main-header ">
+        <a><img src="../images/logo1.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
         </a>
         <hr>
         <p style="color: rgb(255, 255, 255); font-size: 35px; "> Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
@@ -63,42 +63,67 @@
             <div class="col-lg-12 col-md-12">
                 <div class="box" style="padding-bottom: 20px;">
                     <h3 class="title">Machine Learning</h3>
-                    <hr>
-                    <p>
-                        <b>Result:</b>
+                    <h3 class="title">1. Introduction</h3>
+                    <p> This project used various machine learning models, trained and tested the data to see the models ability to predict whether or not an individual will seek treatment for a mental health condition. We used the linear regression, logistic
+                        regression, decision tree, random forest, support vector machine(SVM) models and natural language processing (NLP) algorithm. We note differences in accuracy (and thus, effectiveness), the models has toward the entire data set.
+                        We conclude that the linear regression, logistic regression, and support vector machine(SVM) models were both effective in classifying Although we used models to predict our outcome, we noticed similar reapearing patterns that
+                        we knew would serve of importance when predicting indivduals attitude toward mental health treatment. We used a natural language processing (NLP) algorithm in order to tokenize and classfy text from the comment section in order
+                        to determine which mental health topic revealed the most.
                     </p>
-                    <div class="container">
-                        <div class="row" style="padding-bottom: 70px;">
-                            <div class="col-6" style="padding-bottom: 30px">
-                                <img class="panel" src="../images/" alt="Income vs. Death">
-                            </div>
-                            <div class="col-6" style="padding-top: 20px">
-                                <p> </p>
-                            </div>
-                            <div class="col-6" style="padding-bottom: 30px">
-                                <img class="panel" src="../images/" alt="Tobacco vs. Death">
-                            </div>
-                            <div class="col-6" style="padding-top: 20px">
-                                <p> </p>
-                            </div>
-                            <div class="col-6" style="padding-bottom: 30px">
-                                <img class="panel" src="../images/" alt="Obesity vs. Death">
-                            </div>
-                            <div class="col-6" style="padding-top: 20px">
-                                <p> </p>
-                            </div>
-                            <div class="col-6" style="padding-bottom: 30px">
-                                <img class="panel" src="../images/" alt="Residual Plots">
-                            </div>
-                            <div class="col-6" style="padding-top: 20px">
-                                <p> </p>
-                            </div>
-                            <div class="col-12" style="padding-bottom: 30px">
-                                <div class="title">
-                                    <center> </center>
+                    <h3 class="title">2. Data Pre-Processing</h3>
+                    <p>
+                        The first step in our analysis was to clean, and preprocess our data set to make ready for machine learning analysis. The whole machine learning analysis conducted by using Jupyter Notebook. We cleaned, explored and visualized the data by gender, age
+                        and people who make a comment and no comment. The pre-processing normalize the data for ML analysis. The following items are not used. "Timestamp", "Gender", "comments". -The following three-value items "Yes", "No", and "no_data"
+                        are represented by "1" and "0". "Treatment", "family_history", "remote_work", "tech_company", "obs_consequence",・ Except for the above all dummy variables executed once.
+                    </p>
+
+                    <div class="box ">
+                        </h3>
+                        <hr>
+                        <div class="container ">
+                            <div class="row " style="padding-bottom: 70px; ">
+                                <div class="col-6 ">
+                                    <a>
+                                        <img class="panel " src="../images/age_vs_treatment.png " alt="Tableau Notebook ">
+                                    </a>
+                                </div>
+                                <div class="col-6 ">
+                                    <a>
+                                        <img class="panel " src="../images/gender_vs_treatment.png " alt="Machine Learning Visualization ">
+                                    </a>
                                 </div>
                             </div>
                         </div>
+
+                        <p>
+                            We generated correlation matrix to see if there is any strong correlation between variables prior to the machine learning analysis. We have found that there is a strong negative correlation(0.68) between work interfers versus treatment, means seeking
+                            for treatment is highly correlated to the fact that the person thinks it the mental health would interfere with work.
+                        </p>
+                        <div class="container ">
+                            <div class="row " style="padding-bottom: 70px; ">
+                                <div class="col-6 ">
+                                    <a>
+                                        <img class="panel " src="../images/corr.png" alt="Tableau Notebook ">
+                                    </a>
+                                </div>
+                                <div class="col-6 ">
+                                    <a>
+                                        <img class="panel " src="../images/corrmatt.png " alt="Machine Learning Visualization ">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="title">3. Machine Learning Models</h3>
+
+                        <h4 class="title">A. Linear regression</h4>
+                        <h4 class="title">B. Logistic regression</h4>
+                        <h4 class="title">C. Decision Tree</h4>
+                        <h4 class="title">D. Random Forest</h4>
+                        <h4 class="title">E. Support Vector Machine(SVM)</h4>
+                        <h4 class="title">F. Natural Language Processing(NLP)</h4>
+                        <h3 class="title">4. Conclusion</h3>
+
+
                     </div>
                 </div>
             </div>
