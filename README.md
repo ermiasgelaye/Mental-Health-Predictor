@@ -49,16 +49,10 @@ The dataset contains 27 factors that could be segmented into 5 categories.
      - Heroku
   
   ## Task 
-  
-  - Adedamola Atekoja (‘Damola) -  
-  - Amanda Qianyue Ma - 
-  - Amos Johnson - 
-  - Ermias Gaga - 
-  - Maria Loren -
-  
-* Building an interface - 
-* Creating Exploratory analysis and visualization -
-* Building ML, and classification - 
+ 
+- Building an interface - Ermias Gaga
+- Creating Exploratory analysis and visualization - Amanda Qianyue Ma, Maria Loren
+- Building ML, and classification - Amos Johnson, Adedamola Atekoja (‘Damola)
   
 
  
