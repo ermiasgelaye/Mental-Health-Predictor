@@ -52,7 +52,7 @@ The dataset contains 27 factors that could be segmented into 5 categories.
  
 - Building an interface - Ermias Gaga
 - Creating Exploratory analysis and visualization - Amanda Qianyue Ma, Maria Loren
-- Building ML, and classification - Amos Johnson, Adedamola Atekoja (‘Damola)
+- Building ML, and NLP classification - Amos Johnson, Adedamola Atekoja (‘Damola)
   
 
  
