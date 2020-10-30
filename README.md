@@ -57,7 +57,7 @@ The dataset contains 27 factors that could be segmented into 5 categories.
 
 # Architectural Design
 
-<img src="Image/arctecture.png" height="500" width="900" />
+<img src="Image/arctectured.png" height="500" width="900" />
 
   
 
