@@ -53,6 +53,12 @@ The dataset contains 27 factors that could be segmented into 5 categories.
 - Building an interface - Ermias Gaga
 - Creating Exploratory analysis and visualization - Amanda Qianyue Ma, Maria Loren
 - Building ML, and NLP classification - Amos Johnson, Adedamola Atekoja (‘Damola)
+
+
+# Architectural Design
+
+<img src="Image/arctecture.png" height="500" width="900" />
+
   
 
  
