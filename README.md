@@ -1,4 +1,4 @@
-# Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
+# Predicting National Suicide Rate from Mental Health Risk Factors
 
 <img src="Image/worldmentalhealthday_16x9.jpg" height="500" width="900" />
 
@@ -7,12 +7,9 @@
 
 Mental illness is a global health problem. It has critically high prevalence, yielding severe health outcomes. One in four adults suffer from a diagnosable mental illness in any given year (National Alliance on Mental Health, 2013).
 
-These important health issues warrant further investigation. This Project is based on the 2014 Mental Health in Tech Survey from Open Sourcing Mental Illness. It will perform a complete data visualization, machine learning model and statistical analysis among mental illness and various factors in order to answer following questions:
+These important health issues warrant further investigation. This Project will perform a complete data visualization, machine learning model and statistical analysis among mental illness and various factors in order to answer following questions:
 
-- What are the strongest groups of predictors for mental health illness in the workplace?
-- What might be some of the causes for high mental illnesses presence in the tech industry other than personal problems? e.g.) addiction, income, etc.
-- How is the representativeness of the survey? Are other factors involved such as geographic locations, age or gender?
-- How does the frequency of mental health illness and attitude towards mental health vary by geographical location?
+- 
 
 ## Project Goal
 
