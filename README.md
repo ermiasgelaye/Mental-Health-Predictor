@@ -72,7 +72,7 @@ The **selected factors** include:
 
 countries, years, age, gender, sought_treatment(=1, =0), fear_negative_consequences, workplace_openness, financial_concerns; gdp, life-expectancy, population, labour_participation (by gender), employment_to_population_ratio (by gender), adequate_educational_attainment, unemployment_benefits_coverage, social_insurance_coverage, social_safety_net_coverage, poverty_index, **suicide_rates (by gender)**
 
-The `suicide mortality rate` is the dependent variable. The `countries` is one of the key features.
+The `suicide mortality rate` is the dependent variable. The rest of the factors are independent variables. The `countries` is one of the key features.
 
 - - -
 
