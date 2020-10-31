@@ -49,7 +49,7 @@ This is the detailed factor list **directly obtained* from this survey dataset's
  <img src="Image/data_map.png" height="500" width="900" />
  
 ### Data Source 2
-We have obtained the macro-socio-economic factors from the [World Bank’s World Development Indicators database](https://databank.worldbank.org/source/world-development-indicators). This dataset looks into 246 countries of low- or middle- or high-income levels across the continents. 
+We have obtained the macro-socio-economic factors extracted from the [World Bank’s World Development Indicators database](https://databank.worldbank.org/source/world-development-indicators). This dataset looks into 246 countries of low- or middle- or high-income levels across the continents. 
 
 The **selected factors** include: 
 - Gender-specific suicide mortality rate (per 100,000 population)
