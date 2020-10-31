@@ -17,7 +17,8 @@ So, obviously their mental health concerns are important health risks warrant fu
 
 ### Main Question of Interest
 
-**To predict national suicide rates from the observed personal and macroeconomic mental health risk factors**
+* **To predict national suicide rates from the observed personal and macroeconomic mental health risk factors**
+* (**this is a maybe*) To build an APP, in which people could enter their own data in the GDP/population/etc. input fields about their town/city/country to see if a policy change could predict lower suicide rate? e.g., The GDP increased in my town by 20% this year, so the policy-makers wonder that if they also have the government investing on the health sector also increased, will the next-year suicide rate decrease?
 
 ### Methodology & Objectives
 
@@ -63,6 +64,15 @@ The **selected factors** include:
 - Coverage of social safety net programs (% of population)
 - Coverage of social insurance programs (% of population)
 - Multidimensional poverty index (scale 0-1)
+
+
+## So... The Columns/Factors included in the New Composite Dataset:
+
+(**N.B. to be finalized...*)
+
+countries, years, age, gender, sought_treatment(=1, =0), fear_negative_consequences, workplace_openness, financial_concerns; gdp, life-expectancy, population, labour_participation (by gender), employment_to_population_ratio (by gender), adequate_educational_attainment, unemployment_benefits_coverage, social_insurance_coverage, social_safety_net_coverage, poverty_index, **suicide_rates (by gender)**
+
+The `suicide mortality rate` is the dependent variable. The `countries` is one of the key features.
 
 - - -
 
