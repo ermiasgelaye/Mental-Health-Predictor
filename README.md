@@ -19,11 +19,11 @@ So, obviously their mental health concerns are important health risks warrant fu
 
 **To predict national suicide rates from the observed personal and macroeconomic mental health risk factors**
 
-### Methodology
+### Methodology & Main Objectives
 
-We conduct statistical analysis about various risk factors, perform a set of data visualizations, build and test machine learning models, in order to answer following **main questions**:
+We conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, **build and test machine learning models**, in order to answer following **main questions**:
 
-* Overall, what are the strongest predictors for suicides in the different countries?
+* Overall, what are the **strongest predictors for suicides* in the different countries? And how to build **machine learning models* to study and predict with our findings?
 * On the **individual* level, how does the fact that a person had or had not sought for treatments influence their suicide risks? And why did they seek or not seek help for their mental health conditions? 
 	* For example, the risk factors include the financial concerns (e.g., the insurance options offered, the company’s welfare packages), the fear of the consequences such as prejudice or employability if they disclose their mental health situations. It should be noted that those microeconomic factors are largely tied up to their country’s general macroeconomic factors as well. 
 	* Those insights are generated from our [OSMI Mental Health in Tech Survey]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016). 
@@ -36,7 +36,7 @@ We conduct statistical analysis about various risk factors, perform a set of dat
 
 Our project uses the insights generated from [Mental Health in Tech Survey from Open Sourcing Mental Illness (OSMI)]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016) and the data from the [World Development Indicators database](https://databank.worldbank.org/source/world-development-indicators) from the World Bank. 
 
-### Dataset 1
+### Data Source 1
 The survey data from the [OSMI mental health in technology surveys)]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016)  are used to facilitate statistical analysis and to infer from its descriptive data representations.
 
 The dataset contains 27 factors that could be segmented into **3 clusters of interests for our explanatory variables**. 
@@ -45,10 +45,10 @@ The dataset contains 27 factors that could be segmented into **3 clusters of int
    - **Mental health services accessibility**: potential work interference, easiness to take a medical leave, insurance options, welfare benefits offered by employers, etc.
    - **Organizational cultures in the workplace in terms of openness about mental health**: easiness to discuss about mental health among co-workers, fear of negative consequences caused by disclosure, etc.
 
-This is the detailed factor list directly obtained from this survey dataset's [notebook here](https://www.kaggle.com/osmi/mental-health-in-tech-survey/home):
+This is the detailed factor list **directly obtained* from this survey dataset's [notebook here](https://www.kaggle.com/osmi/mental-health-in-tech-survey/home):
  <img src="Image/data_map.png" height="500" width="900" />
  
-### Dataset 2
+### Data Source 2
 We have obtained the macro-socio-economic factors from the [World Bank’s World Development Indicators database](https://databank.worldbank.org/source/world-development-indicators). This dataset looks into 246 countries of low- or middle- or high-income levels across the continents. 
 
 The **selected factors** include: 
@@ -96,6 +96,7 @@ The **selected factors** include:
   
 
  - - -
+
 ## References:
 * World Health Organization. (2020). Mental Health. Retrieved October 31, 2020, from https://www.who.int/health-topics/mental-health#tab=tab_2
 * World Health Organization. (2019). Suicide. Retrieved October 31, 2020, from https://www.who.int/news-room/fact-sheets/detail/suicide
