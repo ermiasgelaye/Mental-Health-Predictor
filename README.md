@@ -19,7 +19,7 @@ So, obviously their mental health concerns are important health risks warrant fu
 
 **To predict national suicide rates from the observed personal and macroeconomic mental health risk factors**
 
-### Methodology & Main Objectives
+### Methodology & Objectives
 
 We conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, **build and test machine learning models**, in order to answer following **main questions**:
 
