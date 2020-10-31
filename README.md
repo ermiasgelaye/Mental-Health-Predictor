@@ -68,7 +68,7 @@ The **selected factors** include:
 
 ## So... The Columns/Factors included in the New Composite Dataset:
 
-(**N.B. to be finalized...*)
+**(N.B. to be finalized...)*
 
 countries, years, age, gender, sought_treatment(=1, =0), fear_negative_consequences, workplace_openness, financial_concerns; gdp, life-expectancy, population, labour_participation (by gender), employment_to_population_ratio (by gender), adequate_educational_attainment, unemployment_benefits_coverage, social_insurance_coverage, social_safety_net_coverage, poverty_index, **suicide_rates (by gender)**
 
