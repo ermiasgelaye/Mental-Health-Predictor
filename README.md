@@ -22,7 +22,7 @@ So, obviously their mental health concerns are important health risks warrant fu
 
 ### Methodology & Objectives
 
-We conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, **build and test machine learning models**, in order to answer following **main questions**:
+We will conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, **build and test machine learning models**, in order to answer following **main questions**:
 
 * Overall, what are the **strongest predictors for suicides* in the different countries? And how to build **machine learning models* to study and predict with our findings?
 * On the **individual* level, how does the fact that a person had or had not sought for treatments influence their suicide risks? And why did they seek or not seek help for their mental health conditions? 
