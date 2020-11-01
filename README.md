@@ -29,7 +29,7 @@ We will conduct **statistical analysis about various risk factors**, **perform a
 	* For example, the risk factors include the financial concerns (e.g., the insurance options offered, the company’s welfare packages), the fear of the consequences such as prejudice or employability if they disclose their mental health situations. It should be noted that those microeconomic factors are largely tied up to their country’s general macroeconomic factors as well. 
 	* Those insights are generated from our [OSMI Mental Health in Tech Survey]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016). 
 * In terms of the **macroeconomic* factors, how does a country’s GDP/Income level average life expectancy, gender-specific fertility rate, education attainment, poverty rates and other socio-economic and demographic factors that affect the country’s yearly suicide rates? What causes the difference in suicide risks based on geographical location?
-	* It is speculated that those mentioned national socio-economic factors determine the country’s holistic conservativeness level or attitude towards mental health topics. This attitude in turn will determine government’s funding ratio on the mental health sector, the severity of cultural stigma about mental illness, etc., which then play a large role in contributing to people’s decision about whether or not seeking treatment for their mental conditions and maybe also their risk of suicide. 
+	* It is speculated that those mentioned national socio-economic factors determine the country’s holistic conservativeness level or attitude towards mental health topics. This attitude in turn can determine the government’s funding ratio on the mental health sector, as well as the severity of cultural stigma about mental illness. This then plays a larger role in contributing to people’s decision about whether or not seeking treatment for their illness will decrease the risk of suicide. 
 	* Those findings are observed from the World Bank’s [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators) database. 
 
 
@@ -38,13 +38,13 @@ We will conduct **statistical analysis about various risk factors**, **perform a
 Our project uses the insights generated from [Mental Health in Tech Survey from Open Sourcing Mental Illness (OSMI)]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016) and the data from the [World Development Indicators database](https://databank.worldbank.org/source/world-development-indicators) from the World Bank. 
 
 ### Data Source 1
-The survey data from the [OSMI mental health in technology surveys)]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016)  are used to facilitate statistical analysis and to infer from its descriptive data representations.
+The survey data from the [OSMI mental health in technology surveys)]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016) is used to facilitate statistical analysis and to infer from its descriptive data representations.
 
 The dataset contains 27 factors that could be segmented into **3 clusters of interests for our explanatory variables**. 
 
    - **Demographics**: age, gender, country, etc.
    - **Mental health services accessibility**: potential work interference, easiness to take a medical leave, insurance options, welfare benefits offered by employers, etc.
-   - **Organizational cultures in the workplace in terms of openness about mental health**: easiness to discuss about mental health among co-workers, fear of negative consequences caused by disclosure, etc.
+   - **Organizational cultures in the workplace in terms of openness about mental health**: easiness to discuss mental health among co-workers, fear of negative consequences caused by disclosure, etc.
 
 This is the detailed factor list **directly obtained* from this survey dataset's [notebook here](https://www.kaggle.com/osmi/mental-health-in-tech-survey/home):
  <img src="Image/data_map.png" height="500" width="900" />
@@ -102,7 +102,7 @@ The `suicide mortality rate` is the dependent variable. The rest of the factors 
 - Merging data sources, cleaning and processing the data
 - Performing the exploratory analysis and creating data visualization - Amanda Qianyue Ma, Maria Loren
 - Building an APP interface - Ermias Gaga
-- Building ML, and NLP classification - Amos Johnson, Adedamola Atekoja (‘Damola)
+- Building ML and NLP classification - Amos Johnson, Adedamola Atekoja (‘Damola)
   
 
  - - -
