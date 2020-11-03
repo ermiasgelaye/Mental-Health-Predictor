@@ -41,13 +41,24 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/api")
-def searchbyyear():
+@app.route("/mental_health")
+def mental_health():
     sqlStatement = """
     SELECT * FROM mental_health;
     """
     df = pdsql.read_sql(sqlStatement, engine)
     df.set_index('Timestamp', inplace=True)
+    df = df.to_json(orient='table')
+    result = json.loads(df)
+    return jsonify(result)
+
+@app.route("/indicator")
+def indicator():
+    sqlStatement = """
+    SELECT * FROM development_indicator;
+    """
+    df = pdsql.read_sql(sqlStatement, engine)
+    df.set_index('country_name', inplace=True)
     df = df.to_json(orient='table')
     result = json.loads(df)
     return jsonify(result)
