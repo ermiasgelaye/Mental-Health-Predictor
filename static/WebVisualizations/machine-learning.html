@@ -71,51 +71,53 @@
                 <div class="box" style="padding-bottom: 20px;">
                     <h3 class="title">Machine Learning</h3>
                     <h3 class="title">1. Introduction</h3>
-                    <p> This project used various machine learning models, trained and tested the data to see the models ability to predict whether or not an individual will seek treatment for a mental health condition. We used the linear regression, logistic
-                        regression, decision tree, random forest, support vector machine(SVM) models and natural language processing (NLP) algorithm. We note differences in accuracy (and thus, effectiveness), the models has toward the entire data set.
-                        We conclude that the linear regression, logistic regression, and support vector machine(SVM) models were both effective in classifying Although we used models to predict our outcome, we noticed similar reapearing patterns that
-                        we knew would serve of importance when predicting indivduals attitude toward mental health treatment. We used a natural language processing (NLP) algorithm in order to tokenize and classfy text from the comment section in order
-                        to determine which mental health topic revealed the most.
+                    <p> In this project we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression,
+                        logistic regression,support Vector Machine, decision tree, and random forest model. We note differences in accuracy (and thus, effectiveness), the models has toward the entire dataset. We noticed similar reapearing patterns that
+                        we knew would serve of importance when predicting suicide mortality rate from various macro socio-economic factors.
                     </p>
                     <h3 class="title">2. Data Pre-Processing</h3>
                     <p>
-                        The first step in our analysis was to clean, and preprocess our data set to make ready for machine learning analysis. The whole machine learning analysis conducted by using Jupyter Notebook. We cleaned, explored and visualized the data by gender, age
-                        and people who make a comment and no comment. The pre-processing normalize the data for ML analysis. The following items are not used. "Timestamp", "Gender", "comments". -The following three-value items "Yes", "No", and "no_data"
-                        are represented by "1" and "0". "Treatment", "family_history", "remote_work", "tech_company", "obs_consequence",・ Except for the above all dummy variables executed once.
+                        The first step in our analysis was to clean, and pre-process our dataset to make ready for machine learning analysis. We cleaned, explored and visualized the data. The pre-processing normalize the data for ML analysis.
+                    </p>
+
+                    <p>
+                        Before the ML analysis we tried to see if there is any coorelation between factors on Suicide mortality rate per 100,000 people. <br>
+                    </p>
+                    <div class="container ">
+                        <div class="row " style="padding-bottom: 70px; ">
+                            <div class="col-6 ">
+                                <a>
+                                    <img class="panel " src="../images/corr.png" alt="Tableau Notebook ">
+                                </a>
+                            </div>
+                            <div class="col-6 ">
+                                <a>
+                                    <img class="panel " src="../images/corrmatt.png " alt="Machine Learning Visualization ">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        <br>In the coorelation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and people seeking of social protection, and labor programs (% of population).Previous research identified that there is
+                        a solid association between economic strain and suicide, little attention has been paid to how specific welfare policies that are designed to alleviate economic strain may influence suicide rates. There is a growing body of research
+                        that is using an institutional approach to demonstrate the role of welfare-state policies in the distribution of health. However, this perspective has not been applied yet to the investigation of suicide.(Simone Rambotti 2019)
+                        <br>
+                        <br>We have found also a negative(-0.5) correlation between suicide mortality rate (% of population) and coverage of labor force with basic education (% of total working-age population with basic education). When Countries having
+                        a population at least with basic education is higher negatively relate with Suicide mortality rate. Which means when the poulation education distribution increases Suicide mortality rate decreases.
                     </p>
 
                     <div class="box ">
                         </h3>
-                        <hr>
                         <div class="container ">
                             <div class="row " style="padding-bottom: 70px; ">
                                 <div class="col-6 ">
                                     <a>
-                                        <img class="panel " src="../images/age_vs_treatment.png " alt="Tableau Notebook ">
+                                        <img class="panel " src="../images/social_insurance.png" alt="Social Insurance">
                                     </a>
                                 </div>
                                 <div class="col-6 ">
                                     <a>
-                                        <img class="panel " src="../images/gender_vs_treatment.png " alt="Machine Learning Visualization ">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p>
-                            We generated correlation matrix to see if there is any strong correlation between variables prior to the machine learning analysis. We have found that there is a strong negative correlation(0.68) between work interfers versus treatment, means seeking
-                            for treatment is highly correlated to the fact that the person thinks it the mental health would interfere with work.
-                        </p>
-                        <div class="container ">
-                            <div class="row " style="padding-bottom: 70px; ">
-                                <div class="col-6 ">
-                                    <a>
-                                        <img class="panel " src="../images/corr.png" alt="Tableau Notebook ">
-                                    </a>
-                                </div>
-                                <div class="col-6 ">
-                                    <a>
-                                        <img class="panel " src="../images/corrmatt.png " alt="Machine Learning Visualization ">
+                                        <img class="panel " src="../images/Labour_force_with_basic_education.png" alt="Labour force with basic education">
                                     </a>
                                 </div>
                             </div>
