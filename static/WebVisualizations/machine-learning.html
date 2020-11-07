@@ -137,8 +137,11 @@
                                     <a>
                                         <img class="panel " src="../images/Linear_re_importance.png " alt="Linear Regression Feature Importance ">
                                     </a>
-                                </div>
+                                </div> 
                             </div>
+                            <p> The Residual Plot (left) shows most of the Testing Data to be in the negatives while the Training Data leans towards a more positive rate.
+                                The Feature Importance (right) shows the most relative feature score to occur in the 10th line (3.56158) while the rest stay range from 0-1 or 
+                                are in the negatives.</p>
                         </div>
                         <h4 class="title">B. Decision Tree Regression</h4>
                         <h4 class="title">C. Support Vector Regression (SVR)</h4>
@@ -156,6 +159,12 @@
                                     </a>
                                 </div>
                             </div>
+                            <p>The Classification Report (left) shows the bottom row to have stronger classification metrics and are more balanced, with the chart displaying a 
+                                True Positive rate. The precision shows about a 50-60% chance of the information being correct, while the top section shows about a 10-20% chance of 
+                                the accuracy. However the recall is at a high completion rate and the f1 score is in good standing.
+                                The Feature Importance (right) shows the most relative feature score to occur in the 3rd line (0.50646) while the rest are either not close enough 
+                                or remain in the negatives.
+                            </p>
                         </div>
                         <h4 class="title">E. Support Vector Machine</h4>
                         <div class="container ">
@@ -171,6 +180,12 @@
                                     </a>
                                 </div>
                             </div>
+                            <p>The Classification Report (left) shows the bottom row to have slightly stronger classification metrics even though the top metrics are quite impressive. 
+                                The chart displays a True Positive rate and the precision shows about a 70% chance of the information being correct. The recall is at a high completion 
+                                rate and the f1 score is in good standing.
+                                The Feature Importance (right) ranked by relative coefficient value shows the 1st line to have the highest percentage value (100%) while the other 
+                                values range from less than 60% to negative numbers.
+                            </p>
                         </div>
                         <h4 class="title">F. Decision tree</h4>
                         <div class="box ">
@@ -188,6 +203,11 @@
                                     </a>
                                 </div>
                             </div>
+                            <p> The Plot Tree (left) displays the root with a value of [24, 16]. The left branch (X[6]) represents the true path, showing many other branches in the process.
+                                The value for this branch starts at [24, 16] and slowly gets lower, eventually down to [2,0]. The branch on the right (X[9]) however continues down a false path and does 
+                                not make good use of the amount of samples and values they start with. Ultimately only going through a couple branches and the values starting from [24, 16] to [1, 9] and ending at [0, 8].
+                                The Feature Importance (right) shows the most relative feature score to occur in the 1st line (1.52001) while the rest stay range from either 0 or negative numbers.
+                            </p>
                         </div>
                         <h4 class="title">G. Random Forest</h4>
                         <div class="container ">
@@ -203,6 +223,12 @@
                                     </a>
                                 </div>
                             </div>
+                            <p>The Classification Report (left) shows the bottom row to have slightly stronger classification metrics, the top row metrics are also good. 
+                                The chart displays a True Positive rate and the precision shows about an 80% chance of the information being correct. The recall is at a high 
+                                completion rate and the f1 score is in good standing.
+                                The Feature Importance (right) ranked by relative coefficient value shows the 1st line to have the highest percentage value (100%) while the 
+                                remaining values remain less than 80% with the highest passing 20%.
+                            </p>
                         </div>
                         <h3 class="title">4. Conclusion</h3>
 
