@@ -72,16 +72,16 @@
                     <h3 class="title">Machine Learning</h3>
                     <h3 class="title">1. Introduction</h3>
                     <p> In this project we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression,
-                        logistic regression,support Vector Machine, decision tree, and random forest model. We note differences in accuracy (and thus, effectiveness), the models has toward the entire dataset. We noticed similar reapearing patterns that
-                        we knew would serve of importance when predicting suicide mortality rate from various macro socio-economic factors.
+                        logistic regression,support Vector Machine, decision tree and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that
+                        we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
                     </p>
                     <h3 class="title">2. Data Pre-Processing</h3>
                     <p>
-                        The first step in our analysis was to clean, and pre-process our dataset to make ready for machine learning analysis. We cleaned, explored and visualized the data. The pre-processing normalize the data for ML analysis.
+                        The first step in our analysis was to clean and pre-process our dataset to make ready for our machine learning analysis. We cleaned, explored and visualized the data, the pre-processing normalizes the data for the ML analysis.
                     </p>
 
                     <p>
-                        Before the ML analysis we tried to see if there is any coorelation between factors on Suicide mortality rate per 100,000 people. <br>
+                        Before the ML analysis we tried to see if there was any coorelation between factors on Suicide mortality rate per 100,000 people. <br>
                     </p>
                     <div class="container ">
                         <div class="row " style="padding-bottom: 70px; ">
@@ -98,14 +98,14 @@
                         </div>
                     </div>
                     <p>
-                        <br>In the coorelation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and people seeking of social protection, and labor programs (% of population).
+                        <br>In the coorelation analysis we found a positive (0.5) correlation between Suicide mortality rate, people seeking of social protection and the labour force (working population).
                         <br>
-                        <br>Previous research identified that there is a solid association between economic strain and suicide, little attention has been paid to how specific welfare policies that are designed to alleviate economic strain may influence
+                        <br>Previous research identified that there is a solid association between economic strain and suicide. Little attention has been paid to how specific welfare policies that are designed to alleviate economic strain may influence
                         suicide rates. There is a growing body of research that is using an institutional approach to demonstrate the role of welfare-state policies in the distribution of health. However, this perspective has not been applied yet to the
-                        investigation of suicide.(Simone Rambotti 2019)
+                        investigation of suicide (Simone Rambotti 2019).
                         <br>
-                        <br>We have found also a negative(-0.5) correlation between suicide mortality rate (% of population) and coverage of labor force with basic education (% of total working-age population with basic education). When Countries having
-                        a population at least with basic education is higher negatively relate with Suicide mortality rate. Which means when the poulation education distribution increases Suicide mortality rate decreases.
+                        <br>We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by 
+                        people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
                     </p>
 
                     <div class="box ">
@@ -127,9 +127,9 @@
                         </div>
                         <h3 class="title">3. Machine Learning Models</h3>
                         <h4 class="title">3.1 Part One: Linear regression, Decision Tree Regression, Support Vector Regression (SVR)</h4>
-                        <p>The first three models we executed are linear regression, decision tree regression, and support vector regression (SVR) to estimate the suicide mortality rate (continous dependent variable) on the estimator variables. The result
-                            from this three models showed that lower R-Squared value (R2), and higher mean square error (MSE). However, comparing the above three models linear regression explained the dependent variables (suicide mortality rate) very
-                            well by the independent variables (predictor variables) with R-Squared value -0.35 and mean square error (MSE) 37.89.</p>
+                        <p>The first three models we executed are linear regression, decision tree regression and support vector regression (SVR) to estimate the suicide mortality rate (continous dependent variable) on the estimator variables. The result
+                            from these three models showed a lower R-Squared value (R2) and a higher mean square error (MSE). Comparing the above three models, linear regression explained the dependent variables (suicide mortality rate) very
+                            well by the other independent variables (predictor variables) with the R-Squared value (-0.35) and MSE (37.89).</p>
 
                             <div class="container ">
                                 <div class="row " style="padding-bottom: 70px; ">
@@ -145,12 +145,12 @@
                                     </div>
                                 </div>
                             <p>The Residual Plot (left) shows most of the Testing Data to be in the negatives while the Training Data leans towards a more positive rate. The Feature Importance (right) shows the most relative feature score to occur in the 
-                            10th line (3.56158) while the rest stay range from 0-1 or are in the negatives.</p>    
+                            10th line (3.56158) while the rest range from 0-1 or are in the negatives.</p>    
                             </div>
                     
                         <h4 class="title">3.2 Part Two: Logistic Regression, Support Vector Machine, Decision Tree,Random Forest</h4>
-                        <p>To test the stated models we grouped our continous dependent variable ("Suicide_mortality_rate_per_100k") in to two groups, below and above the mean value (11.5). Suicide mortality rate above 11.5 would be high and below 11.5 would
-                            be low. Afterward we executed logistic regression, support Vector Machine, decision tree, and random forest model.</p>
+                        <p>To test the stated models we grouped our continous dependent variable ("Suicide_mortality_rate_per_100k") into two groups, below and above the mean value (11.5). The suicide mortality rate above 11.5 would be high and below 11.5 would
+                            be low. Afterward we executed logistic regression, support Vector Machine, decision tree and random forest model.</p>
                         <h4 class="title">Logistic Regression</h4>
 
                         <div class="container ">
@@ -242,17 +242,17 @@
                             </p>
                         </div>
                         <h4 class="title">Comparison</h4>
-                        <P>The finding from this models showed that the models accuracy to peredict the dependent variable is low but,
-                        compering the models support vector machine explain the data very well with 0.69 accuracy.</P>
+                        <P>The findings from these models showed that the models' accuracy to peredict the dependent variable is low, however
+                        comparing the models support vector machine explains the data very well with a 0.69 accuracy.</P>
                         <a>
                         <img class="panel " src="../images/compare.png" alt="Social Insurance">
                         </a>
 
                         <h3 class="title">4. Conclusion</h3>
-                        <p>In conclusion, mental helath and suicide are an important cause to study because we are losing so many lifes in the world because of suicide. Our project focused on identifying macro level socio-economic factors that would cause
-                            the problem, and we believe that if socio-economic factors, and countries polices towards mental health changed the issue will be solved somehow. However, the issue is too complex, and it depends on the indviduals subjective
-                            expiriance, so a collaborative, and a comprehensive approach is important to address the issue. Specific to this project we have been challenged with the data quality (so many null values), we hope if the models applied with
-                            a better data we can see more tangible factors that would predict the problem.</p>
+                        <p>In conclusion, mental helath and suicide are both important cases to study, because we continue to lose so many lives in this world at the hands of suicide. Our project focuses on identifying macro-level socio-economic factors that contribute to
+                            the problem. We believe that if socio-economic factors and polices towards mental health were changed, the issue would be solved easier. However, the issue is too complex and it all depends on the indvidual's own experience,
+                            meaning a collaborative and comprehensive approach is necessary to address this issue. Specific to this project we faced many challenges with the data quality (so many null values), we hope that the models applied 
+                            a better outlook to assist in seeing more factors that can predict the problem.</p>
                         <hr>
                         <p>
                             <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb">In order to see our code click here..</a>
