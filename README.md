@@ -1,9 +1,7 @@
 # Suicide Rates Prediction: Predicting Suicide Rates from Socio-Economic or Mental Health Risk Factors
 
-<img src="Image/worldmentalhealthday_16x9.jpg" height="500" width="900" />
 
-
-## Background
+## Background 📃
 
 Suicide rates, globally, have [increased]( https://github.com/QianyueMa/Google-Health-Search-Project) over the past decades, rising important public health burdens. Published statistics from the WHO indicates that about 800,000 people die of suicide every year, not to mention that how many more have attempted or idealized suicide in addition to that. 
 
@@ -11,18 +9,20 @@ Many causes that lead to the suicidal behaviour have been investigated, in terms
 
 Therefore, considering the empirically established strong correlations between suicide attempts and people’s underlying mental health conditions or their socio-economic status (SES), our team believes it would be valuable **to study which personal and macroeconomic risk factors could predict the suicide rates on the national level and beyond**. In this project, we looked into both aspects. 
 
+<img src="Image/worldmentalhealthday_16x9.jpg" height="500" width="900" />
+
 - - -
 
-## Project Objectives
+## 🔍 Project Objectives
 ### Key Search Question
 
-#### How to predict national suicide rates from the Socio-Economic or Mental Health risk factors
+#### 🌱 How to predict national suicide rates from the Socio-Economic or Mental Health risk factors 🌱
 
 ### Relevant factors of Interest
 
 The **socio-economic factors** could include the following: demography, social stability, national economic development levels; GDP (or GDP per capita), the at-risk-of-poverty rates, the social inequality (e.g., in terms of race or gender), the level of employment versus joblessness (measured by Labour Force Participation Rate, Employment-to-Population Ratio, etc., to quality the labour market), the coverage of social insurance programs (% of population), the coverage of social protection and labor programs (% of population), the overall life expectancy, the population density, the age dependency ratio of the old or the young (% of working-age population), the societal or familial violence level (influenced by firearm availability, gender equality level, etc.), the overall education attainment, the low-socio-economic-status proportion of population, the insurance options and coverage, the internet broadband penetration, the public expenditures on the healthcare sector, etc. 
 
-Also, we studied **the mental health factors in terms of mental health treatment accessibility**, should people need it. We specifically use the insights drawn from workplace surveys that are segmented into 3 clusters: **Demographics**, **Mental health services accessibility**, **Organizational cultures in the workplace in terms of openness about mental health**. The explanatory variables are primarily with regards to the burdens of seeking mental health services and the holistic conservativeness level about mental health issues in the workplace. The factors include level of fear of negative consequences in their workplace, observed/experienced negative consequences caused by disclosure, potential work interference, easiness to take a medical leave, easiness of discussing personal mental health issues among co-workers, insurance options for mental health care, welfare benefits offered by employers, size of the company, industry of their occupation, the availability of a wellness program, the history of seeking mental health treatments, and so on.
+Also, we studied **the mental health factors in terms of mental health treatment accessibility**, should people need it. We specifically use the insights drawn from workplace surveys that are segmented into 3 clusters: **demographics**, **mental health services accessibility**, **organizational cultures in the workplace in terms of openness about mental health**. The explanatory variables are primarily with regards to the burdens of seeking mental health services and the holistic conservativeness level about mental health issues in the workplace. The factors include level of fear of negative consequences in their workplace, observed/experienced negative consequences caused by disclosure, potential work interference, easiness to take a medical leave, easiness of discussing personal mental health issues among co-workers, insurance options for mental health care, welfare benefits offered by employers, size of the company, industry of their occupation, the availability of a wellness program, the history of seeking mental health treatments, and so on.
 
 ### Methodology & Main Objectives
 
