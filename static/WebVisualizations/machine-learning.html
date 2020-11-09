@@ -72,8 +72,8 @@
                     <h3 class="title">Machine Learning</h3>
                     <h3 class="title">1. Introduction</h3>
                     <p> In this project we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression,
-                        logistic regression,support Vector Machine, decision tree and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that
-                        we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
+                        logistic regression,support Vector Machine, decision tree and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that we knew
+                        would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
                     </p>
                     <h3 class="title">2. Data Pre-Processing</h3>
                     <p>
@@ -104,8 +104,8 @@
                         suicide rates. There is a growing body of research that is using an institutional approach to demonstrate the role of welfare-state policies in the distribution of health. However, this perspective has not been applied yet to the
                         investigation of suicide (Simone Rambotti 2019).
                         <br>
-                        <br>We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by 
-                        people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
+                        <br>We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by people with a basic education negatively relate
+                        with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
                     </p>
 
                     <div class="box ">
@@ -127,30 +127,30 @@
                         </div>
                         <h3 class="title">3. Machine Learning Models</h3>
                         <h4 class="title">3.1 Part One: Linear regression, Decision Tree Regression, Support Vector Regression (SVR)</h4>
-                        <p>The first three models we executed are linear regression, decision tree regression and support vector regression (SVR) to estimate the suicide mortality rate (continous dependent variable) on the estimator variables. The result
-                            from these three models showed a lower R-Squared value (R2) and a higher mean square error (MSE). Comparing the above three models, linear regression explained the dependent variables (suicide mortality rate) very
-                            well by the other independent variables (predictor variables) with the R-Squared value (-0.35) and MSE (37.89).</p>
+                        <p>The first three models we executed are linear regression, decision tree regression, and support vector regression (SVR) to estimate the suicide mortality rate (continous dependent variable) on the estimator variables. The result
+                            from this three models showed that lower R-Squared value(R2), and higher mean square error(MSE). However, comparing the above three models decision tree regression explained the dependent variable(suicide mortality rate) better
+                            by the independent variable(predictor variables) with R-Squared value 0.24 and mean square error (MSE) 87.11.</p>
 
-                            <div class="container ">
-                                <div class="row " style="padding-bottom: 70px; ">
-                                    <div class="col-6 ">
-                                        <a>
-                                            <img class="panel " src="../images/Linear_re.png" alt="Residual Plot ">
-                                        </a>
-                                    </div>
-                                    <div class="col-6 ">
-                                        <a>
-                                            <img class="panel " src="../images/Linear_re_importance.png " alt="Linear Regression Feature Importance ">
-                                        </a>
-                                    </div>
+                        <div class="container ">
+                            <div class="row " style="padding-bottom: 70px; ">
+                                <div class="col-6 ">
+                                    <a>
+                                        <img class="panel " src="../images/Linear_re.png" alt="Residual Plot ">
+                                    </a>
                                 </div>
-                            <p>The Residual Plot (left) shows most of the Testing Data to be in the negatives while the Training Data leans towards a more positive rate. The Feature Importance (right) shows the most relative feature score to occur in the 
-                            10th line (3.56158) while the rest range from 0-1 or are in the negatives.</p>    
+                                <div class="col-6 ">
+                                    <a>
+                                        <img class="panel " src="../images/Linear_re_importance.png " alt="Linear Regression Feature Importance ">
+                                    </a>
+                                </div>
                             </div>
-                    
+                            <p>The Residual Plot (left) shows most of the Testing Data to be in the negatives while the Training Data leans towards a more positive rate. The Feature Importance (right) shows the most relative feature score to occur in the
+                                10th line (3.56158) while the rest range from 0-1 or are in the negatives.</p>
+                        </div>
+
                         <h4 class="title">3.2 Part Two: Logistic Regression, Support Vector Machine, Decision Tree,Random Forest</h4>
-                        <p>To test the stated models we grouped our continous dependent variable ("Suicide_mortality_rate_per_100k") into two groups, below and above the mean value (11.5). The suicide mortality rate above 11.5 would be high and below 11.5 would
-                            be low. Afterward we executed logistic regression, support Vector Machine, decision tree and random forest model.</p>
+                        <p>To test the stated models we grouped our continous dependent variable ("Suicide_mortality_rate_per_100k") into two groups, below and above the mean value (11.5). The suicide mortality rate above 11.5 would be high and below 11.5
+                            would be low. Afterward we executed logistic regression, support Vector Machine, decision tree and random forest model.</p>
                         <h4 class="title">Logistic Regression</h4>
 
                         <div class="container ">
@@ -162,19 +162,13 @@
                                 </div>
                                 <div class="col-6 ">
                                     <a>
-                                        <img class="panel " src="../images/logistic_importance.png "
-                                            alt="Logistic Regression Feature Importance ">
+                                        <img class="panel " src="../images/logistic_importance.png " alt="Logistic Regression Feature Importance ">
                                     </a>
                                 </div>
                             </div>
-                            <p>The Classification Report (left) shows the bottom row to have stronger classification metrics and are more
-                                balanced, with the chart displaying a
-                                True Positive rate. The precision shows about a 50-60% chance of the information being correct, while the top
-                                section shows about a 10-20% chance of
-                                the accuracy. However the recall is at a high completion rate and the f1 score is in good standing.
-                                The Feature Importance (right) shows the most relative feature score to occur in the 3rd line (0.50646) while
-                                the rest are either not close enough
-                                or remain in the negatives.
+                            <p>The Classification Report (left) shows the bottom row to have stronger classification metrics and are more balanced, with the chart displaying a True Positive rate. The precision shows about a 50-60% chance of the information
+                                being correct, while the top section shows about a 10-20% chance of the accuracy. However the recall is at a high completion rate and the f1 score is in good standing. The Feature Importance (right) shows the most relative
+                                feature score to occur in the 3rd line (0.50646) while the rest are either not close enough or remain in the negatives.
                             </p>
                         </div>
                         <h4 class="title">Support Vector Machine</h4>
@@ -191,74 +185,69 @@
                                     </a>
                                 </div>
                             </div>
-                            <p>The Classification Report (left) shows the bottom row to have slightly stronger classification metrics even though the top metrics are quite impressive. 
-                                The chart displays a True Positive rate and the precision shows about a 70% chance of the information being correct. The recall is at a high completion 
-                                rate and the f1 score is in good standing.
-                                The Feature Importance (right) ranked by relative coefficient value shows the 1st line to have the highest percentage value (100%) while the other 
-                                values range from less than 60% to negative numbers.
-                            </p>   
-                        </div>
-                       <h4 class="title">Decision Tree</h4>
-                        <div class="box ">
-                        </h3>
-                        <div class="container ">
-                            <div class="row " style="padding-bottom: 70px; ">
-                                <div class="col-6 ">
-                                    <a>
-                                        <img class="panel " src="../images/tree.png" alt="Decision Tree">
-                                    </a>
-                                </div>
-                                <div class="col-6 ">
-                                    <a>
-                                        <img class="panel " src="../images/decision_tree_importance.png " alt="Feature Importance">
-                                    </a>
-                                </div>
-                            </div>
-                            <p> The Plot Tree (left) displays the root with a value of [24, 16]. The left branch (X[6]) represents the true path, showing many other branches in the process.
-                                The value for this branch starts at [24, 16] and slowly gets lower, eventually down to [2,0]. The branch on the right (X[9]) however continues down a false path and does 
-                                not make good use of the amount of samples and values they start with. Ultimately only going through a couple branches and the values starting from [24, 16] to [1, 9] and ending at [0, 8].
-                                The Feature Importance (right) shows the most relative feature score to occur in the 1st line (1.52001) while the rest stay range from either 0 or negative numbers.
-                            </p>  
-                        </div>
-                        <h4 class="title">Random Forest</h4>
-                        <div class="container ">
-                            <div class="row " style="padding-bottom: 70px; ">
-                                <div class="col-6 ">
-                                    <a>
-                                        <img class="panel " src="../images/randomforest_classifier.png" alt="Random Forest Classifier">
-                                    </a>
-                                </div>
-                                <div class="col-6 ">
-                                    <a>
-                                        <img class="panel " src="../images/rf_featureimportance.png " alt="Feature Importance ">
-                                    </a>
-                                </div>
-                            </div>
-                            <p>The Classification Report (left) shows the bottom row to have slightly stronger classification metrics, the top row metrics are also good. 
-                                The chart displays a True Positive rate and the precision shows about an 80% chance of the information being correct. The recall is at a high 
-                                completion rate and the f1 score is in good standing.
-                                The Feature Importance (right) ranked by relative coefficient value shows the 1st line to have the highest percentage value (100%) while the 
-                                remaining values remain less than 80% with the highest passing 20%.
+                            <p>The Classification Report (left) shows the bottom row to have slightly stronger classification metrics even though the top metrics are quite impressive. The chart displays a True Positive rate and the precision shows about
+                                a 70% chance of the information being correct. The recall is at a high completion rate and the f1 score is in good standing. The Feature Importance (right) ranked by relative coefficient value shows the 1st line to have
+                                the highest percentage value (100%) while the other values range from less than 60% to negative numbers.
                             </p>
                         </div>
-                        <h4 class="title">Comparison</h4>
-                        <P>The findings from these models showed that the models' accuracy to peredict the dependent variable is low, however
-                        comparing the models support vector machine explains the data very well with a 0.69 accuracy.</P>
-                        <a>
-                        <img class="panel " src="../images/compare.png" alt="Social Insurance">
-                        </a>
+                        <h4 class="title">Decision Tree</h4>
+                        <div class="box ">
+                            </h3>
+                            <div class="container ">
+                                <div class="row " style="padding-bottom: 70px; ">
+                                    <div class="col-6 ">
+                                        <a>
+                                            <img class="panel " src="../images/tree.png" alt="Decision Tree">
+                                        </a>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <a>
+                                            <img class="panel " src="../images/decision_tree_importance.png " alt="Feature Importance">
+                                        </a>
+                                    </div>
+                                </div>
+                                <p> The Plot Tree (left) displays the root with a value of [24, 16]. The left branch (X[6]) represents the true path, showing many other branches in the process. The value for this branch starts at [24, 16] and slowly gets
+                                    lower, eventually down to [2,0]. The branch on the right (X[9]) however continues down a false path and does not make good use of the amount of samples and values they start with. Ultimately only going through a couple
+                                    branches and the values starting from [24, 16] to [1, 9] and ending at [0, 8]. The Feature Importance (right) shows the most relative feature score to occur in the 1st line (1.52001) while the rest stay range from either
+                                    0 or negative numbers.
+                                </p>
+                            </div>
+                            <h4 class="title">Random Forest</h4>
+                            <div class="container ">
+                                <div class="row " style="padding-bottom: 70px; ">
+                                    <div class="col-6 ">
+                                        <a>
+                                            <img class="panel " src="../images/randomforest_classifier.png" alt="Random Forest Classifier">
+                                        </a>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <a>
+                                            <img class="panel " src="../images/rf_featureimportance.png " alt="Feature Importance ">
+                                        </a>
+                                    </div>
+                                </div>
+                                <p>The Classification Report (left) shows the bottom row to have slightly stronger classification metrics, the top row metrics are also good. The chart displays a True Positive rate and the precision shows about an 80% chance
+                                    of the information being correct. The recall is at a high completion rate and the f1 score is in good standing. The Feature Importance (right) ranked by relative coefficient value shows the 1st line to have the highest
+                                    percentage value (100%) while the remaining values remain less than 80% with the highest passing 20%.
+                                </p>
+                            </div>
+                            <h4 class="title">Comparison</h4>
+                            <P>The findings from these models showed that the models' accuracy to peredict the dependent variable is low, however comparing the models support vector machine explains the data very well with a 0.69 accuracy.</P>
+                            <a>
+                                <img class="panel " src="../images/compare.png" alt="Social Insurance">
+                            </a>
 
-                        <h3 class="title">4. Conclusion</h3>
-                        <p>In conclusion, mental helath and suicide are both important cases to study, because we continue to lose so many lives in this world at the hands of suicide. Our project focuses on identifying macro-level socio-economic factors that contribute to
-                            the problem. We believe that if socio-economic factors and polices towards mental health were changed, the issue would be solved easier. However, the issue is too complex and it all depends on the indvidual's own experience,
-                            meaning a collaborative and comprehensive approach is necessary to address this issue. Specific to this project we faced many challenges with the data quality (so many null values), we hope that the models applied 
-                            a better outlook to assist in seeing more factors that can predict the problem.</p>
-                        <hr>
-                        <p>
-                            <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb">In order to see our code click here..</a>
-                        </p>
+                            <h3 class="title">4. Conclusion</h3>
+                            <p>In conclusion, mental helath and suicide are both important cases to study, because we continue to lose so many lives in this world at the hands of suicide. Our project focuses on identifying macro-level socio-economic factors
+                                that contribute to the problem. We believe that if socio-economic factors and polices towards mental health were changed, the issue would be solved easier. However, the issue is too complex and it all depends on the indvidual's
+                                own experience, meaning a collaborative and comprehensive approach is necessary to address this issue. Specific to this project we faced many challenges with the data quality (so many null values), we hope that the models
+                                applied a better outlook to assist in seeing more factors that can predict the problem.</p>
+                            <hr>
+                            <p>
+                                <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb">In order to see our code click here..</a>
+                            </p>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
