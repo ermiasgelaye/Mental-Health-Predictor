@@ -94,7 +94,7 @@ You can find our presentation [slide here](https://docs.google.com/presentation/
 
 ## Exploratory Data Analysis
 After we conducted data cleanning, and loading we make Exploratory Data Analysis, and created a Dasboards by using Tableau. The Dashbord looks as follows:
-<img src="Image/dashboard1" height="500" width="900" />
+<img src="Image/dashboard1.png" />
 
 ## Machine Learning Analysis
 In this project we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression, logistic regression,support Vector Machine, decision tree and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
