@@ -50,13 +50,13 @@ We have obtained the macro-socio-economic factors extracted from the [World Bank
 
 The **selected factors** are shown [here](Data/raw_data/Data_Extract_From_World_Development_Indicators_metadata.csv).
 
-In the in the New Composite Dataset, the `suicide mortality rate` is the dependent variable. The rest of the factors are independent variables. The `countries` is one of the key features.
+In the new composite dataset created, the `suicide mortality rate` is the dependent variable. The rest of the factors are independent variables. The `countries` is one of the key features.
 
 
 ### Data Source 2
 The survey data from the [OSMI mental health in technology surveys](https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016) is used to facilitate statistical analysis and to infer from its descriptive data representations. The dataset contains 27 factors. 
 
-This is the detailed factor list *directly obtained* from this survey's [dataset notebook here](https://www.kaggle.com/osmi/mental-health-in-tech-survey/home):
+This is the detailed factor list *directly obtained* from this survey's [dataset here](https://www.kaggle.com/osmi/mental-health-in-tech-survey/home):
  <img src="Image/data_map.png" height="500" width="900" />
 
 
@@ -76,7 +76,7 @@ You can find our presentation [slide here](https://docs.google.com/presentation/
 
 - - -
 
-## Report: Data Visualization and Analysis Processes
+## Final Report: Data Visualization and Analysis Processes
 
 ## I. Exploratory Data Analysis
 After we conducted data cleaning and loading, we conducted Exploratory Data Analysis and created dashboards by using Tableau. The Dashboards are shown below:
@@ -85,7 +85,7 @@ After we conducted data cleaning and loading, we conducted Exploratory Data Anal
 ## II. Machine Learning Analysis
 In this project, we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression, logistic regression, support Vector Machine, decision treem and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
 
-### Data Pre-Processing
+## Data Pre-Processing
 The first step in our analysis was to clean and pre-process our dataset to make ready for our machine learning analysis. We cleaned, explored and visualized the data, the pre-processing normalizes the data for the ML analysis.
 
 Before the ML analysis we tried to see if there was any correlation between factors on Suicide mortality rate per 100,000 people.
@@ -96,7 +96,7 @@ In the correlation analysis we have found a positive (0.5) correlation between S
 <img src="/static/images/social_insurance.png" height="500" width="900" />
 <img src="/static/images/Labour_force_with_basic_education.png" height="500" width="900" />
 
-### Machine Learning Models
+## Machine Learning Models
 
 ### Part One: Linear regression, Decision Tree Regression, Support Vector Regression (SVR)
 
@@ -112,15 +112,15 @@ The findings from these models showed that the models' accuracy to predict the d
 
 <img src="/static/images/compare.png" height="500" width="900" />
 
-## Conclusion
+## Conclusions
 In conclusion, mental health and suicide are both important cases to study, because we continue to lose so many lives in this world at the hands of suicide. Our project focuses on identifying macro-level socio-economic factors that contribute to the problem. We believe that if socio-economic factors and polices towards mental health were changed, the issue would be solved easier. However, the issue is too complex and it all depends on the individuals' own experience, meaning a collaborative and comprehensive approach is necessary to address this issue. Specific to this project we faced many challenges with the data quality (so many null values), we hope that the models applied a better outlook to assist in seeing more factors that can predict the problem.
  - - -
 
-## References:
+## References
 * Ferretti, F., &amp; Coluccia, A. (2009). Socio-economic factors and suicide rates in European Union countries. *Legal Medicine, 11.* doi:10.1016/j.legalmed.2009.01.014
 * Li, Z., Page, A., Martin, G., &amp; Taylor, R. (2011). Attributable risk of psychiatric and socio-economic factors for suicide from individual-level, population-based studies: A systematic review. *Social Science &amp; Medicine, 72*(4), 608-616. doi:10.1016/j.socscimed.2010.11.008
 * National Alliance on Mental Health. (2013). Mental Health Conditions. Retrieved October 31, 2020, from https://www.nami.org/Learn-More/Mental-Health-Conditions
-* Szanto, K. (2017). Cognitive Deficits: Underappreciated Contributors to Suicide. The American Journal of Geriatric Psychiatry, 25(6), 630-632. doi:10.1016/j.jagp.2017.02.012
+* Szanto, K. (2017). Cognitive Deficits: Underappreciated Contributors to Suicide. *The American Journal of Geriatric Psychiatry, 25*(6), 630-632. doi:10.1016/j.jagp.2017.02.012
 * The World Bank, World Development Indicators (2020). Retrieved October 31, 2020, from https://databank.worldbank.org/source/world-development-indicators
 * World Health Organization. (2020). Mental Health. Retrieved October 31, 2020, from https://www.who.int/health-topics/mental-health#tab=tab_2
 * World Health Organization. (2019). Suicide. Retrieved October 31, 2020, from https://www.who.int/news-room/fact-sheets/detail/suicide
