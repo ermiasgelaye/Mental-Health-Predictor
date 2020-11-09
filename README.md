@@ -14,11 +14,12 @@ Naturally their mental health concerns are important health risks that warrant f
 - - -
 
 ## Project Objectives
-
 ### Main Question of Interest
+This important health issue warrants further investigation. To predict national suicide rates from the observed personell and macroeconomic mental health risk factors, this project answers the following questions:
 
-* **To predict national suicide rates from the observed personal and macroeconomic mental health risk factors**
-* (**this is a maybe*) To build an APP, in which people could enter their own data in the GDP/population/etc. input fields about their town/city/country to see if a policy change could predict lower suicide rates e.g.) The GDP increased in my town by 20% this year, so the policy-makers wonder if the government's investment on the health sector also increased, will the suicide rate decrease next year?
+- What are the strongest predictors for suicide in different countries? Also, how to build machine learning models to study and predict our findings?
+- How socio-economic and demographic factors affect the country’s yearly suicide rates?
+- What causes the difference in suicide risks based on geographical location?
 
 ### Methodology & Objectives
 
@@ -65,7 +66,6 @@ The **selected factors** include:
 - Coverage of social insurance programs (% of population)
 - Multidimensional poverty index (scale 0-1)
 
-
 ## So... The Columns/Factors included in the New Composite Dataset:
 
 **(N.B. to be finalized...)*
@@ -76,35 +76,59 @@ The `suicide mortality rate` is the dependent variable. The rest of the factors 
 
 - - -
 
- ## Data Visualization and Analysis Processes
- 
- - Data Cleaning 
-     - Python Pandas 
- - Database 
-     -  Postgresql
- - Exploratory analysis and visualization on the major variables
-     - Python Matplotlib, Tableau, JavaScript Plotly, JavaScript D3.js, JavaScript Leaflet 
- - Front End 
-     - HTML, CSS, Bootstrap, JavaScript
- - Machine Learning Models
-     - Machine Learning Models: Linear Regression, Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM) Models and Natural Language Processing (NLP) algorithm
- - Deployment 
-     - Heroku
- 
 ## Architectural Diagram
 
 <img src="Image/arctectured.png" height="500" width="900" />
 
+## Deployment
+The app is deployed in Heroku in order to access the page click the following link 
+[Mind Your Health](https://mindyourhealth.herokuapp.com/) to explore our whole project
+
+- https://mindyourhealth.herokuapp.com/
+
+You can find our presentation [slide here](https://docs.google.com/presentation/d/1rNV9OyZRwMOkwW4LZzD71AB5QalhNDm-tOZPK2t0Pyc/edit)
+- https://docs.google.com/presentation/d/1rNV9OyZRwMOkwW4LZzD71AB5QalhNDm-tOZPK2t0Pyc/edit
+
+
 - - -
+## Data Visualization and Analysis Processes
 
-  ## Tasks 
- 
-- Merging data sources, cleaning and processing the data
-- Performing the exploratory analysis and creating data visualization - Amanda Qianyue Ma, Maria Loren
-- Building an APP interface - Ermias Gaga
-- Building ML and NLP classification - Amos Johnson, Adedamola Atekoja (‘Damola)
-  
+## Exploratory Data Analysis
+After We conducted data cleanning and loading We make Exploratory Data Analysis and visualized Dasboards by using Tableau. The Dashbord looks as follows:
+<img src="Image/Postgresql.png" height="500" width="900" />
 
+## Machine Learning Analysis
+In this project we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression, logistic regression,support Vector Machine, decision tree and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
+
+### Data Pre-Processing
+The first step in our analysis was to clean and pre-process our dataset to make ready for our machine learning analysis. We cleaned, explored and visualized the data, the pre-processing normalizes the data for the ML analysis.
+
+Before the ML analysis we tried to see if there was any coorelation between factors on Suicide mortality rate per 100,000 people.
+
+<img src="/static/images/corrmatt.png" height="500" width="900" />
+
+In the coorelation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and coverage of social insurance programs.We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
+<img src="/static/images/social_insurance.png" height="500" width="900" />
+<img src="/static/images/Labour_force_with_basic_education.png" height="500" width="900" />
+
+## Machine Learning Models
+
+### Part One: Linear regression, Decision Tree Regression, Support Vector Regression (SVR)
+
+The first three models we executed are linear regression, decision tree regression, and support vector regression (SVR) to estimate the suicide mortality rate (continous dependent variable) on the estimator variables. The result from this three models showed that lower R-Squared value(R2), and higher mean square error(MSE). However, comparing the above three models decision tree regression explained the dependent variable(suicide mortality rate) better by the independent variable(predictor variables) with R-Squared value 0.24 and mean square error (MSE) 87.11.
+
+[You can found the code here](https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb)
+
+<img src="/static/images/Linear_re.png" height="500" width="900" />
+
+### Part Two: Logistic Regression, Support Vector Machine, Decision Tree,Random Forest
+To test the stated models we grouped our continous dependent variable ("Suicide_mortality_rate_per_100k") into two groups, below and above the mean value (11.5). The suicide mortality rate above 11.5 would be high and below 11.5 would be low. Afterward we executed logistic regression, support Vector Machine, decision tree and random forest model.
+The findings from these models showed that the models' accuracy to peredict the dependent variable is low, however comparing the models support vector machine explains the data very well with a 0.69 accuracy.
+
+<img src="/static/images/compare.png" height="500" width="900" />
+
+## Conclusion
+In conclusion, mental helath and suicide are both important cases to study, because we continue to lose so many lives in this world at the hands of suicide. Our project focuses on identifying macro-level socio-economic factors that contribute to the problem. We believe that if socio-economic factors and polices towards mental health were changed, the issue would be solved easier. However, the issue is too complex and it all depends on the indvidual's own experience, meaning a collaborative and comprehensive approach is necessary to address this issue. Specific to this project we faced many challenges with the data quality (so many null values), we hope that the models applied a better outlook to assist in seeing more factors that can predict the problem.
  - - -
 
 ## References:
