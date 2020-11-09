@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <title>Mind Health</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="header">
+                <a href="/"><img src="../static/images/logo1.png" alt="logo" style="background-color: rgb(255,255,255);" />
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../templates/index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Visualizations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="../static/WebVisualizations/main.html">Exploratory Data Analysis</a>
+                            <a class="dropdown-item" href="../static/WebVisualizations/machine-learning.html">Machine Learning Analysis</a>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Api
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/mental_health">Mental Health</a>
+                            <a class="dropdown-item" href="/indicator">Development Indicators</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../static/WebVisualizations/data.html">Data</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor">Our Repo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- title -->
+    <div class="col-md-12 jumbotron text-center" style="background-image:url(../static/images/banner1.png);; width: 3500px; " class="main-header ">
+        <a><img src="../static/images/logo1.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
+        </a>
+        <hr>
+        <p style="color: rgb(255, 255, 255); font-size: 35px; "> Mental Health Versus Suicide: Predicting Suicide Rates from Mental Health Risk Factors
+        </p>
+    </div>
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-7 col-md-12 ">
+                <div class="box " style="padding-bottom: 20px; ">
+                    <h3 class="title ">Background: Why do we need to study this ?</h3>
+                    <hr>
+                    <img src="../static/images/brain2.gif " alt="Mental Health ">
+                    <br>
+                    <br>
+                    <p> Mental health has become one of the greatest global health concerns according to the WHO (World Health Organization, 2017). It has critically high and increasing prevalence, yielding severe health outcomes.It is observed that 1 in
+                        4 adults suffer from a diagnosable mental illness in any given year (National Alliance on Mental Health, 2013). According to the WHO, there has been a 13% increase in mental health conditions overall from the last decade or so.
+                        <br>
+                        <br> This important health issue warrants further investigation. To predict national suicide rates from the observed personal and macroeconomic mental health risk factors, this project answers the following questions:
+                        <ul>
+                            <li>What are the strongest predictors for suicide in different countries? Also, how to build machine learning models to study and predict our findings?</li>
+                            <li>On the individual level, how does the fact that a person had or has not sought for treatments influence their suicide risks? Also, why did they seek or not seek help for their mental health conditions?</li>
+                            <li>How socio-economic and demographic factors affect the country’s yearly suicide rates?</li>
+                            <li>What causes the difference in suicide risks based on geographical location?</li>
+                        </ul>
+                        <br>
+                        <h4 class="title ">Project Goal</h4>
+                        <hr>
+                        <p>To predict national suicide rates from the observed personal and macroeconomic mental health risk factors</p>
+
+                    </p>
+                    <h4 class="title ">Data Source One</h4>
+                    <hr>
+                    <p>
+                        <a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey/home ">The data sourced the survey data from OSMI mental health in technology surveys and is used to facilitate analysis.</a><br>
+                    </p>
+
+                    <h4 class="title ">Data Source Two</h4>
+                    <hr>
+                    <p>
+                        <a href="https://databank.worldbank.org/source/world-development-indicators">World Bank’s World Development Indicators database</a><br>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-mt-12 ">
+                <div class="box ">
+                    <h3 class="title ">Visualization
+
+                    </h3>
+                    <hr>
+                    <div class="container ">
+                        <div class="row " style="padding-bottom: 70px; ">
+                            <div class="col-6 ">
+                                <div class="title ">Exploratory Data Analysis</div>
+                                <a href="../static/WebVisualizations/main.html ">
+                                    <img class="panel " src="../static/images/exploratory.png " alt="Tableau Notebook ">
+                                </a>
+                            </div>
+                            <div class="col-6 ">
+                                <div class="title ">Machine Learning Analysis</div>
+                                <a href="../static/WebVisualizations/machine-learning.html ">
+                                    <img class="panel " src="../static/images/learning.png" alt="Machine Learning Visualization ">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box ">
+                    <h3 class="title ">Models Used</h3>
+                    <hr>
+                    <div class="container ">
+                        <div class="row ">
+                            <p>
+                                <ul>
+                                    <li>Python Pandas</li>
+                                    <li>Python Matplotlib</li>
+                                    <li>HTML/CSS/Bootstrap</li>
+                                    <li>Tableau</li>
+                                    <li>Machine Learning Models: Linear Regression, Decision Tree, Logistic Regression, Support Vector Machine(SVM) Models, and Random Forest.
+                                </ul>
+                                </li>
+
+
+
+                                </ul>
+                            </p>
+                        </div>
+                        <h3 class="title ">Team members</h3>
+                        <hr>
+                        <div class="row ">
+                            <p>
+                                <ul>
+                                    <li>Adedamola Atekoja (‘Damola)</li>
+                                    <li>Amanda Qianyue Ma</li>
+                                    <li>Amos Johnson</li>
+                                    <li>Ermias Gaga </li>
+                                    <li>Maria Lorena</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer> </footer>
+</body>
+
+</html>

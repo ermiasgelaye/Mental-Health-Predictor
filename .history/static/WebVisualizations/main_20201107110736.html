@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>Mind Health</title>
+</head>
+
+<body onload="createViz(0);">
+    
+    <!-- nav bar -->
+    <div class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="header">
+                <a href="/templates/index.html"><img src="../images/logo1.png" alt="logo" style="background-color: rgb(255,255,255);" />
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href='/templates/index.html'>Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Visualizations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="../WebVisualizations/main.html">Exploratory Data Analysis</a>
+                            <a class="dropdown-item" href="../WebVisualizations/machine-learning.html">Machine Learning Analysis</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Api
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/mental_health">Mental Health</a>
+                            <a class="dropdown-item" href="/indicator">Development Indicators</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../WebVisualizations/data.html">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor">Our Repo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- title -->
+    <div class="col-md-12 jumbotron text-center" style="background-image:url(../images/banner1.png);; width: 3500px; " class="main-header ">
+        <a><img src="../images/logo1.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
+        </a>
+        <hr>
+        <p style="color: rgb(255, 255, 255); font-size: 35px; "> Mental Health Versus Suicide: Predicting Suicide Rates from Mental Health Risk Factors
+        </p>
+    </div>
+    <br>
+    <!-- <div id="vizContainer" class="m-auto mt-4" style="width:1300px; height:625px;"></div> -->
+
+    <!-- <script type="text/javascript"
+    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "https://public.tableau.com/views/Finalproject_15864740818560/USRegions?:display_count=y&:origin=viz_share_link",
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
+    
+            var viz = new tableau.Viz(containerDiv, url, options);
+            // Create a viz object and embed it in the container div.
+        };
+
+        initViz();
+    </script> -->
+    <!-- <!DOCTYPE html> -->
+    <!-- <html> -->
+
+    <!-- <head> -->
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        var vizList = ["https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link", "https://public.tableau.com/shared/C2T5TMT2J?:display_count=y&:origin=viz_share_link"];
+
+        var viz,
+            vizLen = vizList.length,
+            vizCount = 0;
+
+        function createViz(vizPlusMinus) {
+            var vizDiv = document.getElementById("vizContainer"),
+                options = {
+                    hideTabs: true
+                };
+
+            vizCount = vizCount + vizPlusMinus;
+
+            if (vizCount >= vizLen) {
+                // Keep the vizCount in the bounds of the array index.
+                vizCount = 0;
+            } else if (vizCount < 0) {
+                vizCount = vizLen - 1;
+            }
+
+            if (viz) { // If a viz object exists, delete it.
+                viz.dispose();
+            }
+
+            var vizURL = vizList[vizCount];
+            viz = new tableau.Viz(vizDiv, vizURL, options);
+        }
+    </script>
+    <!-- </head> -->
+
+    <!-- <body onload="createViz(0);"> -->
+    <div id="vizContainer" class="m-auto mt-4" style="width:1300px; height:1900px;"></div>
+    <div id="controls" style="padding-bottom: 50px;">
+        <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
+        <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
+    </div>
+    <!-- </body> -->
+
+    <!-- </html> -->
+
+    <footer> </footer>
+
+</body>
+
+</html>
