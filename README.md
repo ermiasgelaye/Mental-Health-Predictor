@@ -3,7 +3,7 @@
 
 ## Background 📃
 
-Suicide rates, globally, have [increased]( https://github.com/QianyueMa/Google-Health-Search-Project) over the past decades, rising important public health burdens. Published statistics from the WHO indicates that about 800,000 people die of suicide every year, not to mention that how many more have attempted or idealized suicide in addition to that. 
+Suicide rates, globally, have [increased]( https://github.com/QianyueMa/Google-Health-Search-Project) over the past decades, raising important public health burdens. Published statistics from the WHO indicates that about 800,000 people die of suicide every year, not to mention that how many more have attempted or idealized suicide in addition to that. 
 
 Many causes that lead to the suicidal behaviour have been investigated, in terms of problem-solving deficits in the emergence of crises. **Primarily, there are two well-studied bodies of research on the suicide risk factors; one considers the structural and socio-economic factors, and the other considers the attributable psychiatric causes including mental disorders such as affective disorders and substance use disorders (Li et al., 2011).** It is assumed that if the policy makers in the governments could target their suicide prevention strategies on those two domains, the national suicide rates could potentially be lowered. Li and colleagues (2011) also found that by focusing the suicide prevention strategies on either of the two directions — the macro socio-economic factors or the mental health factors — the magnitudes of suicide -control effect could be similar in the population.
 
