@@ -96,7 +96,7 @@ Before the ML analysis we tried to see if there was any correlation between fact
 
 <img src="/static/images/corrmatt.png" height="500" width="900" />
 
-In the correlation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and coverage of social insurance programs. We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
+In the correlation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and coverage of social insurance programs. We have also found a negative (-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
 <img src="/static/images/social_insurance.png" height="500" width="900" />
 <img src="/static/images/Labour_force_with_basic_education.png" height="500" width="900" />
 
@@ -104,13 +104,13 @@ In the correlation analysis we have found a positive (0.5) correlation between S
 
 ### Part One: Linear regression, Decision Tree Regression, Support Vector Regression (SVR)
 
-The first three models we executed are linear regression, decision tree regression, and support vector regression (SVR) to estimate the suicide mortality rate (continuous dependent variable) on the estimator variables. The result from this three models showed that lower R-Squared value(R2), and higher mean square error(MSE). However, comparing the above three models decision tree regression explained the dependent variable(suicide mortality rate) better by the independent variable(predictor variables) with R-Squared value 0.24 and mean square error (MSE) 87.11.
+The first three models we executed are linear regression, decision tree regression, and support vector regression (SVR) to estimate the suicide mortality rate (continuous dependent variable) on the estimator variables. The result from this three models showed a lower R-Squared value(R2), and higher mean square error(MSE). However, comparing the above three models decision tree regression explained the dependent variable(suicide mortality rate) better by the independent variable(predictor variables) with R-Squared value 0.24 and mean square error (MSE) 87.11.
 
-[You can found the code here](https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb)
+[You can find the code here](https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb)
 
 <img src="/static/images/Linear_re.png" height="500" width="900" />
 
-### Part Two: Logistic Regression, Support Vector Machine, Decision Tree,Random Forest
+### Part Two: Logistic Regression, Support Vector Machine, Decision Tree, Random Forest
 To test the stated models we grouped our continuous dependent variable ("Suicide_mortality_rate_per_100k") into two groups, below and above the mean value (11.5). The suicide mortality rate above 11.5 would be high and below 11.5 would be low. Afterward we executed logistic regression, support Vector Machine, decision tree and random forest model.
 The findings from these models showed that the models' accuracy to predict the dependent variable is low, however comparing the models support vector machine explains the data very well with a 0.69 accuracy.
 
