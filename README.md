@@ -18,6 +18,7 @@ Therefore, considering the empirically established strong correlations between s
 
 #### 🌱 to predict national suicide rates from the socio-economic or mental health risk factors 🌱
 **Overall, what are the *strongest predictors for suicide rates* in different countries in different years? How could we build *machine learning models* to study and predict suicide rates?**
+- - -
 
 ### Relevant Factors of Interest
 
@@ -30,7 +31,7 @@ Therefore, considering the empirically established strong correlations between s
 🌱 We conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, and importantly, **build and test machine learning models**, in order to answer following **main questions**:
 
 
-* In terms of the *macro economic-socio factors*, how do a country’s GDP/Income level average life expectancy, gender-specific fertility rate, education attainment, poverty rates, and other socio-economic and demographic factors affect the country’s annual suicide rates? What causes the differences in suicide rates among countries?
+* In terms of the *macro economic-socio factors*, how do a country’s GDP/Income level, average life expectancy, gender-specific fertility rate, education attainment, poverty rates, and other socio-economic and demographic factors affect the country’s annual suicide rates? What causes the differences in suicide rates among countries?
 	* It is speculated that those mentioned national socio-economic factors determine the country’s holistic conservativeness level or attitude towards mental health topics. This attitude in turn can determine the government’s funding ratio on the mental health sector, as well as the severity of cultural stigma about mental illness. This then plays a larger role in contributing to people’s decision about whether or not seeking treatment for their illness will decrease their risk of suicide. 
 	* Those findings are obtained from the [World Bank’s World Development Indicators](https://databank.worldbank.org/source/world-development-indicators) database. 
 
