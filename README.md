@@ -14,19 +14,19 @@ Therefore, considering the empirically established strong correlations between s
 - - -
 
 ## 🔍 Project Objectives
-### Key Search Question
+### Key Research Question
 
 #### 🌱 How to predict national suicide rates from the Socio-Economic or Mental Health risk factors 🌱
 
 ### Relevant factors of Interest
 
-The **socio-economic factors** could include the following: demography, social stability, national economic development levels; GDP (or GDP per capita), the at-risk-of-poverty rates, the social inequality (e.g., in terms of race or gender), the level of employment versus joblessness (measured by Labour Force Participation Rate, Employment-to-Population Ratio, etc., to quality the labour market), the coverage of social insurance programs (% of population), the coverage of social protection and labor programs (% of population), the overall life expectancy, the population density, the age dependency ratio of the old or the young (% of working-age population), the societal or familial violence level (influenced by firearm availability, gender equality level, etc.), the overall education attainment, the low-socio-economic-status proportion of population, the insurance options and coverage, the internet broadband penetration, the public expenditures on the healthcare sector, etc. 
+🌱 The **socio-economic factors** could include the following: demography, social stability, national economic development levels; GDP (or GDP per capita), the at-risk-of-poverty rates, the social inequality (e.g., in terms of race or gender), the level of employment versus joblessness (measured by Labour Force Participation Rate, Employment-to-Population Ratio, etc., to quality the labour market), the coverage of social insurance programs (% of population), the coverage of social protection and labor programs (% of population), the overall life expectancy, the population density, the age dependency ratio of the old or the young (% of working-age population), the societal or familial violence level (influenced by firearm availability, gender equality level, etc.), the overall education attainment, the low-socio-economic-status proportion of population, the insurance options and coverage, the internet broadband penetration, the public expenditures on the healthcare sector, etc. 
 
-Also, we studied **the mental health factors in terms of mental health treatment accessibility**, should people need it. We specifically use the insights drawn from workplace surveys that are segmented into 3 clusters: **demographics**, **mental health services accessibility**, **organizational cultures in the workplace in terms of openness about mental health**. The explanatory variables are primarily with regards to the burdens of seeking mental health services and the holistic conservativeness level about mental health issues in the workplace. The factors include level of fear of negative consequences in their workplace, observed/experienced negative consequences caused by disclosure, potential work interference, easiness to take a medical leave, easiness of discussing personal mental health issues among co-workers, insurance options for mental health care, welfare benefits offered by employers, size of the company, industry of their occupation, the availability of a wellness program, the history of seeking mental health treatments, and so on.
+🌱 Also, we studied **the mental health factors in terms of mental health treatment accessibility**, should people need it. We specifically use the insights drawn from workplace surveys that are segmented into 3 clusters: **demographics**, **mental health services accessibility**, **organizational cultures in the workplace in terms of openness about mental health**. The explanatory variables are primarily with regards to the burdens of seeking mental health services and the holistic conservativeness level about mental health issues in the workplace. The factors include level of fear of negative consequences in their workplace, observed/experienced negative consequences caused by disclosure, potential work interference, easiness to take a medical leave, easiness of discussing personal mental health issues among co-workers, insurance options for mental health care, welfare benefits offered by employers, size of the company, industry of their occupation, the availability of a wellness program, the history of seeking mental health treatments, and so on.
 
 ### Methodology & Main Objectives
 
-We conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, and importantly, **build and test machine learning models**, in order to answer following **main questions**:
+🌱 We conduct **statistical analysis about various risk factors**, **perform a set of data visualizations**, and importantly, **build and test machine learning models**, in order to answer following **main questions**:
 
 * Overall, what are the *strongest predictors for suicide* in different countries? Also, how to build **machine learning models* to study and predict our findings?
 
@@ -41,7 +41,7 @@ We conduct **statistical analysis about various risk factors**, **perform a set 
 
 - - -
 
-## Data Sources
+## 🔍 Data Sources
 
 Our project uses the insights generated from the [Mental Health in Tech Survey from Open Sourcing Mental Illness (OSMI)](https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016) and the data from the [World Development Indicators database](https://databank.worldbank.org/source/world-development-indicators) in the World Bank. 
  
@@ -76,7 +76,7 @@ You can find our presentation [slide here](https://docs.google.com/presentation/
 
 - - -
 
-## Final Report: Data Visualization and Analysis Processes
+## Final Report 📃: Data Visualization and Analysis Processes
 
 ## I. Exploratory Data Analysis
 After we conducted data cleaning and loading, we conducted Exploratory Data Analysis and created dashboards by using Tableau. The Dashboards are shown below:
