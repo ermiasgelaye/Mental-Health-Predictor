@@ -87,7 +87,7 @@ After we conducted data cleaning and loading, we conducted Exploratory Data Anal
 <img src="Image/dashboard1.png" />
 
 ## II. Machine Learning Analysis
-In this project, we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression, logistic regression, support Vector Machine, decision treem and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
+In this project, we used various machine learning models, trained and tested the data to see the models ability to predict suicide mortality rate from various macro socio-economic factors in the national level. We used linear regression, logistic regression, support vector machine, decision tree and random forest models. We note differences in accuracy and effectiveness the models have towards the entire dataset. We noticed similar reappearing patterns that we knew would serve some importance when predicting suicide mortality rate from various macro socio-economic factors.
 
 ## Data Pre-Processing
 The first step in our analysis was to clean and pre-process our dataset to make ready for our machine learning analysis. We cleaned, explored and visualized the data, the pre-processing normalizes the data for the ML analysis.
@@ -96,7 +96,7 @@ Before the ML analysis we tried to see if there was any correlation between fact
 
 <img src="/static/images/corrmatt.png" height="500" width="900" />
 
-In the correlation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and coverage of social insurance programs.We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
+In the correlation analysis we have found a positive (0.5) correlation between Suicide mortality rate, and coverage of social insurance programs. We have also found a negative(-0.5) correlation between suicide mortality rate and a percentage of the working population that possess basic education. Countries populated by people with a basic education negatively relate with the Suicide mortality rate. Which means that when more people join the education distribution, the suicide mortality rate decreases.
 <img src="/static/images/social_insurance.png" height="500" width="900" />
 <img src="/static/images/Labour_force_with_basic_education.png" height="500" width="900" />
 
