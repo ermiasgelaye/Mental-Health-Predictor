@@ -39,6 +39,9 @@ Therefore, considering the empirically established strong correlations between s
 	* Those insights are generated from the [OSMI Mental Health in Tech Survey]( https://www.kaggle.com/ekwiecinska96/mental-health-in-techology-survey-2014-and-2016). 
 
 
+🌱 **Future Directions**: 
+We would like to create an APP, where policy-makers could input their data about the parameters GDP/population/public savings/healthcare expenditures/etc. and suicide mortality rates observed in their town/city/country, then via our ML model's computation, they could see if a policy change could predict lower suicide rate in the future. e.g., If the GDP per capita has increased in Town A by 20% this year, and thus, the local government also wants to increase the investment on the mental health care sector, will the next-year suicide rate decrease in Town A? Our APP could tell them that!
+
 - - -
 
 ## 🔍 Data Sources
