@@ -112,7 +112,7 @@ The first three models we executed are linear regression, decision tree regressi
 
 ### Part Two: Logistic Regression, Support Vector Machine, Decision Tree, Random Forest
 To test the stated models we grouped our continuous dependent variable ("Suicide_mortality_rate_per_100k") into two groups, below and above the mean value (11.5). The suicide mortality rate above 11.5 would be high and below 11.5 would be low. Afterward we executed logistic regression, support Vector Machine, decision tree and random forest model.
-The findings from these models showed that the models' accuracy to predict the dependent variable is low, however comparing the models support vector machine explains the data very well with a 0.69 accuracy.
+The findings from these models showed that the models' accuracy to predict the dependent variable is low, however comparing the models support vector machine the data very well after grid search with 72.2 accuracy.
 
 <img src="/static/images/compare.png" height="500" width="900" />
 
