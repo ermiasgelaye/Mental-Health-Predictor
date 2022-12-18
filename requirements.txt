@@ -10,7 +10,8 @@ idna==2.10
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-pandas==1.1.2
+numpy==1.21.0
+pandas==1.5.2
 psycopg2==2.8.6
 python-dateutil==2.8.1
 pytz==2020.1
