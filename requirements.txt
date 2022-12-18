@@ -1,22 +1,22 @@
-pip install allennlp==1.0.0 
-pip install allennlp-models==1.0.0
-pip install certifi==2020.6.20
-pip install chardet==3.0.4
-pip install click==7.1.2
-pip install Flask==1.1.2
-pip install Flask-SQLAlchemy==2.4.4
-pip install gunicorn==20.0.4
-pip install idna==2.10
-pip install itsdangerous==1.1.0
-pip install Jinja2==2.11.2
-pip install MarkupSafe==1.1.1
-pip install pandas==1.1.2
-pip install psycopg2==2.8.6
-pip install python-dateutil==2.8.1
-pip install pytz==2020.1
-pip install requests==2.24.0
-pip install six==1.15.0
-pip install SQLAlchemy==1.3.19
-pip install urllib3==1.25.10
-pip install Werkzeug==1.0.1
-pip install pip==21.3.1
+allennlp==1.0.0 
+allennlp-models==1.0.0
+certifi==2020.6.20
+chardet==3.0.4
+click==7.1.2
+Flask==1.1.2
+Flask-SQLAlchemy==2.4.4
+gunicorn==20.0.4
+idna==2.10
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+pandas==1.1.2
+psycopg2==2.8.6
+python-dateutil==2.8.1
+pytz==2020.1
+requests==2.24.0
+six==1.15.0
+SQLAlchemy==1.3.19
+urllib3==1.25.10
+Werkzeug==1.0.1
+pip==21.3.1
