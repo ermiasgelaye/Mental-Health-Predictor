@@ -13,7 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 #################################################
 # Database Setup
 ##################################################
-DATABASE_URL = "postgres://egaga:PAknjzOmCEUpWd7LaqBs6V1LM7GiwzNb@dpg-ce4g5d9a6gdivt61ju00-a/googlehealth"
+DATABASE_URL = "postgres://egaga:PAknjzOmCEUpWd7LaqBs6V1LM7GiwzNb@dpg-ce4g5d9a6gdivt61ju00-a.oregon-postgres.render.com/googlehealth"
 
 DATABASE_URL = DATABASE_URL.replace(
     'postgres://',
