@@ -1,8 +1,6 @@
 import numpy as np
 import os
 import json
-import requests
-import sqlalchemy
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.automap import automap_base
@@ -10,7 +8,6 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 import pandas.io.sql as pdsql
 from config import pg_user, pg_password, db_name
-from flask import Flask, jsonify, render_template, abort, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 #################################################
