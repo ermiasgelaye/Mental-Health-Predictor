@@ -16,12 +16,17 @@ from flask_sqlalchemy import SQLAlchemy
 #################################################
 # Database Setup
 ##################################################
+DATABASE_URL = "postgres://kdojexxzviryyp:64e74879664d1ab6e5f2f2dccd55344d562770cb46a018801a67352779dce8aa@ec2-52-70-86-157.compute-1.amazonaws.com:5432/d29l5bii4auh29"
 
-engine = create_engine('postgresql://kdojexxzviryyp:64e74879664d1ab6e5f2f2dccd55344d562770cb46a018801a67352779dce8aa@ec2-52-70-86-157.compute-1.amazonaws.com:5432/d29l5bii4auh29')
+DATABASE_URL = DATABASE_URL.replace(
+    'postgres://',
+    'postgresql://',
+    1
+)
 
-
-# checking the table names
+engine = create_engine(DATABASE_URL)
 engine.table_names()
+
 
 
 #################################################
