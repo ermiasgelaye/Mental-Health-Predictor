@@ -1,11 +1,9 @@
 import numpy as np
 import os
 import json
-import requests
-import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 import pandas.io.sql as pdsql
 from config import pg_user, pg_password, db_name
 from flask import Flask, jsonify, render_template, abort, redirect
@@ -15,7 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Database Setup
 ##################################################
 
-DATABASE_URL = "postgres://mydatabase:1C2SsTE5scYpMhfmPNgFasEVc3tPNcjL@dpg-cjs6qs5m702s73b8aji0-a.singapore-postgres.render.com/mydatabase_xmd6"
+DATABASE_URL = "postgres://mydatabase:M091UUFTKeSXwOezJdCCvTu7wqz9Xbhu@dpg-clp0n7146foc73a5gjmg-a.singapore-postgres.render.com/mydatabase_c3xa"
 
 DATABASE_URL = DATABASE_URL.replace(
     'postgres://',
@@ -24,20 +22,27 @@ DATABASE_URL = DATABASE_URL.replace(
 )
 
 engine = create_engine(DATABASE_URL)
+
+
+# Create a MetaData object
+metadata = MetaData()
+
+# Reflect the tables from the database
+metadata.reflect(bind=engine)
+
+# Get the table names
 engine.table_names()
-
-
 
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
 
-app.config['SQLAlCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URI','') or "sqlite:///db.sqlite"
+# Fix the typo in the configuration keys
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI', '') or "sqlite:///db.sqlite"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLAlCHEMY_TRACK_MODIFICATION']=False
-
-db=SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 #################################################
 # Flask Routes
@@ -45,7 +50,6 @@ db=SQLAlchemy(app)
 @app.route("/")
 def index():
     return render_template("index.html")
-
 
 @app.route("/mental_health")
 def mental_health():
