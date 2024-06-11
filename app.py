@@ -1,9 +1,11 @@
 import numpy as np
 import os
 import json
+import requests
+import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import create_engine
 import pandas.io.sql as pdsql
 from config import pg_user, pg_password, db_name
 from flask import Flask, jsonify, render_template, abort, redirect
@@ -13,8 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Database Setup
 ##################################################
 
-DATABASE_URL = "postgres://mydatabase_lqyh_user:4JUDsCCcDxE157GVixHZdthqk0RsQ6XO@dpg-cpk3q8qcn0vc73b02140-a/mydatabase_lqyh"
-
+DATABASE_URL = "postgres://mydatabase_lqyh_user:4JUDsCCcDxE157GVixHZdthqk0RsQ6XO@dpg-cpk3q8qcn0vc73b02140-a.singapore-postgres.render.com/mydatabase_lqyh"
 DATABASE_URL = DATABASE_URL.replace(
     'postgres://',
     'postgresql://',
@@ -22,16 +23,13 @@ DATABASE_URL = DATABASE_URL.replace(
 )
 
 engine = create_engine(DATABASE_URL)
+meta = sqlalchemy.MetaData()
+meta.reflect(bind=engine)
+table_names = meta.tables.keys()
+print(table_names)  # or use the list of table_names as needed
 
 
-# Create a MetaData object
-metadata = MetaData()
 
-# Reflect the tables from the database
-metadata.reflect(bind=engine)
-
-# Get the table names
-engine.table_names()
 
 #################################################
 # Flask Setup
