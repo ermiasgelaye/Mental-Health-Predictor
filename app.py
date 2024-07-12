@@ -7,15 +7,21 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 import pandas.io.sql as pdsql
-from config import pg_user, pg_password, db_name
+from config import pg_user, pg_password, db_name, pg_host  # Corrected import
 from flask import Flask, jsonify, render_template, abort, redirect
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, MetaData
+
+from flask import Flask, jsonify, render_template
+import pandas as pd
+import json
+from sqlalchemy import create_engine
 
 #################################################
 # Database Setup
 ##################################################
 
-DATABASE_URL = "postgres://avnadmin:AVNS_H8UldLoBDWmhUDQHibe@pg-1ff11395-ermiasgelaye-d9b4.h.aivencloud.com:26131/defaultdb?sslmode=require"
+DATABASE_URL = f"postgresql://{pg_user}:{pg_password}@{pg_host}/{db_name}"
 DATABASE_URL = DATABASE_URL.replace(
     'postgres://',
     'postgresql://',
