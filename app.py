@@ -21,7 +21,7 @@ from sqlalchemy import create_engine
 # Database Setup
 ##################################################
 
-DATABASE_URL = f"postgresql://{pg_user}:{pg_password}@{pg_host}/{db_name}"
+DATABASE_URL = f"postgres://avnadmin:AVNS_hw9GhQqItYsGLW206lz@mydatabase-ermiasgelaye-d9b4.e.aivencloud.com:26131/defaultdb?sslmode=require"
 DATABASE_URL = DATABASE_URL.replace(
     'postgres://',
     'postgresql://',
