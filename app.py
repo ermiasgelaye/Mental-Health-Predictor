@@ -16,17 +16,23 @@ from flask import Flask, jsonify, render_template
 import pandas as pd
 import json
 from sqlalchemy import create_engine
+from dotenv import load_dotenv
+
+load_dotenv()
 
 #################################################
 # Database Setup
 ##################################################
 
-DATABASE_URL = f"postgres://avnadmin:AVNS_hw9GhQqItYsGLW206lz@mydatabase-ermiasgelaye-d9b4.e.aivencloud.com:26131/defaultdb?sslmode=require"
-DATABASE_URL = DATABASE_URL.replace(
-    'postgres://',
-    'postgresql://',
-    1
-)
+pg_user = os.getenv("PG_USER")
+pg_password = os.getenv("PG_PASSWORD")
+pg_host = os.getenv("PG_HOST")
+pg_port = os.getenv("PG_PORT", "5432")
+db_name = os.getenv("DB_NAME")
+
+
+DATABASE_URL = f"postgresql://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{db_name}?sslmode=require"
+DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://', 1)
 
 engine = create_engine(DATABASE_URL)
 meta = sqlalchemy.MetaData()
