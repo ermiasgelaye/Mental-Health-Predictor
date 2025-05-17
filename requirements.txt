@@ -32,9 +32,11 @@ idna==3.7
 six==1.16.0
 
 # Modern build tools (help prevent cythonization failures)
-pip==25.1.2
+
 setuptools==69.5.1
 cython==3.0.10
+
+pip==25.1.1
 
 
 
