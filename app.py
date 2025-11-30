@@ -1,4 +1,4 @@
-import numpy as np
+
 import os
 import json
 import requests
@@ -13,7 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, MetaData
 
 from flask import Flask, jsonify, render_template
-import pandas as pd
+
 import json
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
