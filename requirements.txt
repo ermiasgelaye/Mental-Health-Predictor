@@ -1,5 +1,3 @@
-allennlp==1.0.0 
-allennlp-models==1.0.0
 certifi==2020.6.20
 chardet==3.0.4
 click==7.1.2
@@ -10,6 +8,8 @@ idna==2.10
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+numpy==1.19.2
+pandas==1.1.2
 psycopg2==2.8.6
 python-dateutil==2.8.1
 pytz==2020.1
@@ -19,7 +19,3 @@ SQLAlchemy==1.3.19
 urllib3==1.25.10
 Werkzeug==1.0.1
 python-dotenv
-python-dotenv
-Cython>=3.0
-pip>=25.1
-setuptools>=70
