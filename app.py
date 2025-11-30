@@ -1,33 +1,17 @@
-
 import os
 import json
-import requests
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
+import pandas as pd
 from sqlalchemy import create_engine
-import pandas.io.sql as pdsql
-from config import pg_user, pg_password, db_name, pg_host  # Corrected import
-from flask import Flask, jsonify, render_template, abort, redirect
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine, MetaData
-
 from flask import Flask, jsonify, render_template
-
-import json
-from sqlalchemy import create_engine
+from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
-import os
-from sqlalchemy import create_engine
-
-from dotenv import load_dotenv
+# Load environment variables
 load_dotenv()
 
-# If you use python-dotenv locally:
-# from dotenv import load_dotenv
-# load_dotenv()  # loads variables from .env into environment
-
+#################################################
+# Database Setup
+#################################################
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if not DATABASE_URL:
@@ -39,17 +23,16 @@ if DATABASE_URL.startswith("postgres://"):
 
 engine = create_engine(DATABASE_URL)
 
-
-
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
 
-# Fix the typo in the configuration keys
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI', '') or "sqlite:///db.sqlite"
+# Use DATABASE_URL consistently
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# Initialize SQLAlchemy
 db = SQLAlchemy(app)
 
 #################################################
@@ -57,29 +40,38 @@ db = SQLAlchemy(app)
 #################################################
 @app.route("/")
 def index():
+    """Render the main page"""
     return render_template("index.html")
 
 @app.route("/mental_health")
 def mental_health():
-    sqlStatement = """
-    SELECT * FROM mental_health;
-    """
-    df = pdsql.read_sql(sqlStatement, engine)
-    df.set_index('Timestamp', inplace=True)
-    df = df.to_json(orient='table')
-    result = json.loads(df)
-    return jsonify(result)
+    """Return mental health data as JSON"""
+    try:
+        sql_statement = "SELECT * FROM mental_health;"
+        df = pd.read_sql(sql_statement, engine)
+        df.set_index('Timestamp', inplace=True)
+        result = df.to_dict(orient='index')
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/indicator")
 def indicator():
-    sqlStatement = """
-    SELECT * FROM development_indicator;
-    """
-    df = pdsql.read_sql(sqlStatement, engine)
-    df.set_index('country_name', inplace=True)
-    df = df.to_json(orient='table')
-    result = json.loads(df)
-    return jsonify(result)
+    """Return development indicator data as JSON"""
+    try:
+        sql_statement = "SELECT * FROM development_indicator;"
+        df = pd.read_sql(sql_statement, engine)
+        df.set_index('country_name', inplace=True)
+        result = df.to_dict(orient='index')
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Optional: Add a health check endpoint for deployment
+@app.route("/health")
+def health_check():
+    """Health check endpoint for deployment monitoring"""
+    return jsonify({"status": "healthy"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)  # Set debug=False for production
