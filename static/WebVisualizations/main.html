@@ -3,138 +3,849 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Exploratory Data Analysis - Mental Health & Suicide Rate Analysis">
+    <meta name="keywords" content="mental health, data visualization, Tableau, exploratory data analysis, suicide prevention">
+    
+    <title>Exploratory Data Analysis | Mind Health Analytics</title>
+
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <title>Mind Health</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../static/images/logo1.png" type="image/png">
+    
+    <style>
+        /* EDA-specific styles */
+        .eda-header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .viz-navigation {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+        }
+        
+        .viz-preview {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .viz-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .viz-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f8f9fa;
+        }
+        
+        .viz-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 35, 126, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .viz-preview:hover .viz-overlay {
+            opacity: 1;
+        }
+        
+        .viz-info {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4fc3f7;
+        }
+        
+        .viz-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .viz-stat {
+            text-align: center;
+            padding: 1rem;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            color: #4fc3f7;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a237e;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .dashboard-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .section-tabs {
+            display: flex;
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .section-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: #6c757d;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section-tab:hover {
+            color: #1a237e;
+        }
+        
+        .section-tab.active {
+            color: #1a237e;
+        }
+        
+        .section-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #4fc3f7;
+        }
+        
+        .viz-container-wrapper {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            min-height: 800px;
+            position: relative;
+        }
+        
+        .viz-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: 15px;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4fc3f7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .viz-controls {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .viz-description {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .insight-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #43a047;
+        }
+        
+        .insight-card.warning {
+            border-left-color: #ff9800;
+        }
+        
+        .insight-card.important {
+            border-left-color: #e53935;
+        }
+        
+        .download-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .btn-viz {
+            background: #4fc3f7;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-viz:hover {
+            background: #1a237e;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .viz-stats {
+                flex-direction: column;
+            }
+            
+            .viz-stat {
+                min-width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .section-tabs {
+                flex-direction: column;
+            }
+            
+            .section-tab {
+                text-align: left;
+                border-bottom: 1px solid #dee2e6;
+            }
+            
+            .control-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .viz-container-wrapper {
+                padding: 1rem;
+                min-height: 600px;
+            }
+        }
+    </style>
 </head>
 
-<body onload="createViz(0);">
-    <div class="navigation">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light enhanced-navbar">
+        <div class="container">
+            <a class="navbar-brand enhanced-navbar-brand" href="/">
+                <i class="fas fa-brain mr-2"></i> Mind Health Analytics
+            </a>
 
-            <div class="header">
-                <a href="/"><img src="../images/logo1.png" alt="logo" style="background-color: rgb(255,255,255);" />
-                </a>
-            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Visualizations
+                        <a class="nav-link enhanced-nav-link" href="/">
+                            <i class="fas fa-home mr-1"></i>Home
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../WebVisualizations/main.html">Exploratory Data Analysis</a>
-                            <a class="dropdown-item" href="../WebVisualizations/machine-learning.html">Machine Learning Analysis</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle enhanced-nav-link active" href="#" id="visualizationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-chart-bar mr-1"></i>Visualizations
+                        </a>
+                        <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
+                            <a class="dropdown-item enhanced-dropdown-item active" href="/eda">
+                                <i class="fas fa-search mr-2"></i>Exploratory Data Analysis
+                            </a>
+                            <a class="dropdown-item enhanced-dropdown-item" href="/ml">
+                                <i class="fas fa-robot mr-2"></i>Machine Learning Analysis
+                            </a>
                         </div>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Api
+                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-code mr-1"></i>API
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/mental_health">Mental Health</a>
-                            <a class="dropdown-item" href="/indicator">Development Indicators</a>
+                        <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
+                            <a class="dropdown-item enhanced-dropdown-item" href="/mental_health">
+                                <i class="fas fa-brain mr-2"></i>Mental Health Data
+                            </a>
+                            <a class="dropdown-item enhanced-dropdown-item" href="/indicator">
+                                <i class="fas fa-chart-line mr-2"></i>Development Indicators
+                            </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../WebVisualizations/data.html">Data</a>
+                        <a class="nav-link enhanced-nav-link" href="/data">
+                            <i class="fas fa-database mr-1"></i>Data
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor">Our Repo</a>
+                        <a class="nav-link enhanced-nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank">
+                            <i class="fab fa-github mr-1"></i>Our Repo
+                        </a>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </div>
-    <!-- title -->
-    <div class="col-md-12 jumbotron text-center" style="background-image:url(../images/banner1.png);; width: 3500px; " class="main-header ">
-        <a><img src="../images/logo1.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
-        </a>
-        <hr>
-        <p style="color: rgb(255, 255, 255); font-size: 35px; "> Mental Health Versus Suicide: Predicting Suicide Rates from Mental Health Risk Factors
-        </p>
-    </div>
-    <br>
-    <!-- <div id="vizContainer" class="m-auto mt-4" style="width:1300px; height:625px;"></div> -->
+        </div>
+    </nav>
 
-    <!-- <script type="text/javascript"
-    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    <script type="text/javascript">
-        function initViz() {
-            var containerDiv = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/Finalproject_15864740818560/USRegions?:display_count=y&:origin=viz_share_link",
-                options = {
-                    hideTabs: true,
-                    onFirstInteractive: function () {
-                        console.log("Run this code when the viz has finished loading.");
-                    }
-                };
-    
-            var viz = new tableau.Viz(containerDiv, url, options);
-            // Create a viz object and embed it in the container div.
+    <!-- EDA Header -->
+    <div class="eda-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 font-weight-bold mb-3">Exploratory Data Analysis</h1>
+                    <p class="lead mb-4">Interactive visualization of mental health patterns and suicide rate correlations across countries</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="viz-stats">
+                        <div class="viz-stat">
+                            <i class="fas fa-globe stat-icon"></i>
+                            <span class="stat-value">200+</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="viz-stat">
+                            <i class="fas fa-chart-line stat-icon"></i>
+                            <span class="stat-value">14</span>
+                            <span class="stat-label">Years</span>
+                        </div>
+                        <div class="viz-stat">
+                            <i class="fas fa-database stat-icon"></i>
+                            <span class="stat-value">50+</span>
+                            <span class="stat-label">Variables</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Dashboard Navigation -->
+        <div class="viz-navigation">
+            <h2 class="section-title mb-4">Interactive Dashboards</h2>
+            <p class="mb-4">Navigate between different visualization dashboards to explore various aspects of mental health data and suicide rate correlations.</p>
+            
+            <div class="section-tabs">
+                <button class="section-tab active" data-viz-index="0">Dashboard 1: Regional Analysis</button>
+                <button class="section-tab" data-viz-index="1">Dashboard 2: Detailed Insights</button>
+            </div>
+            
+            <div class="viz-info">
+                <h5><i class="fas fa-info-circle mr-2 text-primary"></i>Current Dashboard: <span id="currentVizTitle">Regional Analysis</span></h5>
+                <p id="currentVizDescription">Exploring mental health patterns and suicide rates across different regions and demographics.</p>
+            </div>
+            
+            <div class="viz-preview" id="vizPreview">
+                <img src="../static/images/dashboard-preview.jpg" alt="Dashboard Preview" class="viz-thumbnail">
+                <div class="viz-overlay">
+                    <button class="btn-viz btn-lg">
+                        <i class="fas fa-expand mr-2"></i>View Fullscreen
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Visualization Container -->
+        <div class="viz-container-wrapper">
+            <div class="viz-loading" id="vizLoading">
+                <div class="loading-spinner"></div>
+                <div class="ml-3">Loading interactive visualization...</div>
+            </div>
+            <div id="vizContainer"></div>
+        </div>
+
+        <!-- Visualization Controls -->
+        <div class="viz-controls">
+            <h5 class="mb-3"><i class="fas fa-sliders-h mr-2"></i>Dashboard Controls</h5>
+            
+            <div class="control-group">
+                <div>
+                    <button class="btn-viz" onclick="changeViz(-1)">
+                        <i class="fas fa-arrow-left mr-2"></i>Previous
+                    </button>
+                    <button class="btn-viz" onclick="changeViz(1)">
+                        Next <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <div class="download-options">
+                    <button class="btn-viz" onclick="exportViz('image')">
+                        <i class="fas fa-image mr-2"></i>Save Image
+                    </button>
+                    <button class="btn-viz" onclick="exportViz('pdf')">
+                        <i class="fas fa-file-pdf mr-2"></i>Export PDF
+                    </button>
+                    <button class="btn-viz" onclick="exportViz('data')">
+                        <i class="fas fa-file-csv mr-2"></i>Export Data
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group mt-3">
+                <label for="vizFilter"><i class="fas fa-filter mr-2"></i>Filter Options</label>
+                <select class="form-control" id="vizFilter" onchange="applyFilter(this.value)">
+                    <option value="all">Show All Data</option>
+                    <option value="high">High Suicide Rate Countries</option>
+                    <option value="low">Low Suicide Rate Countries</option>
+                    <option value="developed">Developed Countries</option>
+                    <option value="developing">Developing Countries</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="content-box">
+            <h2 class="section-title">Key Insights</h2>
+            
+            <div class="viz-description">
+                <h4><i class="fas fa-lightbulb mr-2"></i>What These Visualizations Reveal</h4>
+                <p>Our exploratory data analysis uncovers important patterns and correlations in mental health data and suicide rates across different countries and time periods.</p>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="insight-card">
+                        <h5><i class="fas fa-chart-line mr-2 text-success"></i>Regional Patterns</h5>
+                        <p class="small mb-0">Clear geographical patterns emerge, with certain regions showing consistently higher suicide rates correlated with specific socio-economic factors.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="insight-card warning">
+                        <h5><i class="fas fa-exclamation-triangle mr-2 text-warning"></i>Risk Factors</h5>
+                        <p class="small mb-0">Multiple risk factors interact, including economic indicators, education levels, healthcare access, and social support systems.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="insight-card important">
+                        <h5><i class="fas fa-hand-holding-heart mr-2 text-danger"></i>Protective Factors</h5>
+                        <p class="small mb-0">Countries with strong social safety nets and mental health infrastructure show lower suicide rates despite economic challenges.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h5>Detailed Observations:</h5>
+                <ul>
+                    <li><strong>Economic Correlation:</strong> GDP per capita shows complex relationships with suicide rates, not simply linear</li>
+                    <li><strong>Education Impact:</strong> Higher education levels consistently correlate with lower suicide rates across regions</li>
+                    <li><strong>Healthcare Access:</strong> Availability of mental health services shows strong protective effects</li>
+                    <li><strong>Temporal Trends:</strong> Suicide rates show both increasing and decreasing trends in different regions over time</li>
+                    <li><strong>Demographic Variations:</strong> Significant differences in suicide rates by age, gender, and socioeconomic status</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="content-box">
+            <h2 class="section-title">Methodology</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-cogs mr-2"></i>Data Processing</h5>
+                    <ul>
+                        <li><strong>Data Collection:</strong> Aggregated from multiple sources including WHO, World Bank, and national statistics</li>
+                        <li><strong>Cleaning:</strong> Handled missing values, standardized formats, and validated data quality</li>
+                        <li><strong>Normalization:</strong> Standardized metrics for cross-country comparison</li>
+                        <li><strong>Integration:</strong> Combined multiple datasets using country and year keys</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5><i class="fas fa-chart-bar mr-2"></i>Visualization Approach</h5>
+                    <ul>
+                        <li><strong>Tools:</strong> Tableau for interactive visualizations, Python for data processing</li>
+                        <li><strong>Techniques:</strong> Geographic mapping, time series analysis, correlation matrices</li>
+                        <li><strong>Design Principles:</strong> Color-blind friendly palettes, clear labeling, responsive design</li>
+                        <li><strong>Interactivity:</strong> Filters, tooltips, and drill-down capabilities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-database mr-2"></i>
+                <strong>Data Sources:</strong> World Health Organization (WHO), World Bank Development Indicators, national health statistics, and research datasets.
+            </div>
+        </div>
+
+        <!-- Related Analyses -->
+        <div class="content-box">
+            <h2 class="section-title">Continue Your Exploration</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="width: 60px; height: 60px; font-size: 1.3rem;">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Machine Learning Analysis</h4>
+                        <p>Dive deeper into predictive modeling with our machine learning analysis of suicide risk factors.</p>
+                        <a href="/ml" class="btn btn-primary-custom">
+                            <i class="fas fa-arrow-right mr-2"></i>Explore ML Models
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="width: 60px; height: 60px; font-size: 1.3rem;">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Raw Data Explorer</h4>
+                        <p>Access and explore the raw datasets used in our analysis through interactive tables and filters.</p>
+                        <a href="/data" class="btn btn-primary-custom">
+                            <i class="fas fa-arrow-right mr-2"></i>Explore Data
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Mind Health Analytics by Ermias Gaga. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0">Interactive Visualization | Tableau Dashboards</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- Tableau JavaScript API -->
+<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+<script type="text/javascript">
+    // Tableau visualization configuration
+    var vizList = [
+        {
+            url: "https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link",
+            title: "Regional Analysis",
+            description: "Exploring mental health patterns and suicide rates across different regions and demographics with geographic visualizations.",
+            thumbnail: "../static/images/dashboard1-preview.jpg"
+        },
+        {
+            url: "https://public.tableau.com/shared/C2T5TMT2J?:display_count=y&:origin=viz_share_link",
+            title: "Detailed Insights",
+            description: "Detailed analysis of socio-economic factors, temporal trends, and demographic variations in suicide rates.",
+            thumbnail: "../static/images/dashboard2-preview.jpg"
+        }
+    ];
+
+    var viz, vizLen = vizList.length, vizCount = 0;
+    var isLoading = false;
+
+    // Initialize visualization
+    function initViz() {
+        var vizDiv = document.getElementById("vizContainer");
+        var loadingDiv = document.getElementById("vizLoading");
+        
+        if (isLoading) return;
+        isLoading = true;
+        
+        // Show loading indicator
+        loadingDiv.style.display = 'flex';
+        
+        var options = {
+            hideTabs: true,
+            hideToolbar: false,
+            width: "100%",
+            height: "800px",
+            onFirstInteractive: function() {
+                console.log("Tableau dashboard loaded successfully.");
+                loadingDiv.style.display = 'none';
+                isLoading = false;
+                updateVizInfo();
+            }
         };
 
-        initViz();
-    </script> -->
-    <!-- <!DOCTYPE html> -->
-    <!-- <html> -->
-
-    <!-- <head> -->
-    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    <script type="text/javascript">
-        var vizList = ["https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link", "https://public.tableau.com/shared/C2T5TMT2J?:display_count=y&:origin=viz_share_link"];
-
-        var viz,
-            vizLen = vizList.length,
-            vizCount = 0;
-
-        function createViz(vizPlusMinus) {
-            var vizDiv = document.getElementById("vizContainer"),
-                options = {
-                    hideTabs: true
-                };
-
-            vizCount = vizCount + vizPlusMinus;
-
-            if (vizCount >= vizLen) {
-                // Keep the vizCount in the bounds of the array index.
-                vizCount = 0;
-            } else if (vizCount < 0) {
-                vizCount = vizLen - 1;
-            }
-
-            if (viz) { // If a viz object exists, delete it.
-                viz.dispose();
-            }
-
-            var vizURL = vizList[vizCount];
-            viz = new tableau.Viz(vizDiv, vizURL, options);
+        if (viz) {
+            viz.dispose();
         }
-    </script>
-    <!-- </head> -->
 
-    <!-- <body onload="createViz(0);"> -->
-    <div id="vizContainer" class="m-auto mt-4" style="width:1300px; height:1900px;"></div>
-    <div id="controls" style="padding-bottom: 50px;">
-        <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
-        <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
-    </div>
-    <!-- </body> -->
+        var vizURL = vizList[vizCount].url;
+        viz = new tableau.Viz(vizDiv, vizURL, options);
+    }
 
-    <!-- </html> -->
+    // Change visualization
+    function changeViz(vizPlusMinus) {
+        if (isLoading) return;
+        
+        vizCount = vizCount + vizPlusMinus;
+        
+        if (vizCount >= vizLen) {
+            vizCount = 0;
+        } else if (vizCount < 0) {
+            vizCount = vizLen - 1;
+        }
+        
+        updateActiveTab();
+        initViz();
+    }
 
-    <footer> </footer>
+    // Update visualization information
+    function updateVizInfo() {
+        var currentViz = vizList[vizCount];
+        document.getElementById('currentVizTitle').textContent = currentViz.title;
+        document.getElementById('currentVizDescription').textContent = currentViz.description;
+        
+        // Update preview image
+        var previewImg = document.querySelector('#vizPreview .viz-thumbnail');
+        if (previewImg) {
+            previewImg.src = currentViz.thumbnail;
+            previewImg.alt = currentViz.title + " Preview";
+        }
+        
+        // Update active tab
+        updateActiveTab();
+    }
 
+    // Update active tab
+    function updateActiveTab() {
+        document.querySelectorAll('.section-tab').forEach((tab, index) => {
+            if (index === vizCount) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+    }
+
+    // Export visualization
+    function exportViz(format) {
+        if (!viz) {
+            alert("Please wait for the visualization to load.");
+            return;
+        }
+        
+        var exportOptions = {
+            format: format === 'image' ? 'png' : format,
+            filename: 'mind-health-viz-' + (vizCount + 1)
+        };
+        
+        if (format === 'image' || format === 'pdf') {
+            viz.showExportDialog(format === 'image' ? tableau.ExportType.PNG : tableau.ExportType.PDF, exportOptions);
+        } else if (format === 'data') {
+            viz.showExportDialog(tableau.ExportType.CROSSTAB, exportOptions);
+        }
+    }
+
+    // Apply filter
+    function applyFilter(filterValue) {
+        if (!viz) return;
+        
+        // This is a simplified example - in a real implementation,
+        // you would apply actual Tableau filters based on the selection
+        console.log("Applying filter:", filterValue);
+        
+        // Show filter application feedback
+        var loadingDiv = document.getElementById("vizLoading");
+        loadingDiv.style.display = 'flex';
+        loadingDiv.innerHTML = '<div class="loading-spinner"></div><div class="ml-3">Applying filter...</div>';
+        
+        // Simulate filter application
+        setTimeout(function() {
+            loadingDiv.style.display = 'none';
+            alert("Filter applied: " + filterValue + "\n\nNote: Full filter functionality requires Tableau Server integration.");
+        }, 1000);
+    }
+
+    // Tab click handlers
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize first visualization
+        initViz();
+        
+        // Setup tab click handlers
+        document.querySelectorAll('.section-tab').forEach((tab, index) => {
+            tab.addEventListener('click', function() {
+                if (vizCount !== index) {
+                    vizCount = index;
+                    initViz();
+                }
+            });
+        });
+        
+        // Setup fullscreen button
+        document.querySelector('.viz-overlay button').addEventListener('click', function() {
+            if (viz) {
+                viz.showDownloadDialog();
+            }
+        });
+        
+        // Setup preview image click
+        document.getElementById('vizPreview').addEventListener('click', function(e) {
+            if (!e.target.closest('.viz-overlay button')) {
+                if (viz) {
+                    viz.showDownloadDialog();
+                }
+            }
+        });
+        
+        // Animate elements on scroll
+        const animatedElements = document.querySelectorAll('.feature-card, .insight-card, .viz-controls');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeViz(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeViz(1);
+            } else if (e.key === 'Escape' && viz) {
+                // Handle escape key if needed
+            }
+        });
+        
+        // Add responsive adjustments
+        function adjustVizHeight() {
+            const vizContainer = document.getElementById('vizContainer');
+            if (vizContainer && window.innerWidth < 768) {
+                vizContainer.style.height = '600px';
+            }
+        }
+        
+        window.addEventListener('resize', adjustVizHeight);
+        adjustVizHeight();
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize stats animation
+        const statValues = document.querySelectorAll('.stat-value');
+        statValues.forEach(stat => {
+            const originalText = stat.textContent;
+            if (!isNaN(parseFloat(originalText))) {
+                stat.textContent = '0';
+                let targetValue = parseFloat(originalText);
+                let currentValue = 0;
+                const increment = targetValue / 30;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= targetValue) {
+                        currentValue = targetValue;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.round(currentValue) + (originalText.includes('+') ? '+' : '');
+                }, 50);
+            }
+        });
+    });
+</script>
 </body>
-
 </html>

@@ -1,391 +1,477 @@
-        body {
-            background-color: #ffffff;
-            background-position: right;
-            background-repeat: repeat;
-            background-size: 1000px 1300px;
-        }
-        
-        .navbar {
-            max-height: 80px;
-        }
-        
-        .header img {
-            float: left;
-            width: 140px;
-            height: 140px;
-            background: #555;
-        }
-        
-        .header h1 {
-            position: relative;
-            top: 18px;
-            left: 10px;
-        }
-        
-        .navbar-light .navbar-nav .nav-link {
-            color: rgb(6, 4, 102);
-        }
-        
-        .navigation .navbar-brand {
-            color: rgb(6, 4, 102);
-            margin-left: 0px;
-            padding: inherit;
-            font-weight: bold;
-            background-color: rgb(255, 255, 255);
-            font-family: cochin;
-        }
-        
-        .navbar {
-            background-color: rgb(255, 255, 255);
-            font-size: 25px;
-        }
-        
-        .active,
-        .dropdown-menu .dropdown-item:active a:hover {
-            background-color: rgb(255, 255, 255);
-        }
-        
-        .dropdown-item {
-            color: rgb(6, 4, 102);
-        }
-        
-        .dropdown .dropdown-menu .dropdown-item:active {
-            background-color: rgb(6, 4, 102);
-        }
-        
-        .dropdown .dropdown-menu .dropdown-item:hover {
-            background-color: rgb(110, 173, 209);
-        }
-        
-        .nav-link:hover {
-            background-color: rgb(110, 173, 209);
-        }
-        
-        .navbar-brand:hover {
-            color: rgb(110, 173, 209);
-        }
-        
-        a {
-            color: rgb(6, 4, 102);
-            font-size: 15px;
-        }
-        
-        img {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .active,
-        .panel:hover {
-            border-color: rgb(6, 4, 102);
-            border-style: solid;
-        }
-        
-        .vizualization {
-            width: 50%;
-            height: 50%;
-        }
-        
-        .title {
-            color: rgb(6, 4, 102);
-            font-family: cochin;
-            font-weight: bolder;
-            padding-top: 10px;
-        }
-        
-        li {
-            color: rgb(6, 4, 102);
-            font-family: 'segoe ui';
-            font-size: 16px;
-        }
-        
-        p {
-            color: rgb(6, 4, 102);
-            font-family: 'segoe ui';
-            font-size: 16px;
-        }
-        
-        .box {
-            margin-top: 50px;
-            margin-bottom: 60px;
-            padding: 10px 30px 10px;
-            color: #ffffff;
-            background-color: rgb(255, 255, 255);
-        }
-        
-        .table {
-            font-size: 15px;
-            border-top-color: rgb(255, 255, 255);
-        }
-        
-        footer {
-            background-color: #000000;
-            border-top-style: solid;
-            border-top-width: 5px;
-            border-top-color: rgb(110, 173, 209);
-            color: rgb(110, 173, 209);
-            min-height: 50px;
-            font-family: Menlo, Helvetica, sans-serif;
-            font-size: 10px;
-            text-align: center;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            padding-top: 15px;
-        }
-        
-        @media(max-width: 992px) {
-            .navbar-expand-lg {
-                background-color: #000000;
-            }
-            .navbar {
-                max-height: none;
-                padding: inherit;
-            }
-            .navbar div {
-                margin: inherit;
-                background-color: rgb(255, 255, 255);
-            }
-            .navbar-brand {
-                padding: 10px;
-            }
-            button {
-                margin-right: 30px;
-            }
-            button:focus {
-                outline: 1px dotted;
-                outline: auto 5px;
-            }
-        }
-        
-        * {
-            box-sizing: border-box;
-            font-family: Ubuntu, sans-serif;
-        }
-        
-        html,
-        body {
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
-        
-        .wrapper {
-            position: relative;
-            min-height: 100%;
-            padding-bottom: 130px;
-            overflow: auto;
-        }
-        /* The footer is positioned at the bottom of the page */
-        
-        .footer {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            min-height: 100px;
-            background: #4e5d6c;
-        }
-        /* The code styles the text at the bottom of the footer */
-        
-        .footer>.bottom {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 5px;
-            background: #1b3146;
-        }
-        
-        .navbar {
-            padding: 50px;
-            margin: 0;
-            ;
-        }
-        /* This CSS styles the ufo icon in the navbar */
-        
-        .nav-ufo {
-            position: absolute;
-            bottom: 5px;
-            left: 150px;
-            width: 35px;
-            color: white;
-        }
-        
-        .bg-light {
-            background-color: rgb(255, 255, 255)!important;
-        }
-        /* Adding styles to the aside and filter form */
-        
-        .ufo-form {
-            margin-top: 50px;
-        }
-        
-        .filters .panel-body {
-            padding: 0;
-        }
-        
-        .filters {
-            margin-top: 10px;
-        }
-        
-        select {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            color: rgb(6, 4, 102);
-            outline: none;
-        }
-        
-        .my-custom-scrollbar {
-            position: relative;
-            height: 200px;
-            overflow: auto;
-        }
-        
-        .table-wrapper-scroll-y {
-            display: block;
-        }
-        
-        #table-area th {
-            text-align: left;
-        }
-        
-        #table-area th:first-child,
-        #table-area th:nth-child(2),
-        #table-area th:nth-child(6) {
-            min-width: 70px;
-        }
-        
-        .loader {
-            margin-top: 50px;
-        }
-        
-        .margin-top-50 {
-            margin-top: 50px;
-        }
-        /* The styles for the parallax */
-        
-        .hero {
-            position: relative;
-            height: 550px;
-            padding: 20px;
-            margin: 0;
-            background: black;
-            background-image: url("../images/US.jpg");
-            background-attachment: fixed;
-            background-position: bottom center;
-            background-size: cover;
-        }
-        
-        .hero h1 {
-            margin-top: 200px;
-            font-size: 0.1rem;
-            animation: title 1.2s forwards linear;
-        }
-        
-        .hero p {
-            font-size: 2rem;
-            opacity: 0;
-            animation: subtitle 1.2s forwards linear;
-            animation-delay: 1.2s;
-        }
-        /* input placeholder color changes */
-        
-        .form-control::-webkit-input-placeholder {
-            /* Chrome/Opera/Safari */
-            color: #8e979f;
-        }
-        
-        .form-control::-moz-placeholder {
-            /* Firefox 19+ */
-            color: #8e979f;
-        }
-        
-        .form-control:-ms-input-placeholder {
-            /* IE 10+ */
-            color: #8e979f;
-        }
-        
-        .form-control:-moz-placeholder {
-            /* Firefox 18- */
-            color: #8e979f;
-        }
-        /* media queries which will only be activated at specific screen sizes */
-        
-        @media (max-width: 800px) {
-            #table-area td {
-                font-size: 1em;
-            }
-        }
-        
-        @media (max-width: 500px) {
-            #table-area thead {
-                display: none;
-            }
-            #table-area tr td:first-child {
-                font-size: 1.8em;
-                font-weight: bold;
-                background: #1b3146;
-            }
-            #table-area tr td:last-child {
-                margin-bottom: 20px;
-            }
-            #table-area tr td:last-child::after {
-                display: block;
-                width: 100%;
-                height: 1px;
-                margin-top: 20px;
-                content: " ";
-                background: aliceblue;
-            }
-            #table-area td {
-                font-size: 1.25em;
-            }
-            #table-area tbody td {
-                display: block;
-                text-align: left;
-            }
-            #table-area tbody td::before {
-                display: block;
-                font-size: 1.4em;
-                font-weight: bold;
-                text-align: left;
-                content: attr(data-th);
-            }
-            .hero h1 {
-                animation: smaller-title 1.2s forwards linear;
-            }
-        }
-        /* keyframe animations which will be used to animate the title */
-        
-        @keyframes title {
-            from {
-                opacity: 0;
-            }
-            to {
-                font-size: 7.5rem;
-                opacity: 1;
-            }
-        }
-        
-        @keyframes smaller-title {
-            from {
-                opacity: 0;
-            }
-            to {
-                font-size: 5.5rem;
-                opacity: 1;
-            }
-        }
-        
-        @keyframes subtitle {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+/* ============================================
+   MAIN.CSS - MIND HEALTH ANALYTICS
+   ============================================ */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* ============================================
+   WHITE TEXT ON BLUE BACKGROUND FIXES
+   ============================================ */
+
+/* Fix for all blue gradient backgrounds */
+.dashboard-jumbotron,
+.eda-header,
+.ml-header,
+.data-header,
+.cta-section,
+[style*="gradient"] {
+    color: white !important;
+}
+
+/* Force white text on all text elements in blue sections */
+.dashboard-jumbotron h1,
+.dashboard-jumbotron h2,
+.dashboard-jumbotron h3,
+.dashboard-jumbotron h4,
+.dashboard-jumbotron h5,
+.dashboard-jumbotron h6,
+.dashboard-jumbotron p,
+.dashboard-jumbotron .lead,
+.dashboard-jumbotron .stat-number,
+.dashboard-jumbotron .stat-label,
+.dashboard-jumbotron .hero-content * {
+    color: white !important;
+}
+
+.eda-header h1,
+.eda-header h2,
+.eda-header h3,
+.eda-header h4,
+.eda-header h5,
+.eda-header h6,
+.eda-header p,
+.eda-header .lead,
+.eda-header .stat-value,
+.eda-header .stat-label {
+    color: white !important;
+}
+
+.ml-header h1,
+.ml-header h2,
+.ml-header h3,
+.ml-header h4,
+.ml-header h5,
+.ml-header h6,
+.ml-header p,
+.ml-header .lead,
+.ml-header .metric-value,
+.ml-header .metric-label {
+    color: white !important;
+}
+
+.data-header h1,
+.data-header h2,
+.data-header h3,
+.data-header h4,
+.data-header h5,
+.data-header h6,
+.data-header p,
+.data-header .lead,
+.data-header .stat-number,
+.data-header .stat-label {
+    color: white !important;
+}
+
+.cta-section h1,
+.cta-section h2,
+.cta-section h3,
+.cta-section h4,
+.cta-section h5,
+.cta-section h6,
+.cta-section p,
+.cta-section .lead {
+    color: white !important;
+}
+
+/* Specific opacity for better readability */
+.dashboard-jumbotron .lead,
+.eda-header .lead,
+.ml-header .lead,
+.data-header .lead,
+.cta-section .lead {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.stat-label,
+.metric-label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    opacity: 1 !important;
+}
+
+/* Add text shadow for better contrast */
+.display-4,
+.display-5 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.lead {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   NAVIGATION STYLES (ORIGINAL FORMAT)
+   ============================================ */
+.enhanced-navbar {
+    background: white !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.enhanced-navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a237e !important;
+    display: flex;
+    align-items: center;
+}
+
+.enhanced-navbar-brand i {
+    color: #4fc3f7;
+    margin-right: 0.5rem;
+}
+
+.enhanced-nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin: 0 0.2rem;
+    font-size: 0.95rem;
+}
+
+.enhanced-nav-link:hover,
+.enhanced-nav-link.active {
+    color: #1a237e !important;
+    background-color: rgba(79, 195, 247, 0.1);
+    transform: translateY(-1px);
+}
+
+.enhanced-nav-link.active {
+    font-weight: 600;
+}
+
+/* Dropdown styles */
+.enhanced-dropdown {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    border: 1px solid #eaeaea;
+}
+
+.enhanced-dropdown-item {
+    color: #333;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.enhanced-dropdown-item:hover {
+    background-color: rgba(79, 195, 247, 0.1);
+    color: #1a237e;
+    padding-left: 2rem;
+}
+
+.enhanced-dropdown-item.active {
+    background-color: rgba(79, 195, 247, 0.15);
+    color: #1a237e;
+    font-weight: 500;
+}
+
+.enhanced-dropdown-item i {
+    width: 20px;
+    margin-right: 0.75rem;
+    color: #4fc3f7;
+}
+
+/* Dropdown toggle arrow */
+.dropdown-toggle::after {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+}
+
+/* Navbar toggle button */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2826, 35, 126, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ============================================
+   HERO/JUMBOTRON STYLES
+   ============================================ */
+.dashboard-jumbotron {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0 !important;
+}
+
+.dashboard-jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle fill="white" fill-opacity="0.05" cx="100" cy="100" r="80"/><circle fill="white" fill-opacity="0.05" cx="900" cy="200" r="120"/><circle fill="white" fill-opacity="0.05" cx="500" cy="600" r="100"/></svg>');
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-stats {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    color: white !important;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ============================================
+   CONTENT BOXES
+   ============================================ */
+.content-box {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eaeaea;
+}
+
+.section-title {
+    color: #1a237e;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #4fc3f7;
+}
+
+/* ============================================
+   FEATURE CARDS
+   ============================================ */
+.feature-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-color: #4fc3f7;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #4fc3f7 0%, #1a237e 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.feature-title {
+    color: #1a237e;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary-custom {
+    background: linear-gradient(45deg, #1a237e, #283593);
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(26, 35, 126, 0.2);
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(26, 35, 126, 0.3);
+    color: white;
+}
+
+.btn-outline-light-custom {
+    border: 2px solid white;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-outline-light-custom:hover {
+    background: white;
+    color: #1a237e;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ENHANCED IMAGES
+   ============================================ */
+.enhanced-image {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+.enhanced-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.enhanced-footer {
+    background: #1a237e;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.enhanced-footer p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .dashboard-jumbotron {
+        padding: 3rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .hero-stats {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .content-box {
+        padding: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Mobile navbar adjustments */
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+    }
+    
+    .enhanced-nav-link {
+        margin: 0.2rem 0;
+        padding: 0.75rem 1rem !important;
+    }
+    
+    .enhanced-dropdown {
+        box-shadow: none;
+        border: 1px solid #eaeaea;
+        margin: 0.5rem 0;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Smooth transitions for scroll animations */
+[data-aos] {
+    transition: all 0.6s ease;
+}

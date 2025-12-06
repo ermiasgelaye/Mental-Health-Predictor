@@ -3,98 +3,625 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Mental Health Data Explorer - Interactive Data Tables and Visualizations">
+    <meta name="keywords" content="mental health data, suicide statistics, health indicators, data exploration">
+    
+    <title>Data Explorer | Mind Health Analytics</title>
+
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <title>Mind health</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../static/images/logo1.png" type="image/png">
+    
+    <style>
+        /* Data-specific styles */
+        .data-header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .data-source-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+            border-left: 4px solid #4fc3f7;
+        }
+        
+        .data-source-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .data-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .data-stat {
+            text-align: center;
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a237e;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .api-endpoints {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .endpoint {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .endpoint-method {
+            background: #1a237e;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .endpoint-url {
+            font-family: 'Courier New', monospace;
+            color: #1a237e;
+        }
+        
+        .data-insights {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .download-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .btn-download {
+            background: #4fc3f7;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            background: #1a237e;
+            transform: translateY(-2px);
+        }
+        
+        /* Tableau viz container */
+        .viz-container-wrapper {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        /* Data quality indicators */
+        .quality-indicator {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0.2rem;
+        }
+        
+        .quality-good {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .quality-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .quality-improvement {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        @media (max-width: 768px) {
+            .data-stats {
+                flex-direction: column;
+            }
+            
+            .data-stat {
+                min-width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .endpoint {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .endpoint div {
+                margin: 0.3rem 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="navigation">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light enhanced-navbar">
+        <div class="container">
+            <a class="navbar-brand enhanced-navbar-brand" href="/">
+                <i class="fas fa-brain mr-2"></i> Mind Health Analytics
+            </a>
 
-            <div class="header">
-                <a href="/"><img src="../images/logo1.png" alt="logo" style="background-color: rgb(255,255,255);" />
-                </a>
-            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Visualizations
+                        <a class="nav-link enhanced-nav-link" href="/">
+                            <i class="fas fa-home mr-1"></i>Home
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../WebVisualizations/main.html">Exploratory Data Analysis</a>
-                            <a class="dropdown-item" href="../WebVisualizations/machine-learning.html">Machine Learning Analysis</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="visualizationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-chart-bar mr-1"></i>Visualizations
+                        </a>
+                        <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
+                            <a class="dropdown-item enhanced-dropdown-item" href="/eda">
+                                <i class="fas fa-search mr-2"></i>Exploratory Data Analysis
+                            </a>
+                            <a class="dropdown-item enhanced-dropdown-item" href="/ml">
+                                <i class="fas fa-robot mr-2"></i>Machine Learning Analysis
+                            </a>
                         </div>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Api
+                        <a class="nav-link dropdown-toggle enhanced-nav-link active" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-code mr-1"></i>API
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/mental_health">Mental Health</a>
-                            <a class="dropdown-item" href="/indicator">Development Indicators</a>
+                        <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
+                            <a class="dropdown-item enhanced-dropdown-item" href="/mental_health">
+                                <i class="fas fa-brain mr-2"></i>Mental Health Data
+                            </a>
+                            <a class="dropdown-item enhanced-dropdown-item" href="/indicator">
+                                <i class="fas fa-chart-line mr-2"></i>Development Indicators
+                            </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../WebVisualizations/data.html">Data</a>
+                        <a class="nav-link enhanced-nav-link active" href="/data">
+                            <i class="fas fa-database mr-1"></i>Data
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor">Our Repo</a>
+                        <a class="nav-link enhanced-nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank">
+                            <i class="fab fa-github mr-1"></i>Our Repo
+                        </a>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </div>
-    <!-- title -->
-    <div class="col-md-12 jumbotron text-center" style="background-image:url(../images/banner1.png);; width: 3500px; " class="main-header ">
-        <a><img src="../images/logo1.png " style="width: 1px; " alt="logo " style="background-color: rgb(255,255,255); " />
-        </a>
-        <hr>
-        <p style="color: rgb(255, 255, 255); font-size: 35px; "> Mental Health and Technology: Exploring Mental Health Predictors in the Tech Workplace
-        </p>
-    </div>
-    <br>
-    <div id="vizContainer" class="m-auto mt-4" style="width:1050px; height:1000px;"></div>
+        </div>
+    </nav>
 
+    <!-- Data Header -->
+    <div class="data-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 font-weight-bold mb-3">Mental Health Data Explorer</h1>
+                    <p class="lead mb-4">Interactive exploration of mental health survey data and socio-economic indicators across countries</p>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <div class="data-stats">
+                        <div class="data-stat">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Data Sources</span>
+                        </div>
+                        <div class="data-stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Variables</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Data Overview -->
+        <div class="content-box">
+            <h2 class="section-title">Dataset Overview</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="data-source-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; margin-right: 1rem;">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4 class="mb-0">OSMI Tech Mental Health Survey</h4>
+                        </div>
+                        <p>Comprehensive survey data focusing on mental health in technology workplace environments. Contains employee responses regarding mental health awareness, support, and workplace culture.</p>
+                        
+                        <div class="mb-3">
+                            <span class="quality-indicator quality-good">2014-2019</span>
+                            <span class="quality-indicator quality-medium">1,433 Responses</span>
+                            <span class="quality-indicator quality-good">27 Variables</span>
+                        </div>
+                        
+                        <a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey/home" class="btn btn-primary-custom btn-sm" target="_blank">
+                            <i class="fas fa-external-link-alt mr-2"></i>Source Details
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="data-source-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; margin-right: 1rem;">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <h4 class="mb-0">World Development Indicators</h4>
+                        </div>
+                        <p>World Bank's comprehensive socio-economic indicators across countries including GDP, education, healthcare access, and suicide mortality rates per 100,000 population.</p>
+                        
+                        <div class="mb-3">
+                            <span class="quality-indicator quality-good">2000-2017</span>
+                            <span class="quality-indicator quality-good">200+ Countries</span>
+                            <span class="quality-indicator quality-medium">25+ Indicators</span>
+                        </div>
+                        
+                        <a href="https://databank.worldbank.org/source/world-development-indicators" class="btn btn-primary-custom btn-sm" target="_blank">
+                            <i class="fas fa-external-link-alt mr-2"></i>Source Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="data-insights">
+                <h4 class="mb-3"><i class="fas fa-lightbulb mr-2"></i>Key Insights from Our Data</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-chart-line text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h6>Suicide Rate Correlation</h6>
+                                <p class="small mb-0">Strong correlation found between social insurance coverage and suicide rates</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-graduation-cap text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h6>Education Impact</h6>
+                                <p class="small mb-0">Higher basic education levels correlate with lower suicide mortality rates</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <div>
+                                <h6>Geographic Patterns</h6>
+                                <p class="small mb-0">Clear regional variations in mental health indicators and suicide rates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Access -->
+        <div class="content-box">
+            <h2 class="section-title">API Access</h2>
+            <p class="mb-4">Access our cleaned and processed data through our REST API endpoints for your own analysis and applications.</p>
+            
+            <div class="api-endpoints">
+                <h5 class="mb-3"><i class="fas fa-cloud mr-2"></i>Available Endpoints</h5>
+                
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url ml-3">/mental_health</span>
+                    </div>
+                    <div>
+                        <span class="text-muted">Returns complete mental health survey dataset</span>
+                    </div>
+                </div>
+                
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url ml-3">/indicator</span>
+                    </div>
+                    <div>
+                        <span class="text-muted">Returns World Bank development indicators</span>
+                    </div>
+                </div>
+                
+                <div class="endpoint">
+                    <div>
+                        <span class="endpoint-method">GET</span>
+                        <span class="endpoint-url ml-3">/health</span>
+                    </div>
+                    <div>
+                        <span class="text-muted">API health check and status</span>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <h6>Usage Example:</h6>
+                    <pre style="background: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto;">
+<code>// Fetch mental health data
+fetch('/mental_health')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Process your data here
+  });</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Data Table -->
+        <div class="content-box">
+            <h2 class="section-title">Interactive Data Explorer</h2>
+            <p class="mb-4">Explore our combined dataset through the interactive Tableau dashboard below. Filter, sort, and analyze the data directly in your browser.</p>
+            
+            <div class="viz-container-wrapper">
+                <div id="vizContainer" style="width:100%; height:1000px;"></div>
+            </div>
+            
+            <div class="viz-controls mt-4 text-center">
+                <h5 class="mb-3">Dashboard Controls</h5>
+                <div class="mb-3">
+                    <span class="quality-indicator quality-good">Interactive Filters</span>
+                    <span class="quality-indicator quality-good">Sortable Columns</span>
+                    <span class="quality-indicator quality-good">Export Options</span>
+                </div>
+                <div class="download-options justify-content-center">
+                    <button class="btn-download">
+                        <i class="fas fa-image mr-2"></i>Save Image
+                    </button>
+                    <button class="btn-download">
+                        <i class="fas fa-file-excel mr-2"></i>Export Data
+                    </button>
+                    <button class="btn-download">
+                        <i class="fas fa-print mr-2"></i>Print View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Quality & Limitations -->
+        <div class="content-box">
+            <h2 class="section-title">Data Quality & Limitations</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i>Strengths</h5>
+                    <ul>
+                        <li><strong>Comprehensive Coverage:</strong> Data spans multiple years and countries</li>
+                        <li><strong>Standardized Metrics:</strong> World Bank indicators follow international standards</li>
+                        <li><strong>Rich Variables:</strong> Wide range of socio-economic and health indicators</li>
+                        <li><strong>Public Access:</strong> Open data sources with transparent methodologies</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5 class="mb-3"><i class="fas fa-exclamation-triangle text-warning mr-2"></i>Limitations</h5>
+                    <ul>
+                        <li><strong>Missing Values:</strong> Some countries have incomplete data for certain years</li>
+                        <li><strong>Reporting Variations:</strong> Different countries may use different reporting methods</li>
+                        <li><strong>Time Lag:</strong> Latest data may be 1-2 years old due to collection and processing</li>
+                        <li><strong>Sample Bias:</strong> Survey data may not represent all demographics equally</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-info-circle mr-2"></i>
+                <strong>Note:</strong> All data has been cleaned and processed for consistency. Original data sources should be consulted for methodology details and raw data.
+            </div>
+        </div>
+
+        <!-- Related Resources -->
+        <div class="content-box">
+            <h2 class="section-title">Related Resources</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h5>Methodology Documentation</h5>
+                        <p class="small">Detailed explanation of our data processing and analysis methods</p>
+                        <a href="#" class="btn btn-primary-custom btn-sm">
+                            <i class="fas fa-file-alt mr-2"></i>View Docs
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h5>GitHub Repository</h5>
+                        <p class="small">Access our complete codebase, data processing scripts, and models</p>
+                        <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor" class="btn btn-primary-custom btn-sm" target="_blank">
+                            <i class="fab fa-github mr-2"></i>Visit Repo
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h5>FAQ & Support</h5>
+                        <p class="small">Common questions about the data and how to use it effectively</p>
+                        <a href="#" class="btn btn-primary-custom btn-sm">
+                            <i class="fas fa-question mr-2"></i>Get Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Mind Health Analytics. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0">Data updated: December 2025 | API Status: <span class="text-success">● Operational</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1/slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- Tableau JavaScript API -->
     <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    
     <script type="text/javascript">
         function initViz() {
             var containerDiv = document.getElementById("vizContainer"),
                 url = "https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard?:language=en&:display_count=y&publish=yes&:origin=viz_share_link",
                 options = {
                     hideTabs: true,
+                    hideToolbar: false,
+                    width: "100%",
+                    height: "1000px",
                     onFirstInteractive: function() {
-                        console.log("Run this code when the viz has finished loading.");
+                        console.log("Tableau dashboard loaded successfully.");
+                        // Add loading indicator removal here
+                        document.querySelector('.viz-container-wrapper').classList.add('loaded');
                     }
                 };
 
             var viz = new tableau.Viz(containerDiv, url, options);
-            // Create a viz object and embed it in the container div.
-        };
+        }
 
-        initViz();
+        // Initialize Tableau viz when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initViz();
+            
+            // Add smooth scroll animations
+            const elements = document.querySelectorAll('.feature-card, .data-source-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+            
+            // Add download button functionality
+            document.querySelectorAll('.btn-download').forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.textContent.trim();
+                    alert(`Download action: ${action}\n\nNote: Export functionality would be implemented with Tableau JavaScript API.`);
+                });
+            });
+            
+            // Add API endpoint copy functionality
+            document.querySelectorAll('.endpoint-url').forEach(endpoint => {
+                endpoint.addEventListener('click', function() {
+                    const text = this.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        const original = this.textContent;
+                        this.textContent = 'Copied!';
+                        this.style.color = '#43a047';
+                        setTimeout(() => {
+                            this.textContent = original;
+                            this.style.color = '#1a237e';
+                        }, 2000);
+                    });
+                });
+                endpoint.style.cursor = 'pointer';
+                endpoint.title = 'Click to copy';
+            });
+        });
     </script>
-    <br>
-    <br>
-
-
-    <footer> </footer>
-
 </body>
 
 </html>
-
-
-</script>
