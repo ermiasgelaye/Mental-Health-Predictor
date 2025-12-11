@@ -29,7 +29,9 @@
             padding: 3rem 0;
             margin-bottom: 3rem;
             border-radius: 0 0 20px 20px;
+        
         }
+        
         
         .viz-navigation {
             background: white;
@@ -38,6 +40,7 @@
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid #eaeaea;
+            width: 1360px;
         }
         
         .viz-preview {
@@ -171,7 +174,8 @@
             margin: 2rem auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.05);
-            min-height: 800px;
+            min-height: 1760px;
+            width: 1360px;
             position: relative;
         }
         
@@ -187,6 +191,7 @@
             justify-content: center;
             z-index: 10;
             border-radius: 15px;
+            
         }
         
         .loading-spinner {
@@ -209,6 +214,8 @@
             padding: 1.5rem;
             margin: 1rem 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 1360px;
+            
         }
         
         .control-group {
@@ -293,7 +300,7 @@
             
             .viz-container-wrapper {
                 padding: 1rem;
-                min-height: 600px;
+                min-height: 1760px;
             }
         }
     </style>
@@ -411,14 +418,7 @@
                 <p id="currentVizDescription">Exploring mental health patterns and suicide rates across different regions and demographics.</p>
             </div>
             
-            <div class="viz-preview" id="vizPreview">
-                <img src="../static/images/dashboard-preview.jpg" alt="Dashboard Preview" class="viz-thumbnail">
-                <div class="viz-overlay">
-                    <button class="btn-viz btn-lg">
-                        <i class="fas fa-expand mr-2"></i>View Fullscreen
-                    </button>
-                </div>
-            </div>
+
         </div>
 
         <!-- Interactive Visualization Container -->
@@ -444,30 +444,7 @@
                     </button>
                 </div>
                 
-                <div class="download-options">
-                    <button class="btn-viz" onclick="exportViz('image')">
-                        <i class="fas fa-image mr-2"></i>Save Image
-                    </button>
-                    <button class="btn-viz" onclick="exportViz('pdf')">
-                        <i class="fas fa-file-pdf mr-2"></i>Export PDF
-                    </button>
-                    <button class="btn-viz" onclick="exportViz('data')">
-                        <i class="fas fa-file-csv mr-2"></i>Export Data
-                    </button>
-                </div>
             </div>
-            
-            <div class="form-group mt-3">
-                <label for="vizFilter"><i class="fas fa-filter mr-2"></i>Filter Options</label>
-                <select class="form-control" id="vizFilter" onchange="applyFilter(this.value)">
-                    <option value="all">Show All Data</option>
-                    <option value="high">High Suicide Rate Countries</option>
-                    <option value="low">Low Suicide Rate Countries</option>
-                    <option value="developed">Developed Countries</option>
-                    <option value="developing">Developing Countries</option>
-                </select>
-            </div>
-        </div>
 
         <!-- Key Insights -->
         <div class="content-box">
@@ -608,16 +585,16 @@
     // Tableau visualization configuration
     var vizList = [
         {
-            url: "https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link",
+            url: "https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
             title: "Regional Analysis",
             description: "Exploring mental health patterns and suicide rates across different regions and demographics with geographic visualizations.",
-            thumbnail: "../static/images/dashboard1-preview.jpg"
+            thumbnail: "../static/images/dashboard1.jpg"
         },
         {
-            url: "https://public.tableau.com/shared/C2T5TMT2J?:display_count=y&:origin=viz_share_link",
+            url: "https://public.tableau.com/views/mentalhelath_2/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
             title: "Detailed Insights",
             description: "Detailed analysis of socio-economic factors, temporal trends, and demographic variations in suicide rates.",
-            thumbnail: "../static/images/dashboard2-preview.jpg"
+            thumbnail: "../static/images/dashboard2.jpg"
         }
     ];
 
@@ -638,8 +615,8 @@
         var options = {
             hideTabs: true,
             hideToolbar: false,
-            width: "100%",
-            height: "800px",
+            width: "1300px",
+            height: "1760px",
             onFirstInteractive: function() {
                 console.log("Tableau dashboard loaded successfully.");
                 loadingDiv.style.display = 'none';
