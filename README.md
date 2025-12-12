@@ -101,7 +101,7 @@ The OSMI Mental Health in Tech Survey provides aggregated survey data related to
 
 ## Deployment and Presentation
 
-The application is deployed and accessible at:  
+The application is deployed at:  
 https://mindyourhealth.herokuapp.com/
 
 Presentation slides are available at:  
@@ -125,11 +125,11 @@ Following data cleaning and integration, exploratory data analysis was conducted
 
 Several machine learning models were applied to explore relationships between suicide mortality rates and contextual indicators, including:
 
-- Linear Regression
-- Logistic Regression
-- Support Vector Machines
-- Decision Trees
-- Random Forests
+- Linear Regression  
+- Logistic Regression  
+- Support Vector Machines  
+- Decision Trees  
+- Random Forests  
 
 These models were used to compare relative performance and identify recurring patterns rather than to produce operational predictions.
 
@@ -184,6 +184,8 @@ While data limitations and contextual variability constrain interpretation, popu
 - National Alliance on Mental Health. (2013). Mental Health Conditions.  
 - Szanto, K. (2017). Cognitive deficits as contributors to suicide. *American Journal of Geriatric Psychiatry, 25*(6), 630–632.  
 - World Bank. (2020). World Development Indicators.  
-- World Health Organization. (2019). Suicide Fact Sheet.  
+- World Health Organization. (2019). Suicide Fact Sheet.
+
 - World Health Organization. (2020). Mental Health.  
 - World Health Organization. (2017). Depression and other common mental disorders.
+
