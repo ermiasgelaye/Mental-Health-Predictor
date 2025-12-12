@@ -4,23 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Mental Health Data Explorer - Interactive Data Tables and Visualizations">
-    <meta name="keywords" content="mental health data, suicide statistics, health indicators, data exploration">
-    
+
+    <!-- Updated meta text (ethical, prevention-first framing) -->
+    <meta name="description" content="Data Explorer - Mental Health Risk Indicators to Inform Suicide Prevention (Population-Level Data)">
+    <meta name="keywords" content="mental health, suicide prevention, risk indicators, public health, health indicators, data exploration, socio-economic indicators">
+
     <title>Data Explorer | Mind Health Analytics</title>
 
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
 
     <!-- Favicon -->
     <link rel="icon" href="../static/images/logo1.png" type="image/png">
-    
+
     <style>
         /* Data-specific styles */
         .data-header {
@@ -30,7 +32,7 @@
             margin-bottom: 3rem;
             border-radius: 0 0 20px 20px;
         }
-        
+
         .data-source-card {
             background: white;
             border-radius: 15px;
@@ -41,47 +43,47 @@
             transition: all 0.3s ease;
             border-left: 4px solid #4fc3f7;
         }
-        
+
         .data-source-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.12);
         }
-        
+
         .data-stats {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin: 2rem 0;
         }
-        
+
         .data-stat {
             text-align: center;
             padding: 1.5rem;
             flex: 1;
             min-width: 200px;
         }
-        
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
             color: #1a237e;
             display: block;
         }
-        
+
         .stat-label {
             color: #666;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .api-endpoints {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 1.5rem;
             margin: 2rem 0;
         }
-        
+
         .endpoint {
             background: white;
             border: 1px solid #dee2e6;
@@ -92,7 +94,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .endpoint-method {
             background: #1a237e;
             color: white;
@@ -101,26 +103,26 @@
             font-size: 0.8rem;
             font-weight: bold;
         }
-        
+
         .endpoint-url {
             font-family: 'Courier New', monospace;
             color: #1a237e;
         }
-        
+
         .data-insights {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
         }
-        
+
         .download-options {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin-top: 1rem;
         }
-        
+
         .btn-download {
             background: #4fc3f7;
             color: white;
@@ -130,12 +132,12 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn-download:hover {
             background: #1a237e;
             transform: translateY(-2px);
         }
-        
+
         /* Tableau viz container */
         .viz-container-wrapper {
             background: white;
@@ -145,7 +147,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.05);
         }
-        
+
         /* Data quality indicators */
         .quality-indicator {
             display: inline-block;
@@ -155,37 +157,37 @@
             font-weight: 500;
             margin: 0.2rem;
         }
-        
+
         .quality-good {
             background: #d4edda;
             color: #155724;
         }
-        
+
         .quality-medium {
             background: #fff3cd;
             color: #856404;
         }
-        
+
         .quality-improvement {
             background: #f8d7da;
             color: #721c24;
         }
-        
+
         @media (max-width: 768px) {
             .data-stats {
                 flex-direction: column;
             }
-            
+
             .data-stat {
                 min-width: 100%;
                 margin: 0.5rem 0;
             }
-            
+
             .endpoint {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .endpoint div {
                 margin: 0.3rem 0;
             }
@@ -212,7 +214,7 @@
                             <i class="fas fa-home mr-1"></i>Home
                         </a>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="visualizationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-chart-bar mr-1"></i>Visualizations
@@ -226,7 +228,7 @@
                             </a>
                         </div>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle enhanced-nav-link active" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-code mr-1"></i>API
@@ -262,8 +264,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 font-weight-bold mb-3">Mental Health Data Explorer</h1>
-                    <p class="lead mb-4">Interactive exploration of mental health survey data and socio-economic indicators across countries</p>
+                    <h1 class="display-4 font-weight-bold mb-3">Data Explorer</h1>
+                    <p class="lead mb-3">
+                        Explore mental health indicators and socio-economic context across countries to support prevention-focused insights.
+                    </p>
+                    <p class="mb-0" style="opacity: 0.9; font-size: 0.95rem;">
+                        <strong>Note:</strong> This page presents population-level data for research and public health planning. It is not intended for individual-level prediction or clinical decision-making.
+                    </p>
                 </div>
                 <div class="col-lg-4 text-right">
                     <div class="data-stats">
@@ -286,7 +293,7 @@
         <!-- Data Overview -->
         <div class="content-box">
             <h2 class="section-title">Dataset Overview</h2>
-            
+
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="data-source-card">
@@ -296,20 +303,22 @@
                             </div>
                             <h4 class="mb-0">OSMI Tech Mental Health Survey</h4>
                         </div>
-                        <p>Comprehensive survey data focusing on mental health in technology workplace environments. Contains employee responses regarding mental health awareness, support, and workplace culture.</p>
-                        
+                        <p>
+                            Survey data focused on mental health experiences in technology workplace environments, including perceptions of support, openness, and workplace culture.
+                        </p>
+
                         <div class="mb-3">
                             <span class="quality-indicator quality-good">2014-2019</span>
                             <span class="quality-indicator quality-medium">1,433 Responses</span>
                             <span class="quality-indicator quality-good">27 Variables</span>
                         </div>
-                        
+
                         <a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey/home" class="btn btn-primary-custom btn-sm" target="_blank">
                             <i class="fas fa-external-link-alt mr-2"></i>Source Details
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="data-source-card">
                         <div class="d-flex align-items-center mb-3">
@@ -318,30 +327,32 @@
                             </div>
                             <h4 class="mb-0">World Development Indicators</h4>
                         </div>
-                        <p>World Bank's comprehensive socio-economic indicators across countries including GDP, education, healthcare access, and suicide mortality rates per 100,000 population.</p>
-                        
+                        <p>
+                            World Bank socio-economic indicators across countries (e.g., GDP, education, healthcare access) including population-level suicide mortality metrics (per 100,000 population) used for public health analysis.
+                        </p>
+
                         <div class="mb-3">
                             <span class="quality-indicator quality-good">2000-2017</span>
                             <span class="quality-indicator quality-good">200+ Countries</span>
                             <span class="quality-indicator quality-medium">25+ Indicators</span>
                         </div>
-                        
+
                         <a href="https://databank.worldbank.org/source/world-development-indicators" class="btn btn-primary-custom btn-sm" target="_blank">
                             <i class="fas fa-external-link-alt mr-2"></i>Source Details
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="data-insights">
-                <h4 class="mb-3"><i class="fas fa-lightbulb mr-2"></i>Key Insights from Our Data</h4>
+                <h4 class="mb-3"><i class="fas fa-lightbulb mr-2"></i>What This Data Can Help Explore</h4>
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <div class="d-flex align-items-start">
                             <i class="fas fa-chart-line text-primary mt-1 mr-3"></i>
                             <div>
-                                <h6>Suicide Rate Correlation</h6>
-                                <p class="small mb-0">Strong correlation found between social insurance coverage and suicide rates</p>
+                                <h6>Population-Level Associations</h6>
+                                <p class="small mb-0">Explore how social protection and other contextual indicators relate to suicide mortality patterns.</p>
                             </div>
                         </div>
                     </div>
@@ -349,8 +360,8 @@
                         <div class="d-flex align-items-start">
                             <i class="fas fa-graduation-cap text-primary mt-1 mr-3"></i>
                             <div>
-                                <h6>Education Impact</h6>
-                                <p class="small mb-0">Higher basic education levels correlate with lower suicide mortality rates</p>
+                                <h6>Education & Social Determinants</h6>
+                                <p class="small mb-0">Examine how education indicators align with population-level outcomes across countries.</p>
                             </div>
                         </div>
                     </div>
@@ -358,8 +369,8 @@
                         <div class="d-flex align-items-start">
                             <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
                             <div>
-                                <h6>Geographic Patterns</h6>
-                                <p class="small mb-0">Clear regional variations in mental health indicators and suicide rates</p>
+                                <h6>Regional Patterns</h6>
+                                <p class="small mb-0">Identify regional variation in indicators and outcomes to support prevention planning.</p>
                             </div>
                         </div>
                     </div>
@@ -370,21 +381,21 @@
         <!-- API Access -->
         <div class="content-box">
             <h2 class="section-title">API Access</h2>
-            <p class="mb-4">Access our cleaned and processed data through our REST API endpoints for your own analysis and applications.</p>
-            
+            <p class="mb-4">Access cleaned and processed datasets through these REST API endpoints for your own analysis and applications.</p>
+
             <div class="api-endpoints">
                 <h5 class="mb-3"><i class="fas fa-cloud mr-2"></i>Available Endpoints</h5>
-                
+
                 <div class="endpoint">
                     <div>
                         <span class="endpoint-method">GET</span>
                         <span class="endpoint-url ml-3">/mental_health</span>
                     </div>
                     <div>
-                        <span class="text-muted">Returns complete mental health survey dataset</span>
+                        <span class="text-muted">Returns the mental health survey dataset</span>
                     </div>
                 </div>
-                
+
                 <div class="endpoint">
                     <div>
                         <span class="endpoint-method">GET</span>
@@ -394,7 +405,7 @@
                         <span class="text-muted">Returns World Bank development indicators</span>
                     </div>
                 </div>
-                
+
                 <div class="endpoint">
                     <div>
                         <span class="endpoint-method">GET</span>
@@ -404,7 +415,7 @@
                         <span class="text-muted">API health check and status</span>
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <h6>Usage Example:</h6>
                     <pre style="background: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto;">
@@ -422,12 +433,12 @@ fetch('/mental_health')
         <!-- Interactive Data Table -->
         <div class="content-box">
             <h2 class="section-title">Interactive Data Explorer</h2>
-            <p class="mb-4">Explore our combined dataset through the interactive Tableau dashboard below. Filter, sort, and analyze the data directly in your browser.</p>
-            
+            <p class="mb-4">Explore the datasets through the interactive Tableau view below. Filter, sort, and inspect the data directly in your browser.</p>
+
             <div class="viz-container-wrapper">
                 <div id="vizContainer" style="width:100%; height:1000px;"></div>
             </div>
-            
+
             <div class="viz-controls mt-4 text-center">
                 <h5 class="mb-3">Dashboard Controls</h5>
                 <div class="mb-3">
@@ -436,14 +447,12 @@ fetch('/mental_health')
                     <span class="quality-indicator quality-good">Export Options</span>
                 </div>
             </div>
-
-            
         </div>
 
         <!-- Data Quality & Limitations -->
         <div class="content-box">
             <h2 class="section-title">Data Quality & Limitations</h2>
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <h5 class="mb-3"><i class="fas fa-check-circle text-success mr-2"></i>Strengths</h5>
@@ -454,7 +463,7 @@ fetch('/mental_health')
                         <li><strong>Public Access:</strong> Open data sources with transparent methodologies</li>
                     </ul>
                 </div>
-                
+
                 <div class="col-md-6">
                     <h5 class="mb-3"><i class="fas fa-exclamation-triangle text-warning mr-2"></i>Limitations</h5>
                     <ul>
@@ -465,17 +474,17 @@ fetch('/mental_health')
                     </ul>
                 </div>
             </div>
-            
+
             <div class="alert alert-info mt-4">
                 <i class="fas fa-info-circle mr-2"></i>
-                <strong>Note:</strong> All data has been cleaned and processed for consistency. Original data sources should be consulted for methodology details and raw data.
+                <strong>Note:</strong> Data is cleaned and processed for consistency. Consult original sources for methodology details and raw data.
             </div>
         </div>
 
         <!-- Related Resources -->
         <div class="content-box">
             <h2 class="section-title">Related Resources</h2>
-            
+
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="feature-card">
@@ -483,26 +492,26 @@ fetch('/mental_health')
                             <i class="fas fa-book"></i>
                         </div>
                         <h5>Methodology Documentation</h5>
-                        <p class="small">Detailed explanation of our data processing and analysis methods</p>
+                        <p class="small">Detailed explanation of data processing and analysis methods</p>
                         <a href="#" class="btn btn-primary-custom btn-sm">
                             <i class="fas fa-file-alt mr-2"></i>View Docs
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
                             <i class="fas fa-code-branch"></i>
                         </div>
                         <h5>GitHub Repository</h5>
-                        <p class="small">Access our complete codebase, data processing scripts, and models</p>
+                        <p class="small">Access the codebase, data processing scripts, and models</p>
                         <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor" class="btn btn-primary-custom btn-sm" target="_blank">
                             <i class="fab fa-github mr-2"></i>Visit Repo
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
@@ -537,13 +546,13 @@ fetch('/mental_health')
     <script src="https://code.jquery.com/jquery-3.3.1/slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+
     <!-- Tableau JavaScript API -->
     <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    
+
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    
+
     <script type="text/javascript">
         function initViz() {
             var containerDiv = document.getElementById("vizContainer"),
@@ -555,7 +564,6 @@ fetch('/mental_health')
                     height: "1000px",
                     onFirstInteractive: function() {
                         console.log("Tableau dashboard loaded successfully.");
-                        // Add loading indicator removal here
                         document.querySelector('.viz-container-wrapper').classList.add('loaded');
                     }
                 };
@@ -563,13 +571,11 @@ fetch('/mental_health')
             var viz = new tableau.Viz(containerDiv, url, options);
         }
 
-        // Initialize Tableau viz when page loads
         document.addEventListener('DOMContentLoaded', function() {
             initViz();
-            
-            // Add smooth scroll animations
+
             const elements = document.querySelectorAll('.feature-card, .data-source-card');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -578,23 +584,21 @@ fetch('/mental_health')
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             elements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease';
                 observer.observe(el);
             });
-            
-            // Add download button functionality
+
             document.querySelectorAll('.btn-download').forEach(button => {
                 button.addEventListener('click', function() {
                     const action = this.textContent.trim();
                     alert(`Download action: ${action}\n\nNote: Export functionality would be implemented with Tableau JavaScript API.`);
                 });
             });
-            
-            // Add API endpoint copy functionality
+
             document.querySelectorAll('.endpoint-url').forEach(endpoint => {
                 endpoint.addEventListener('click', function() {
                     const text = this.textContent;
