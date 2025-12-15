@@ -173,6 +173,20 @@
             color: #721c24;
         }
 
+        /* Fix for dropdown z-index issues */
+        .navbar-nav .dropdown-menu {
+            z-index: 10000 !important;
+        }
+        
+        .enhanced-dropdown {
+            z-index: 10001 !important;
+        }
+        
+        #vizContainer iframe {
+            z-index: 1 !important;
+            position: relative;
+        }
+
         @media (max-width: 768px) {
             .data-stats {
                 flex-direction: column;
@@ -230,7 +244,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle enhanced-nav-link active" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-code mr-1"></i>API
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
@@ -542,40 +556,60 @@ fetch('/mental_health')
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1/slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS - Use consistent jQuery version -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- Tableau JavaScript API -->
+    <!-- Tableau JavaScript API - Load after Bootstrap -->
     <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
 
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
     <script type="text/javascript">
-        function initViz() {
-            var containerDiv = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard?:language=en&:display_count=y&publish=yes&:origin=viz_share_link",
-                options = {
-                    hideTabs: true,
-                    hideToolbar: false,
-                    width: "100%",
-                    height: "1000px",
-                    onFirstInteractive: function() {
-                        console.log("Tableau dashboard loaded successfully.");
-                        document.querySelector('.viz-container-wrapper').classList.add('loaded');
-                    }
-                };
-
-            var viz = new tableau.Viz(containerDiv, url, options);
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initViz();
-
+        // Initialize Tableau after page loads
+        $(document).ready(function() {
+            console.log("DOM ready - initializing navigation and Tableau");
+            
+            // Initialize Tableau viz after a slight delay
+            setTimeout(function() {
+                initViz();
+            }, 500);
+            
+            // Fix navigation dropdowns
+            $('.dropdown-toggle').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $this = $(this);
+                var $parent = $this.closest('.dropdown');
+                var $dropdown = $this.next('.dropdown-menu');
+                
+                // Close other dropdowns
+                $('.dropdown-menu').not($dropdown).removeClass('show');
+                $('.dropdown').not($parent).removeClass('show');
+                
+                // Toggle current dropdown
+                $dropdown.toggleClass('show');
+                $parent.toggleClass('show');
+            });
+            
+            // Close dropdown when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.dropdown').length) {
+                    $('.dropdown-menu').removeClass('show');
+                    $('.dropdown').removeClass('show');
+                }
+            });
+            
+            // Fix active link state
+            $('.nav-link').removeClass('active');
+            $('.nav-link[href="/data"]').addClass('active');
+            $('.dropdown-item').removeClass('active');
+            
+            // Animation for cards
             const elements = document.querySelectorAll('.feature-card, .data-source-card');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -592,31 +626,66 @@ fetch('/mental_health')
                 observer.observe(el);
             });
 
-            document.querySelectorAll('.btn-download').forEach(button => {
-                button.addEventListener('click', function() {
-                    const action = this.textContent.trim();
-                    alert(`Download action: ${action}\n\nNote: Export functionality would be implemented with Tableau JavaScript API.`);
-                });
+            // Add click handlers for download buttons
+            $('.btn-download').on('click', function() {
+                const action = $(this).text().trim();
+                alert(`Download action: ${action}\n\nNote: Export functionality would be implemented with Tableau JavaScript API.`);
             });
 
-            document.querySelectorAll('.endpoint-url').forEach(endpoint => {
-                endpoint.addEventListener('click', function() {
-                    const text = this.textContent;
-                    navigator.clipboard.writeText(text).then(() => {
-                        const original = this.textContent;
-                        this.textContent = 'Copied!';
-                        this.style.color = '#43a047';
-                        setTimeout(() => {
-                            this.textContent = original;
-                            this.style.color = '#1a237e';
-                        }, 2000);
-                    });
+            // Add copy functionality for endpoints
+            $('.endpoint-url').on('click', function() {
+                const text = $(this).text();
+                navigator.clipboard.writeText(text).then(() => {
+                    const original = $(this).text();
+                    $(this).text('Copied!').css('color', '#43a047');
+                    setTimeout(() => {
+                        $(this).text(original).css('color', '#1a237e');
+                    }, 2000);
                 });
-                endpoint.style.cursor = 'pointer';
-                endpoint.title = 'Click to copy';
-            });
+            }).css('cursor', 'pointer').attr('title', 'Click to copy');
+        });
+
+        function initViz() {
+            console.log("Initializing Tableau visualization");
+            var containerDiv = document.getElementById("vizContainer");
+            
+            if (!containerDiv) {
+                console.error("Viz container not found");
+                return;
+            }
+            
+            // Clear any existing content
+            containerDiv.innerHTML = '';
+            
+            var url = "https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard?:language=en&:display_count=y&publish=yes&:origin=viz_share_link";
+            var options = {
+                hideTabs: true,
+                hideToolbar: false,
+                width: "100%",
+                height: "1000px",
+                onFirstInteractive: function() {
+                    console.log("Tableau dashboard loaded successfully.");
+                    $('.viz-container-wrapper').addClass('loaded');
+                },
+                onFirstVizSizeKnown: function(event) {
+                    console.log("Tableau visualization size known:", event);
+                }
+            };
+
+            try {
+                var viz = new tableau.Viz(containerDiv, url, options);
+                console.log("Tableau Viz object created");
+            } catch (error) {
+                console.error("Error loading Tableau visualization:", error);
+                containerDiv.innerHTML = '<div class="alert alert-warning">Unable to load Tableau visualization. Please try refreshing the page or check your internet connection.</div>';
+            }
+        }
+        
+        // Handle window resize
+        $(window).on('resize', function() {
+            console.log("Window resized");
+            // You could add responsive adjustments here if needed
         });
     </script>
 </body>
-
 </html>
