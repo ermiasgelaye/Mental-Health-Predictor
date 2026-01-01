@@ -4,23 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Machine Learning Analysis - Predicting Suicide Rates from Mental Health Risk Factors">
-    <meta name="keywords" content="machine learning, suicide prediction, mental health, data science, predictive modeling">
-    
+    <meta name="description"
+        content="Machine Learning Analysis - Predicting Suicide Rates from Mental Health Risk Factors">
+    <meta name="keywords"
+        content="machine learning, suicide prediction, mental health, data science, predictive modeling">
+
     <title>Machine Learning Analysis | Mind Health Analytics</title>
 
     <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
 
     <!-- Favicon -->
     <link rel="icon" href="../static/images/logo1.png" type="image/png">
-    
+
     <style>
         /* ML-specific styles */
         .ml-header {
@@ -30,51 +33,51 @@
             margin-bottom: 3rem;
             border-radius: 0 0 20px 20px;
         }
-        
+
         .model-card {
             background: white;
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid #eaeaea;
             transition: all 0.3s ease;
             border-top: 4px solid #4fc3f7;
         }
-        
+
         .model-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
-        
+
         .model-performance {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin: 1rem 0;
         }
-        
+
         .metric {
             text-align: center;
             padding: 1rem;
             flex: 1;
             min-width: 120px;
         }
-        
+
         .metric-value {
             font-size: 2rem;
             font-weight: bold;
             color: #1a237e;
             display: block;
         }
-        
+
         .metric-label {
             color: #666;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .algorithm-tag {
             display: inline-block;
             background: rgba(79, 195, 247, 0.15);
@@ -86,22 +89,22 @@
             color: #1a237e;
             font-weight: 500;
         }
-        
+
         .visualization-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
-        
+
         .viz-card {
             background: white;
             border-radius: 10px;
             padding: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             border: 1px solid #eaeaea;
         }
-        
+
         .viz-title {
             color: #1a237e;
             font-weight: 600;
@@ -109,14 +112,14 @@
             font-size: 1.1rem;
             text-align: center;
         }
-        
+
         .ml-phase {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
         }
-        
+
         .phase-number {
             display: inline-block;
             width: 40px;
@@ -129,7 +132,7 @@
             font-weight: bold;
             margin-right: 1rem;
         }
-        
+
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -137,25 +140,25 @@
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
-        
+
         .comparison-table th {
             background: #1a237e;
             color: white;
             padding: 1rem;
             text-align: left;
         }
-        
+
         .comparison-table td {
             padding: 1rem;
             border-bottom: 1px solid #eaeaea;
         }
-        
+
         .comparison-table tr:hover {
             background: #f8f9fa;
         }
-        
+
         .accuracy-badge {
             display: inline-block;
             padding: 0.3rem 0.8rem;
@@ -163,29 +166,29 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-        
+
         .accuracy-high {
             background: #d4edda;
             color: #155724;
         }
-        
+
         .accuracy-medium {
             background: #fff3cd;
             color: #856404;
         }
-        
+
         .accuracy-low {
             background: #f8d7da;
             color: #721c24;
         }
-        
+
         .feature-importance {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 1.5rem;
             margin: 1rem 0;
         }
-        
+
         .feature-bar {
             height: 25px;
             background: #4fc3f7;
@@ -194,12 +197,12 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .feature-bar:hover {
             transform: translateX(5px);
             background: #1a237e;
         }
-        
+
         .feature-label {
             position: absolute;
             left: 10px;
@@ -209,7 +212,7 @@
             font-weight: 500;
             font-size: 0.9rem;
         }
-        
+
         .conclusion-box {
             background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             color: white;
@@ -217,31 +220,31 @@
             padding: 2.5rem;
             margin: 2rem 0;
         }
-        
+
         @media (max-width: 992px) {
             .visualization-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .model-performance {
                 flex-direction: column;
             }
-            
+
             .metric {
                 min-width: 100%;
                 margin: 0.5rem 0;
             }
         }
-        
+
         @media (max-width: 768px) {
             .ml-header h1 {
                 font-size: 1.8rem;
             }
-            
+
             .model-card {
                 padding: 1.5rem;
             }
-            
+
             .viz-card {
                 padding: 1rem;
             }
@@ -257,7 +260,8 @@
                 <i class="fas fa-brain mr-2"></i> Mind Health Analytics
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -268,9 +272,11 @@
                             <i class="fas fa-home mr-1"></i>Home
                         </a>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle enhanced-nav-link active" href="#" id="visualizationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle enhanced-nav-link active" href="#"
+                            id="visualizationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             <i class="fas fa-chart-bar mr-1"></i>Visualizations
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
@@ -282,9 +288,10 @@
                             </a>
                         </div>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="apiDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-code mr-1"></i>API
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
@@ -297,6 +304,7 @@
                         </div>
                     </li>
 
+
                     <li class="nav-item">
                         <a class="nav-link enhanced-nav-link" href="/data">
                             <i class="fas fa-database mr-1"></i>Data
@@ -304,7 +312,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank">
+                        <a class="nav-link enhanced-nav-link"
+                            href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank">
                             <i class="fab fa-github mr-1"></i>Our Repo
                         </a>
                     </li>
@@ -319,7 +328,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <h1 class="display-4 font-weight-bold mb-3">Machine Learning Analysis</h1>
-                    <p class="lead mb-4">Predicting suicide rates using various ML models and analyzing feature importance</p>
+                    <p class="lead mb-4">Predicting suicide rates using various ML models and analyzing feature
+                        importance</p>
                 </div>
                 <div class="col-lg-4">
                     <div class="model-performance">
@@ -346,8 +356,10 @@
         <!-- Introduction -->
         <div class="content-box">
             <h2 class="section-title">1. Introduction</h2>
-            <p>In this project we used various machine learning models to train and test data for predicting suicide mortality rates from various macro socio-economic factors at the national level. We employed multiple algorithms to compare their effectiveness and identify the most significant predictors.</p>
-            
+            <p>In this project we used various machine learning models to train and test data for predicting suicide
+                mortality rates from various macro socio-economic factors at the national level. We employed multiple
+                algorithms to compare their effectiveness and identify the most significant predictors.</p>
+
             <div class="ml-phase">
                 <div class="d-flex align-items-center mb-3">
                     <span class="phase-number">1</span>
@@ -360,28 +372,34 @@
                     <span class="algorithm-tag">Decision Tree</span>
                     <span class="algorithm-tag">Random Forest</span>
                 </div>
-                <p>We noticed similar reappearing patterns that serve importance when predicting suicide mortality rates from various macro socio-economic factors.</p>
+                <p>We noticed similar reappearing patterns that serve importance when predicting suicide mortality rates
+                    from various macro socio-economic factors.</p>
             </div>
         </div>
 
         <!-- Data Pre-processing -->
         <div class="content-box">
             <h2 class="section-title">2. Data Pre-processing</h2>
-            <p>The first step in our analysis was to clean and pre-process our dataset to make it ready for machine learning analysis. We cleaned, explored, and visualized the data, with pre-processing normalizing the data for ML analysis.</p>
-            
-            <p>Before the ML analysis, we examined correlations between factors on Suicide mortality rate per 100,000 people.</p>
-            
+            <p>The first step in our analysis was to clean and pre-process our dataset to make it ready for machine
+                learning analysis. We cleaned, explored, and visualized the data, with pre-processing normalizing the
+                data for ML analysis.</p>
+
+            <p>Before the ML analysis, we examined correlations between factors on Suicide mortality rate per 100,000
+                people.</p>
+
             <div class="visualization-grid">
                 <div class="viz-card">
                     <h5 class="viz-title">Correlation Heatmap</h5>
-                    <img src="../static/images/corr.png" alt="Correlation Heatmap" class="enhanced-image" style="width: 100%; height: auto;">
+                    <img src="../static/images/corr.png" alt="Correlation Heatmap" class="enhanced-image"
+                        style="width: 100%; height: auto;">
                 </div>
                 <div class="viz-card">
                     <h5 class="viz-title">Correlation Matrix</h5>
-                    <img src="../static/images/corrmatt.png" alt="Correlation Matrix" class="enhanced-image" style="width: 100%; height: auto;">
+                    <img src="../static/images/corrmatt.png" alt="Correlation Matrix" class="enhanced-image"
+                        style="width: 100%; height: auto;">
                 </div>
             </div>
-            
+
             <div class="feature-importance mt-4">
                 <h5 class="mb-3"><i class="fas fa-chart-line mr-2"></i>Key Correlation Findings</h5>
                 <div class="feature-bar" style="width: 50%;">
@@ -390,15 +408,17 @@
                 <div class="feature-bar" style="width: 50%;">
                     <span class="feature-label">Basic Education (-0.5)</span>
                 </div>
-                <p class="mt-3 small">Positive correlation with social insurance programs and negative correlation with basic education levels suggest complex socio-economic relationships with suicide rates.</p>
+                <p class="mt-3 small">Positive correlation with social insurance programs and negative correlation with
+                    basic education levels suggest complex socio-economic relationships with suicide rates.</p>
             </div>
         </div>
 
         <!-- Part 1: Regression Models -->
         <div class="content-box">
             <h2 class="section-title">3.1 Part One: Regression Models</h2>
-            <p class="mb-4">Linear Regression, Decision Tree Regression, and Support Vector Regression (SVR) were used to estimate the suicide mortality rate (continuous dependent variable) based on predictor variables.</p>
-            
+            <p class="mb-4">Linear Regression, Decision Tree Regression, and Support Vector Regression (SVR) were used
+                to estimate the suicide mortality rate (continuous dependent variable) based on predictor variables.</p>
+
             <div class="model-card">
                 <div class="d-flex align-items-center mb-3">
                     <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; margin-right: 1rem;">
@@ -406,7 +426,7 @@
                     </div>
                     <h4 class="mb-0">Linear Regression Analysis</h4>
                 </div>
-                
+
                 <div class="model-performance">
                     <div class="metric">
                         <span class="metric-value">0.13</span>
@@ -421,140 +441,165 @@
                         <span class="metric-label">RMSE</span>
                     </div>
                 </div>
-                
+
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Residual Plot</h5>
-                        <img src="../static/images/Linear_re.png" alt="Linear Regression Residual Plot" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/Linear_re.png" alt="Linear Regression Residual Plot"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/Linear_re_importance.png" alt="Linear Regression Feature Importance" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/Linear_re_importance.png" alt="Linear Regression Feature Importance"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <h6>Interpretation:</h6>
-                    <p>The Residual Plot shows most testing data in the positive range while training data leans negative. Feature Importance shows the highest relative score at 3.56, with others ranging 0-1 or negative values.</p>
+                    <p>The Residual Plot shows most testing data in the positive range while training data leans
+                        negative. Feature Importance shows the highest relative score at 3.56, with others ranging 0-1
+                        or negative values.</p>
                 </div>
             </div>
-            
+
             <div class="alert alert-info mt-3">
                 <i class="fas fa-lightbulb mr-2"></i>
-                <strong>Key Finding:</strong> Support Vector Regression performed best among regression models with R² = 0.13 and MSE = 90.97, though overall regression performance was limited for this complex prediction task.
+                <strong>Key Finding:</strong> Support Vector Regression performed best among regression models with R² =
+                0.13 and MSE = 90.97, though overall regression performance was limited for this complex prediction
+                task.
             </div>
         </div>
 
         <!-- Part 2: Classification Models -->
         <div class="content-box">
             <h2 class="section-title">3.2 Part Two: Classification Models</h2>
-            <p>To test classification models, we grouped our continuous dependent variable ("Suicide_mortality_rate_per_100k") into two groups: below and above the mean value (11.5). Suicide mortality rate above 11.5 is classified as "High" and below 11.5 as "Low".</p>
-            
+            <p>To test classification models, we grouped our continuous dependent variable
+                ("Suicide_mortality_rate_per_100k") into two groups: below and above the mean value (11.5). Suicide
+                mortality rate above 11.5 is classified as "High" and below 11.5 as "Low".</p>
+
             <!-- Logistic Regression -->
             <div class="model-card">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; background: #4caf50; margin-right: 1rem;">
+                    <div class="feature-icon"
+                        style="width: 50px; height: 50px; font-size: 1.2rem; background: #4caf50; margin-right: 1rem;">
                         <i class="fas fa-sigma"></i>
                     </div>
                     <h4 class="mb-0">Logistic Regression</h4>
                     <span class="accuracy-badge accuracy-medium ml-3">Accuracy: 58%</span>
                 </div>
-                
+
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Classification Report</h5>
-                        <img src="../static/images/logistic_befor_classifier.png" alt="Logistic Regression Classifier" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/logistic_before_classifier.png" alt="Logistic Regression Classifier"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/logistic_importance.png" alt="Logistic Regression Feature Importance" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/logistic_importance.png" alt="Logistic Regression Feature Importance"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <h6>Analysis:</h6>
-                    <p>The bottom row shows stronger classification metrics with precision around 50-60% and recall at high completion rates. Feature importance peaks at 0.506 for the third feature.</p>
+                    <p>The bottom row shows stronger classification metrics with precision around 50-60% and recall at
+                        high completion rates. Feature importance peaks at 0.506 for the third feature.</p>
                 </div>
             </div>
-            
+
             <!-- Support Vector Machine -->
             <div class="model-card">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; background: #ff9800; margin-right: 1rem;">
+                    <div class="feature-icon"
+                        style="width: 50px; height: 50px; font-size: 1.2rem; background: #ff9800; margin-right: 1rem;">
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <h4 class="mb-0">Support Vector Machine</h4>
                     <span class="accuracy-badge accuracy-high ml-3">Accuracy: 72.2%</span>
                 </div>
-                
+
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Classification Report</h5>
-                        <img src="../static/images/svm_classifier.png" alt="SVM Classifier" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/svm_classifier.png" alt="SVM Classifier" class="enhanced-image"
+                            style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/svm_featureimportance.png" alt="SVM Feature Importance" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/svm_featureimportance.png" alt="SVM Feature Importance"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <h6>Analysis:</h6>
-                    <p>Bottom row metrics are strongest with 72% precision. Top metrics are also impressive. Feature importance shows the first feature at 100% importance, with others below 60%.</p>
+                    <p>Bottom row metrics are strongest with 72% precision. Top metrics are also impressive. Feature
+                        importance shows the first feature at 100% importance, with others below 60%.</p>
                 </div>
             </div>
-            
+
             <!-- Decision Tree -->
             <div class="model-card">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; background: #2196f3; margin-right: 1rem;">
+                    <div class="feature-icon"
+                        style="width: 50px; height: 50px; font-size: 1.2rem; background: #2196f3; margin-right: 1rem;">
                         <i class="fas fa-sitemap"></i>
                     </div>
                     <h4 class="mb-0">Decision Tree</h4>
                     <span class="accuracy-badge accuracy-medium ml-3">Accuracy: 62%</span>
                 </div>
-                
+
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Decision Tree Plot</h5>
-                        <img src="../static/images/tree.png" alt="Decision Tree" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/tree.png" alt="Decision Tree" class="enhanced-image"
+                            style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/decision_tree_importance.png" alt="Decision Tree Feature Importance" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/decision_tree_importance.png" alt="Decision Tree Feature Importance"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <h6>Analysis:</h6>
-                    <p>The plot tree shows root value [24, 16] with left branch (true path) decreasing to [2,0] and right branch (false path) ending at [0,8]. Feature importance peaks at 1.52 for the first feature.</p>
+                    <p>The plot tree shows root value [24, 16] with left branch (true path) decreasing to [2,0] and
+                        right branch (false path) ending at [0,8]. Feature importance peaks at 1.52 for the first
+                        feature.</p>
                 </div>
             </div>
-            
+
             <!-- Random Forest -->
             <div class="model-card">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem; background: #9c27b0; margin-right: 1rem;">
+                    <div class="feature-icon"
+                        style="width: 50px; height: 50px; font-size: 1.2rem; background: #9c27b0; margin-right: 1rem;">
                         <i class="fas fa-tree"></i>
                     </div>
                     <h4 class="mb-0">Random Forest</h4>
                     <span class="accuracy-badge accuracy-high ml-3">Accuracy: 66%</span>
                 </div>
-                
+
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Classification Report</h5>
-                        <img src="../static/images/randomforest_classifier.png" alt="Random Forest Classifier" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/randomforest_classifier.png" alt="Random Forest Classifier"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/rf_featureimportance.png" alt="Random Forest Feature Importance" class="enhanced-image" style="width: 100%; height: auto;">
+                        <img src="../static/images/rf_featureimportance.png" alt="Random Forest Feature Importance"
+                            class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <h6>Analysis:</h6>
-                    <p>Bottom row shows strongest metrics with 66% precision. Top row metrics are also good. Feature importance shows first feature at 100%, with remaining features below 20%.</p>
+                    <p>Bottom row shows strongest metrics with 66% precision. Top row metrics are also good. Feature
+                        importance shows first feature at 100%, with remaining features below 20%.</p>
                 </div>
             </div>
         </div>
@@ -562,12 +607,14 @@
         <!-- Model Comparison -->
         <div class="content-box">
             <h2 class="section-title">4. Model Comparison</h2>
-            <p>The findings from these models showed that the models' accuracy to predict the dependent variable varies, with Support Vector Machine performing best after grid search with 72.2% accuracy.</p>
-            
+            <p>The findings from these models showed that the models' accuracy to predict the dependent variable varies,
+                with Support Vector Machine performing best after grid search with 72.2% accuracy.</p>
+
             <div class="text-center mb-4">
-                <img src="../static/images/compare.png" alt="Model Comparison" class="enhanced-image" style="max-width: 800px; width: 100%;">
+                <img src="../static/images/compare.png" alt="Model Comparison" class="enhanced-image"
+                    style="max-width: 800px; width: 100%;">
             </div>
-            
+
             <h5 class="mb-3">Performance Summary</h5>
             <table class="comparison-table">
                 <thead>
@@ -622,8 +669,10 @@
         <!-- Conclusion -->
         <div class="conclusion-box">
             <h2 class="text-white mb-4"><i class="fas fa-flag-checkered mr-2"></i>5. Conclusion</h2>
-            <p>Mental health and suicide are both important cases to study because we continue to lose many lives to suicide worldwide. Our project focuses on identifying macro-level socio-economic factors that contribute to this complex problem.</p>
-            
+            <p>Mental health and suicide are both important cases to study because we continue to lose many lives to
+                suicide worldwide. Our project focuses on identifying macro-level socio-economic factors that contribute
+                to this complex problem.</p>
+
             <div class="row mt-4">
                 <div class="col-md-6">
                     <h5 class="text-white"><i class="fas fa-check-circle mr-2"></i>Key Findings</h5>
@@ -644,13 +693,17 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="mt-4 pt-3 border-top border-white" style="opacity: 0.7;">
-                <p class="mb-2"><strong>Future Directions:</strong> We believe that if socio-economic factors and policies toward mental health were changed systematically, suicide prevention could be improved. However, the issue remains complex and requires individual-level considerations alongside macro-level analysis.</p>
+                <p class="mb-2"><strong>Future Directions:</strong> We believe that if socio-economic factors and
+                    policies toward mental health were changed systematically, suicide prevention could be improved.
+                    However, the issue remains complex and requires individual-level considerations alongside
+                    macro-level analysis.</p>
             </div>
-            
+
             <div class="mt-4 text-center">
-                <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb" class="btn btn-light btn-lg" target="_blank">
+                <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb"
+                    class="btn btn-light btn-lg" target="_blank">
                     <i class="fas fa-code mr-2"></i>View Complete Code Analysis
                 </a>
             </div>
@@ -659,7 +712,7 @@
         <!-- Next Steps -->
         <div class="content-box">
             <h2 class="section-title">Next Steps & Resources</h2>
-            
+
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="feature-card">
@@ -673,7 +726,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
@@ -686,7 +739,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4 mb-4">
                     <div class="feature-card">
                         <div class="feature-icon" style="width: 50px; height: 50px; font-size: 1.2rem;">
@@ -718,19 +771,26 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1/slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    
+
     <script>
         // Animation and interactive features
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Animate elements on scroll
             const animatedElements = document.querySelectorAll('.model-card, .feature-card, .viz-card');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -739,37 +799,37 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             animatedElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease';
                 observer.observe(el);
             });
-            
+
             // Add hover effects to feature bars
             document.querySelectorAll('.feature-bar').forEach(bar => {
-                bar.addEventListener('mouseenter', function() {
+                bar.addEventListener('mouseenter', function () {
                     const width = this.style.width;
                     this.style.width = 'calc(' + width + ' + 5%)';
                 });
-                
-                bar.addEventListener('mouseleave', function() {
+
+                bar.addEventListener('mouseleave', function () {
                     const width = this.style.width;
                     this.style.width = width.replace('calc(', '').replace(' + 5%)', '');
                 });
             });
-            
+
             // Add clickable model cards
             document.querySelectorAll('.model-card').forEach(card => {
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     const modelName = this.querySelector('h4').textContent;
                     console.log(`Selected model: ${modelName}`);
                     // Could expand to show more details
                 });
                 card.style.cursor = 'pointer';
             });
-            
+
             // Performance metrics animation
             const metricValues = document.querySelectorAll('.metric-value');
             metricValues.forEach(metric => {
@@ -779,20 +839,20 @@
                     let targetValue = parseFloat(originalText);
                     let currentValue = 0;
                     const increment = targetValue / 50;
-                    
+
                     const timer = setInterval(() => {
                         currentValue += increment;
                         if (currentValue >= targetValue) {
                             currentValue = targetValue;
                             clearInterval(timer);
                         }
-                        metric.textContent = originalText.includes('%') 
+                        metric.textContent = originalText.includes('%')
                             ? currentValue.toFixed(1) + '%'
                             : currentValue.toFixed(2);
                     }, 30);
                 }
             });
-            
+
             // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -806,7 +866,7 @@
                     }
                 });
             });
-            
+
             // Add copy code functionality
             const codeBlocks = document.querySelectorAll('pre code');
             codeBlocks.forEach(block => {
@@ -816,7 +876,7 @@
                 button.style.top = '10px';
                 button.innerHTML = '<i class="fas fa-copy"></i>';
                 button.title = 'Copy code';
-                
+
                 button.addEventListener('click', () => {
                     navigator.clipboard.writeText(block.textContent).then(() => {
                         button.innerHTML = '<i class="fas fa-check"></i>';
@@ -825,7 +885,7 @@
                         }, 2000);
                     });
                 });
-                
+
                 if (block.parentNode.tagName === 'PRE') {
                     block.parentNode.style.position = 'relative';
                     block.parentNode.appendChild(button);
