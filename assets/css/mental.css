@@ -78,3 +78,12 @@
 .findings li > i { flex: 0 0 1.75rem; text-align: center; font-size: 1.05rem; margin-top: .2rem; }
 .findings li > div { min-width: 0; }
 .findings strong { display: block; margin-bottom: .15rem; }
+
+.map-scale .scale-bar.div { background: linear-gradient(90deg, var(--brand), var(--surface) 50%, var(--danger)); }
+.spark { margin: .25rem 0 .6rem; }
+.spark svg { display: block; background: var(--surface); border-radius: 6px; }
+.spark small { color: var(--ink-3); font-size: .78rem; font-variant-numeric: tabular-nums; }
+
+/* Data-table filters: long options (e.g. region names) must not widen the page on phones */
+.dt-toolbar select.input { max-width: 100%; min-width: 0; text-overflow: ellipsis; }
+@media (max-width: 575.98px) { .dt-toolbar select.input { flex: 1 1 100%; } }

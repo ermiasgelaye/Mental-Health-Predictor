@@ -26,7 +26,7 @@ This project addresses the following research question:
 
 ### Socio-Economic and Structural Indicators
 
-The analysis includes a range of national-level indicators, such as:
+The analysis includes national-level indicators (World Bank, 2000–2021), such as:
 
 - Economic development (GDP, GDP per capita)
 - Poverty and inequality measures
@@ -129,19 +129,22 @@ To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, fol
 - **46 World Bank aggregates** ("World", "High income", "Euro area" …) were mixed in with 217 countries; they're flagged and excluded from country statistics.
 - Suicide-rate data exists only for **2015–2016**, so country comparisons use that period.
 
-### Key findings (2026 re-analysis)
+### Key findings (2026 re-analysis, World Bank data 2000–2021)
 
 | # | Finding | Evidence |
 |---|---|---|
-| 1 | **Family history is the strongest predictor of having sought treatment.** | Adjusted odds ratio 4.53 (95% CI 3.46–5.93), multivariable logistic regression, n = 1,258. |
-| 2 | **Men have less than half the odds of women** of having sought treatment. | aOR 0.45 (0.32–0.63). Nationally, men die by suicide ~2.9× as often as women. |
-| 3 | **Workplace support matters after adjustment**; remote work and tech-company employment don't. | Knows care options aOR 2.24 (1.58–3.19); benefits 1.73 (1.18–2.54); remote 1.05, tech company 1.00 (n.s.). |
-| 4 | **"Work interference" leaks the outcome.** | People without a condition answer "NA"; including it lifts cross-validated AUC from 0.77 to 0.90. |
-| 5 | **World region explains 24% of differences in national suicide rates.** | One-way ANOVA (η² = 0.24, p < 0.001), 183 countries; Europe & Central Asia 13.6 vs Middle East & North Africa 4.3 per 100k. |
-| 6 | **Several indicator links are confounded by region.** | Social insurance: raw +3.1 per SD (p = 0.001) → region-adjusted +1.6 (p = 0.29). Survive: basic-education labour share (−2.7, p = 0.001), educational attainment (+2.2, p = 0.035), GDP (+1.2, p = 0.023). |
-| 7 | **National suicide rates can't be predicted well from these indicators.** | 10×5-fold cross-validated R² on all 183 countries: indicators 0.20, region alone 0.16, random forest 0.15. |
+| 1 | **Suicide rates fell 27% worldwide from 2000 to 2021** — but rose in North America (+33%) and Latin America (+26%). | Population-weighted WHO/World Bank estimates, 185 countries: 12.5 → 9.1 per 100k; falling in 124 countries. Largest falls: Russia (−31.7), Lithuania (−28.3); largest rises: Lesotho, Eswatini, South Korea. |
+| 2 | **Alcohol is the strongest country-level correlate that survives controlling for region.** | +1.9 deaths per 100k per SD of alcohol per capita (p < 0.001, 182 countries, 2017–19); stronger for men (r = 0.44) than women (0.29). Changes in drinking don't track changes in suicide (within-country p = 0.24). |
+| 3 | **The income paradox:** richer countries record higher rates, yet getting richer lowers them. | Cross-country +1.2 per SD (region-adjusted, p = 0.03); within countries (two-way fixed effects, clustered SEs) a tenfold GDP rise ≈ −2.9 per 100k (95% CI −4.7 to −1.1, p = 0.002). |
+| 4 | **Robust across samples:** where people with only basic education are more often working, rates are lower; primary-school completion and GDP go with higher recorded rates. | Significant after region control in both 2015–16 and 2017–19 samples. Social-insurance coverage and male labour participation are **not** robust (significance flips; coverage data for only 45–64 countries). |
+| 5 | **World region explains 18% of differences** between countries. | One-way ANOVA (2017–19), p < 0.001; Europe & Central Asia 12.1 vs Middle East & North Africa 3.4 per 100k. |
+| 6 | **Family history is the strongest predictor of having sought treatment** (OSMI survey). | Adjusted odds ratio 4.53 (95% CI 3.46–5.93), multivariable logistic regression, n = 1,258. |
+| 7 | **Men have less than half the odds of women** of having sought treatment; workplace support matters, remote work doesn't. | aOR 0.45 (0.32–0.63); knows care options 2.24, benefits 1.73; remote 1.05, tech company 1.00 (n.s.). Nationally, men die by suicide ~3.3× as often as women. |
+| 8 | **"Work interference" leaks the outcome** and **national rates can't be predicted well.** | AUC 0.77 without vs 0.90 with the leaky variable; cross-validated R² for national rates ≤ 0.17 (region alone 0.10). |
 
-Reproduce: `python3 tools/clean_data.py && python3 tools/build_static.py && python3 tools/build_map.py && python3 tools/analyze.py` (World Bank region metadata: `tools/fetch_external.py` → `Data/external/`).
+**Indicator definitions (corrected):** `Labour_force_with_basic_education` is *labour-force participation of people whose education stopped at basic level* (World Bank SL.TLF.BASC.ZS), not the workforce's education level; `Educational_attainment` is *adults 25+ who completed at least primary school* (SE.PRM.CUAT.ZS).
+
+Reproduce: `python3 tools/fetch_external.py && python3 tools/clean_data.py && python3 tools/build_static.py && python3 tools/build_map.py && python3 tools/analyze.py`.
 
 ### Original model results
 Only 58 countries had every indicator. Regression models failed on held-out countries (test R² −0.60 to 0.13). The best classifiers (linear SVM, tuned random forest) reached 72% test accuracy on 18 countries, against a 61% baseline of always predicting "low".

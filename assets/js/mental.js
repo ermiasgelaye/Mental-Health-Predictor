@@ -388,9 +388,9 @@ const Mental = (() => {
         const an = A(), el = document.getElementById('trendNote'); if (!an || !el) return;
         const T = an.countries.trend, mv = an.countries.movers, ch = (a) => ((a[a.length - 1] - a[0]) / a[0]) * 100;
         const regs = Object.entries(T.regions).map(([r, v]) => ({ r, c: ch(v) })).sort((a, b) => a.c - b.c);
-        const up = regs.filter((x) => x.c > 5);
+        const up = regs.filter((x) => x.c > 10).reverse();
         el.innerHTML = `Worldwide, the population-weighted suicide rate fell <strong>${Math.abs(ch(T.global)).toFixed(0)}%</strong> from ${T.global[0].toFixed(1)} to ${T.global[T.global.length - 1].toFixed(1)} per 100,000 (2000–2021), and fell in ${mv.nFalling} of ${mv.n} countries — for men (${ch(T.male).toFixed(0)}%) and women (${ch(T.female).toFixed(0)}%) alike. ` +
-            `The steepest regional fall was ${esc(regs[0].r)} (${regs[0].c.toFixed(0)}%), led by ${esc(mv.falls.slice(0, 3).map(([n, v]) => `${n} (${v})`).join(', '))}. ` +
+            `The steepest regional fall was ${esc(regs[0].r)} (${regs[0].c.toFixed(0)}%); the largest national falls were ${esc(mv.falls.slice(0, 3).map(([n, v]) => `${n} (${v})`).join(', '))}. ` +
             (up.length ? `Against the trend, rates <strong>rose</strong> in ${esc(up.map((x) => `${x.r} (+${x.c.toFixed(0)}%)`).join(' and '))}; the largest national rises were ${esc(mv.rises.slice(0, 3).map(([n, v]) => `${n} (+${v})`).join(', '))}.` : '');
     }
 
@@ -427,7 +427,7 @@ const Mental = (() => {
             const g = (k) => an.survey.adjusted.find((x) => x.term === k);
             const fh = g('family_history_Yes'), men = g('Gender_Male'), co = g('care_options_Yes'), be = g('benefits_Yes');
             const C = an.countries, T = C.trend, ch = (a) => ((a[a.length - 1] - a[0]) / a[0]) * 100;
-            const up = Object.entries(T.regions).filter(([, v]) => ch(v) > 5).map(([r, v]) => `${r} (+${ch(v).toFixed(0)}%)`);
+            const up = Object.entries(T.regions).filter(([, v]) => ch(v) > 10).sort((a, b) => ch(b[1]) - ch(a[1])).map(([r, v]) => `${r} (+${ch(v).toFixed(0)}%)`);
             const al = C.assoc.find((x) => x.key === 'alcohol_per_capita'), gw = C.within.find((x) => x.key === 'GDP_per_capita');
             const best = [...C.models].sort((a, b) => b.r2 - a.r2)[0];
             const nMen = M.byFactor('Gender').find((x) => x.name === 'Male').n, nWomen = M.byFactor('Gender').find((x) => x.name === 'Female').n;
