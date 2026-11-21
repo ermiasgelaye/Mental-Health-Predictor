@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>API: Mental Health Risk Indicators | Ermias Gelaye Gaga</title>
+    <meta name="description" content="JSON endpoints for the OSMI mental-health survey and World Bank suicide-rate indicators — the original Flask API, now always available as static files.">
+    <meta name="author" content="Ermias Gelaye Gaga">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+    <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+    <script>
+        window.ARC = window.ARC || {};
+        ARC.config = {
+            CONTACT_EMAIL: 'ermiasgelaye@gmail.com', CHAT_API_URL: '',
+            ASSISTANT: {
+                historyKey: 'mentalHealthChat_v1',
+                keepWords: ['chart', 'charts', 'model', 'models'],
+                subjectPattern: /\b(this|the) (project|study|analysis|data|dataset|survey|model|models|chart)\b|\b(project|study|dataset|survey)\b/,
+                subjectTopics: ['project'],
+                welcome: "Hi! \ud83d\udc4b I'm the **Mental Health Indicators assistant**.\n\nAsk me what the tech-worker survey shows about treatment, a country's suicide rate, which indicators are linked to suicide, or how well the machine-learning models worked.\n\nIf you're struggling yourself, ask me for **help lines** \u2014 you're not alone.",
+                greeting: "Hello! \ud83d\udc4b Ask me about this project \u2014 the survey, countries, indicators or models.",
+                starters: ['What did this project find?', 'Does family history affect treatment?', 'Which country has the highest suicide rate?', 'Which indicators relate to suicide rates?', 'How accurate were the models?', 'What errors were corrected?'],
+                helpText: (n) => "I'm the assistant for this project ({n}+ topics). Ask about:\n\n- **The survey** \u2014 e.g. \"does gender affect treatment?\"\n- **A country** \u2014 e.g. \"suicide rate in Japan\"\n- **Indicators** linked to suicide rates\n- **The ML models** and their accuracy\n- **Data corrections** and limitations\n- **Help lines**, if you need support".replace('{n}', n),
+                unknownTail: "\n\nI can explain this project's data, methods and findings, or general data-science concepts. If you need support, ask me for help lines."
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="assets/css/mental.css">
+    <link rel="stylesheet" href="assets/shared/chat/chat.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-nav">
+        <nav class="container nav-inner" aria-label="Main">
+            <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"><i class="fas fa-brain"></i></span><span>Mental Health Indicators</span></a>
+            <ul class="nav-links" id="navLinks"><li><a href="index.html">Overview</a></li><li><a href="index.html#worldmap">World map</a></li><li><a href="ml.html">Models</a></li><li><a href="eda.html">Dashboards</a></li><li><a href="data.html">Data</a></li><li><a href="api.html" class="active" aria-current="page">API</a></li><li><a href="https://ermiasgelaye.github.io/#projects"><i class="fas fa-arrow-left" aria-hidden="true"></i> Portfolio</a></li></ul>
+            <div class="nav-actions">
+                <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-circle-half-stroke" aria-hidden="true"></i></button>
+                <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="project-page">
+        <div class="container">
+            <nav class="crumbs" aria-label="Breadcrumb"><a href="https://ermiasgelaye.github.io/">Portfolio</a> <span aria-hidden="true">/</span> <a href="index.html">Mental Health Risk Indicators</a> <span aria-hidden="true">/</span> <span aria-current="page">API</span></nav>
+            <h1>API endpoints</h1>
+            <p style="color:var(--ink-2);max-width:75ch">The project's Flask API is kept with the same endpoints and record format (a JSON array of rows). They're now static JSON files, so they're always available — no server to sleep or database to expire. Running <code>python3 app.py</code> also serves them at the original paths (<code>/mental_health</code>, <code>/indicator</code>, <code>/health</code>).</p>
+            <div class="endpoints" id="endpoints" style="margin-top:1.5rem">
+                <article class="card endpoint"><div class="endpoint-head"><span class="method">GET</span><code>static/data/mental_health.json</code><span class="legacy">was <code>/mental_health</code></span></div><h3>OSMI mental health survey</h3><p>All 1,258 cleaned survey responses with every column (age, gender, country, treatment, workplace support …).</p><div class="endpoint-actions"><a class="btn btn-outline btn-sm" href="static/data/mental_health.json" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open</a><button type="button" class="btn btn-outline btn-sm" data-try="static/data/mental_health.json"><i class="fas fa-play" aria-hidden="true"></i> Try it</button><button type="button" class="btn btn-outline btn-sm" data-copy="static/data/mental_health.json"><i class="fas fa-copy" aria-hidden="true"></i> Copy URL</button></div><pre class="endpoint-out" hidden></pre></article>
+<article class="card endpoint"><div class="endpoint-head"><span class="method">GET</span><code>static/data/indicator.json</code><span class="legacy">was <code>/indicator</code></span></div><h3>World Bank development indicators</h3><p>All 1,578 rows (263 countries and aggregates × 2014–2019) with a "type" field: country or aggregate.</p><div class="endpoint-actions"><a class="btn btn-outline btn-sm" href="static/data/indicator.json" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open</a><button type="button" class="btn btn-outline btn-sm" data-try="static/data/indicator.json"><i class="fas fa-play" aria-hidden="true"></i> Try it</button><button type="button" class="btn btn-outline btn-sm" data-copy="static/data/indicator.json"><i class="fas fa-copy" aria-hidden="true"></i> Copy URL</button></div><pre class="endpoint-out" hidden></pre></article>
+            </div>
+            <h2 style="margin-top:2rem;font-size:1.2rem">Usage</h2>
+            <pre class="code">// JavaScript
+const res = await fetch('https://ermiasgelaye.github.io/Mental-Health-Predictor/static/data/mental_health.json');
+const rows = await res.json();   // [{ Timestamp, Age, Gender, Country, treatment, ... }, ...]
+
+# Python
+import pandas as pd
+df = pd.read_json("https://ermiasgelaye.github.io/Mental-Health-Predictor/static/data/indicator.json")
+countries = df[df["type"] == "country"]</pre>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><p>&copy; 2020–<span id="year"></span> Ermias Gelaye Gaga &amp; team · <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank" rel="noopener">Source code</a> · <a href="api.html">API</a> · Crisis support: call or text 988 (US/Canada)</p><a href="https://ermiasgelaye.github.io/#projects" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to portfolio</a></div></footer>
+    <div class="dock"><button type="button" class="dock-btn dock-chat" id="chatToggle" aria-label="Open Mental Health Assistant" aria-controls="chatPanel" aria-expanded="false"><i class="fas fa-robot" aria-hidden="true"></i></button></div>
+    <section class="chat-panel" id="chatPanel" aria-label="Mental Health Assistant" hidden>
+        <header class="chat-head">
+            <div class="chat-avatar" aria-hidden="true"><i class="fas fa-robot"></i></div>
+            <div class="chat-title"><h2>Mental Health Assistant</h2><p><span class="dot" aria-hidden="true"></span><span id="chatStatus">Online</span></p></div>
+            <button type="button" data-chat="clear" aria-label="Clear conversation" title="Clear conversation"><i class="fas fa-trash-can" aria-hidden="true"></i></button>
+            <button type="button" data-chat="close" aria-label="Close assistant" title="Close"><i class="fas fa-times" aria-hidden="true"></i></button>
+        </header>
+        <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="chat-suggest" id="chatSuggest" aria-label="Suggested questions"></div>
+        <form class="chat-form" id="chatForm" autocomplete="off">
+            <label for="chatInput" class="visually-hidden">Your question</label>
+            <textarea id="chatInput" rows="1" maxlength="600" placeholder="Ask about the project…" enterkeyhint="send"></textarea>
+            <button type="submit" id="chatSend" aria-label="Send"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+        <p class="chat-foot-note">Answers come from this project's data and a data-science knowledge base. Not medical advice.</p>
+    </section>
+    <script src="assets/js/project.js" defer></script>
+    <script src="assets/data/mental.data.js" defer></script>
+    <script src="assets/data/worldmap.data.js" defer></script>
+    <script src="assets/data/analysis.data.js" defer></script>
+    <script src="assets/js/mental.js" defer></script>
+    <script src="assets/js/knowledge/project-mental.js" defer></script>
+    <script src="assets/js/knowledge/data-science.js" defer></script>
+    <script src="assets/shared/chat/engine.js" defer></script>
+    <script src="assets/shared/chat/ui.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', () => Mental.initApi());</script>
+</body>
+</html>

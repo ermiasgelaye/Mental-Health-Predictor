@@ -101,18 +101,50 @@ The OSMI Mental Health in Tech Survey provides aggregated survey data related to
 
 ## Deployment and Presentation
 
-**Live site:** [ermiasgelaye.github.io/Mental-Health-Predictor](https://ermiasgelaye.github.io/Mental-Health-Predictor/)
+**Live site:** [ermiasgelaye.github.io/Mental-Health-Predictor](https://ermiasgelaye.github.io/Mental-Health-Predictor/) — free on GitHub Pages, no server or database, so it never sleeps or goes down.
 
-The site is fully static and hosted free on **GitHub Pages**, so it never sleeps or fails because of a free-tier server or database:
+The site uses the same design system as the [portfolio](https://ermiasgelaye.github.io/) (light/dark themes, mobile layout, project assistant with crisis-support safeguard).
 
-- Pages: `index.html`, `eda.html` (exploratory analysis), `ml.html` (machine learning), `data.html` (data explorer).
-- **Data endpoints** are static JSON files: `static/data/mental_health.json` and `static/data/indicator.json`. After editing `Data/survey.csv` or `Data/database/indicator.csv`, rebuild them with `python3 tools/build_static.py`.
-- **Optional:** `python3 app.py` serves the site locally (old URLs such as `/eda` and `/mental_health` keep working) with no database.
+| Path | What it is |
+|---|---|
+| `index.html` | Overview: background, real world map of suicide rates, survey explorer, findings, country indicators, model summary, corrections, methodology, references |
+| `ml.html` | Machine-learning results with the notebook's figures and an honest evaluation |
+| `eda.html` | The original Tableau Public dashboards (loaded on request) |
+| `data.html` | Filterable/exportable survey and indicator tables, data quality & limitations |
+| `api.html` | The API endpoints (`/mental_health`, `/indicator`) with live "Try it" |
+| `assets/js/mental.js` | All statistics and charts, computed in the browser from `assets/data/mental.data.js` |
+| `static/data/*.json` | The former `/mental_health` and `/indicator` API endpoints as static files |
+| `tools/clean_data.py`, `tools/build_static.py` | Data corrections and data build |
+| `tools/build_map.py` | Projects Natural Earth country shapes (`Data/geo/`, world-atlas) into `assets/data/worldmap.data.js` |
+| `tools/sync_design.sh` | Re-copies the shared CSS/JS/chat from the portfolio repo |
+| `app.py` | Optional: serves the site locally and keeps the old URLs working |
+
+After editing `Data/survey.csv` or `Data/database/indicator.csv`: `python3 tools/clean_data.py && python3 tools/build_static.py`.
 
 To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, folder `/ (root)`.
 
-Presentation slides are available at:  
-https://docs.google.com/presentation/d/1rNV9OyZRwMOkwW4LZzD71AB5QalhNDm-tOZPK2t0Pyc/edit
+### Data corrections (2026 audit)
+- **Excel date corruption:** company sizes "1-5" and "6-25" were stored as "05-Jan" and "25-Jun" (452 rows) — fixed in `survey.csv`.
+- **Impossible ages** (−1726, 5, 329, 99,999,999,999 …; 8 respondents) are treated as missing, and one duplicate response is dropped.
+- **46 World Bank aggregates** ("World", "High income", "Euro area" …) were mixed in with 217 countries; they're flagged and excluded from country statistics.
+- Suicide-rate data exists only for **2015–2016**, so country comparisons use that period.
+
+### Key findings (2026 re-analysis)
+
+| # | Finding | Evidence |
+|---|---|---|
+| 1 | **Family history is the strongest predictor of having sought treatment.** | Adjusted odds ratio 4.53 (95% CI 3.46–5.93), multivariable logistic regression, n = 1,258. |
+| 2 | **Men have less than half the odds of women** of having sought treatment. | aOR 0.45 (0.32–0.63). Nationally, men die by suicide ~2.9× as often as women. |
+| 3 | **Workplace support matters after adjustment**; remote work and tech-company employment don't. | Knows care options aOR 2.24 (1.58–3.19); benefits 1.73 (1.18–2.54); remote 1.05, tech company 1.00 (n.s.). |
+| 4 | **"Work interference" leaks the outcome.** | People without a condition answer "NA"; including it lifts cross-validated AUC from 0.77 to 0.90. |
+| 5 | **World region explains 24% of differences in national suicide rates.** | One-way ANOVA (η² = 0.24, p < 0.001), 183 countries; Europe & Central Asia 13.6 vs Middle East & North Africa 4.3 per 100k. |
+| 6 | **Several indicator links are confounded by region.** | Social insurance: raw +3.1 per SD (p = 0.001) → region-adjusted +1.6 (p = 0.29). Survive: basic-education labour share (−2.7, p = 0.001), educational attainment (+2.2, p = 0.035), GDP (+1.2, p = 0.023). |
+| 7 | **National suicide rates can't be predicted well from these indicators.** | 10×5-fold cross-validated R² on all 183 countries: indicators 0.20, region alone 0.16, random forest 0.15. |
+
+Reproduce: `python3 tools/clean_data.py && python3 tools/build_static.py && python3 tools/build_map.py && python3 tools/analyze.py` (World Bank region metadata: `tools/fetch_external.py` → `Data/external/`).
+
+### Original model results
+Only 58 countries had every indicator. Regression models failed on held-out countries (test R² −0.60 to 0.13). The best classifiers (linear SVM, tuned random forest) reached 72% test accuracy on 18 countries, against a 61% baseline of always predicting "low".
 
 ---
 
@@ -161,7 +193,7 @@ The correlation analysis identified:
 
 ### Regression Models
 
-Linear regression, decision tree regression, and support vector regression were applied to estimate suicide mortality rates. Among these, decision tree regression demonstrated comparatively higher explanatory performance.
+Linear regression, decision tree regression, and support vector regression were applied to estimate suicide mortality rates. None generalised well to held-out countries: support vector regression scored highest (test R² 0.13), while decision tree regression scored lowest (−0.60) despite a perfect training fit — a sign of overfitting. *(An earlier version of this README stated the reverse.)*
 
 Code is available at:  
 https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_learning_analysis.ipynb
@@ -170,7 +202,7 @@ https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_lear
 
 ### Classification Models
 
-For comparative purposes, suicide mortality rates were categorized into above- and below-average groups. Classification models were evaluated to assess relative accuracy, with support vector machines demonstrating higher performance following parameter tuning.
+For comparative purposes, suicide mortality rates were categorized into above- and below-average groups. Classification models were evaluated to assess relative accuracy, with support vector machines demonstrating higher performance following parameter tuning (72% test accuracy on 18 countries, vs. a 61% baseline of always predicting "low").
 
 <img src="/static/images/compare.png" height="500" width="900" />
 

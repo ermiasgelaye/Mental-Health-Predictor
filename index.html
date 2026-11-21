@@ -1,502 +1,259 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Updated meta text (ethical framing) -->
-    <meta name="description" content="Mind Health Analytics - Mental Health Risk Indicators to Inform Suicide Prevention">
-    <meta name="keywords" content="mental health, suicide prevention, risk indicators, data analytics, machine learning, public health, healthcare">
-
-    <title>Mind Health Analytics | Home</title>
-
-    <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="icon" href="static/images/logo1.png" type="image/png">
-
-    <style>
-        /* Additional hero styling */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Health tags */
-        .health-tag {
-            display: inline-block;
-            background: rgba(79, 195, 247, 0.15);
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            margin: 0.3rem;
-            font-size: 0.95rem;
-            border: 1px solid rgba(79, 195, 247, 0.3);
-            transition: all 0.3s ease;
-            color: #1a237e;
-            font-weight: 500;
-        }
-
-        .health-tag:hover {
-            background: rgba(79, 195, 247, 0.25);
-            transform: scale(1.05);
-            border-color: #4fc3f7;
-        }
-
-        /* Visualization panels */
-        .viz-panel {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #eaeaea;
-            text-align: center;
-        }
-
-        .viz-panel:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            border-color: #4fc3f7;
-        }
-
-        .viz-title {
-            color: #1a237e;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Team member list */
-        .team-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .team-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eaeaea;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .team-list li::before {
-            content: '👤';
-            position: absolute;
-            left: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            padding: 4rem 0;
-            margin: 4rem 0;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle fill="%234fc3f7" fill-opacity="0.1" cx="200" cy="200" r="100"/><circle fill="%234fc3f7" fill-opacity="0.1" cx="800" cy="300" r="150"/></svg>');
-        }
-
-        .btn-cta {
-            background: linear-gradient(45deg, #e53935, #ff5252);
-            border: none;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(229, 57, 53, 0.3);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0.5rem;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(229, 57, 53, 0.4);
-            color: white;
-            text-decoration: none;
-        }
-
-        .btn-outline-light-custom {
-            border: 2px solid white;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            background: transparent;
-            margin: 0.5rem;
-        }
-
-        .btn-outline-light-custom:hover {
-            background: white;
-            color: #1a237e;
-            transform: translateY(-3px);
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Enhanced Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light enhanced-navbar">
-        <div class="container">
-            <a class="navbar-brand enhanced-navbar-brand" href="index.html">
-                <i class="fas fa-brain mr-2"></i> Mind Health Analytics
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link active" href="index.html">
-                            <i class="fas fa-home mr-1"></i>Home
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="visualizationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-chart-bar mr-1"></i>Visualizations
-                        </a>
-                        <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="eda.html">
-                                <i class="fas fa-search mr-2"></i>Exploratory Data Analysis
-                            </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="ml.html">
-                                <i class="fas fa-robot mr-2"></i>Machine Learning Analysis
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle enhanced-nav-link" href="#" id="apiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-code mr-1"></i>API
-                        </a>
-                        <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/mental_health.json">
-                                <i class="fas fa-brain mr-2"></i>Mental Health Data
-                            </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/indicator.json">
-                                <i class="fas fa-chart-line mr-2"></i>Development Indicators
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="data.html">
-                            <i class="fas fa-database mr-1"></i>Data
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank">
-                            <i class="fab fa-github mr-1"></i>Our Repo
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="dashboard-jumbotron">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 hero-content">
-                    <h1 class="display-4 font-weight-bold mb-4">
-                        Mental Health Risk Indicators to Inform Suicide Prevention
-                    </h1>
-                    <p class="lead mb-4">
-                        Using data analytics and machine learning to explore how mental health indicators and broader social factors relate to suicide rates across countries, with the goal of supporting prevention-focused insights.
-                    </p>
-
-                    <div class="hero-stats">
-                        <div class="row text-center">
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <span class="stat-number">2</span>
-                                    <span class="stat-label">Data Sources</span>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <span class="stat-number">5</span>
-                                    <span class="stat-label">ML Models</span>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <span class="stat-number">100+</span>
-                                    <span class="stat-label">Countries</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <div class="floating">
-                        <img src="static/images/brain2.gif"
-                             alt="Mental Health Analytics"
-                             class="enhanced-image"
-                             style="max-height: 400px; border-radius: 15px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container my-5">
-        <!-- Project Overview -->
-        <div class="content-box">
-            <h2 class="section-title">Project Background</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        Mental health is a major global health concern. Understanding patterns in mental health indicators can help inform prevention strategies, guide resource allocation, and support public health planning.
-                    </p>
-
-                    <p>
-                        This project uses cross-country data to explore relationships between mental health indicators, socio-economic context, and suicide rates. The focus is on identifying risk indicators at a population level and translating findings into prevention-oriented insights.
-                    </p>
-
-                    <h4 class="mt-4 mb-3" style="color: #1a237e; font-weight: 600;">Research Questions:</h4>
-                    <ul>
-                        <li>Which mental health and social indicators are most strongly associated with suicide rates across countries?</li>
-                        <li>How do socio-economic and demographic factors relate to differences in suicide rates?</li>
-                        <li>How do patterns vary across regions and over time?</li>
-                        <li>How can statistical and machine learning models support prevention-oriented insights at the population level?</li>
-                    </ul>
-
-                    <!-- Optional: ethical note (short + clear) -->
-                    <p class="mt-3" style="font-size: 0.95rem; opacity: 0.9;">
-                        <strong>Note:</strong> This analysis is intended for population-level understanding and prevention planning. It is not designed to predict individual behavior or provide clinical risk assessments.
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <img src="static/images/download.png"
-                         alt="Global Mental Health Statistics"
-                         class="img-fluid rounded mt-3">
-                </div>
-            </div>
-        </div>
-
-        <!-- Data Sources & Methods -->
-        <div class="content-box">
-            <h2 class="section-title">Data Sources & Methodology</h2>
-
-            <div class="row mb-4">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h4 class="feature-title">OSMI Tech Survey Data</h4>
-                        <p>
-                            Survey responses from OSMI’s mental health in technology surveys, used to explore workplace-related mental health indicators and patterns.
-                        </p>
-                        <a href="https://www.kaggle.com/osmi/mental-health-in-tech-survey/home" class="btn btn-primary-custom btn-sm" target="_blank">
-                            <i class="fas fa-external-link-alt mr-2"></i>Access Dataset
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <h4 class="feature-title">World Development Indicators</h4>
-                        <p>
-                            World Bank socio-economic indicators used to understand how broader contextual factors relate to suicide rates across countries.
-                        </p>
-                        <a href="https://databank.worldbank.org/source/world-development-indicators" class="btn btn-primary-custom btn-sm" target="_blank">
-                            <i class="fas fa-external-link-alt mr-2"></i>Access Dataset
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <h4 class="mt-4 mb-3" style="color: #1a237e; font-weight: 600;">Analytical Methods:</h4>
-            <div class="row">
-                <div class="col-md-3 col-6 text-center mb-3">
-                    <div class="health-tag">Python Pandas</div>
-                </div>
-                <div class="col-md-3 col-6 text-center mb-3">
-                    <div class="health-tag">Matplotlib</div>
-                </div>
-                <div class="col-md-3 col-6 text-center mb-3">
-                    <div class="health-tag">Tableau</div>
-                </div>
-                <div class="col-md-3 col-6 text-center mb-3">
-                    <div class="health-tag">Machine Learning</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Visualizations -->
-        <div class="content-box">
-            <h2 class="section-title">Interactive Visualizations</h2>
-            <p class="mb-4">
-                Explore our analysis through interactive dashboards and model findings, designed to support understanding and prevention-focused interpretation.
-            </p>
-
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="viz-panel">
-                        <h4 class="viz-title">Exploratory Data Analysis</h4>
-                        <a href="eda.html">
-                            <img class="panel enhanced-image" src="static/images/exploratory.png" alt="Exploratory Data Analysis Dashboard">
-                        </a>
-                        <p class="mt-3">
-                            Interactive Tableau dashboards exploring patterns, trends, and associations across mental health and contextual indicators.
-                        </p>
-                        <a href="eda.html" class="btn btn-primary-custom btn-sm">
-                            <i class="fas fa-chart-bar mr-2"></i>Explore Dashboard
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="viz-panel">
-                        <h4 class="viz-title">Machine Learning Analysis</h4>
-                        <a href="ml.html">
-                            <img class="panel enhanced-image" src="static/images/learning.png" alt="Machine Learning Visualizations">
-                        </a>
-                        <p class="mt-3">
-                            Modeling approaches (e.g., Linear Regression, SVM, Random Forest) used to estimate patterns and highlight which indicators may be most informative for prevention planning.
-                        </p>
-                        <a href="ml.html" class="btn btn-primary-custom btn-sm">
-                            <i class="fas fa-robot mr-2"></i>View Analysis
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Team Section -->
-        <div class="content-box">
-            <h2 class="section-title">Our Team</h2>
-            <p class="mb-4">
-                Dedicated data analysts and researchers working together to support prevention-focused understanding of mental health patterns.
-            </p>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="team-list">
-                        <li><strong>Adedamola Atekoja ('Damola)</strong> - Chartered Accountant & Data Analyst</li>
-                        <li><strong>Amanda Qianyue Ma</strong> - Economics & Analytics Specialist</li>
-                        <li><strong>Amos Johnson</strong> - Data Journalist & Analyst</li>
-                        <li><strong>Ermias Gaga</strong> - Data Scientist & Researcher</li>
-                        <li><strong>Maria Lorena</strong> - Project Manager & Data Analyst</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="cta-section">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-8">
-                        <h2 class="display-5 font-weight-bold mb-4">Ready to Explore Mental Health Insights?</h2>
-                        <p class="lead mb-5">
-                            Join us in exploring how mental health indicators and social context relate to suicide rates, with a focus on insights that can inform prevention efforts and public health planning.
-                        </p>
-                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-                            <a href="eda.html" class="btn-cta">
-                                <i class="fas fa-chart-bar mr-2"></i>Explore Visualizations
-                            </a>
-                            <a href="data.html" class="btn-outline-light-custom">
-                                <i class="fas fa-database mr-2"></i>View Data
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Enhanced Footer -->
-    <footer class="enhanced-footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 Mind Health Analytics by Ermias Gaga. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-right">
-                    <p class="mb-0">Data Sources: OSMI Mental Health Surveys & World Bank Indicators</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Mental Health Risk Indicators: Treatment, Suicide Rates & Prevention | Ermias Gelaye Gaga</title>
+    <meta name="description" content="Who seeks mental-health treatment in the tech industry (OSMI survey, 1,258 respondents) and how national suicide rates relate to socio-economic indicators across 183 countries — an interactive data project by Ermias Gelaye Gaga and team.">
+    <meta name="author" content="Ermias Gelaye Gaga">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+    <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
     <script>
-        // Simple animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const featureCards = document.querySelectorAll('.feature-card, .viz-panel');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            featureCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.6s ease';
-                observer.observe(card);
-            });
-
-            // Add smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
+        window.ARC = window.ARC || {};
+        ARC.config = {
+            CONTACT_EMAIL: 'ermiasgelaye@gmail.com', CHAT_API_URL: '',
+            ASSISTANT: {
+                historyKey: 'mentalHealthChat_v1',
+                keepWords: ['chart', 'charts', 'model', 'models'],
+                subjectPattern: /\b(this|the) (project|study|analysis|data|dataset|survey|model|models|chart)\b|\b(project|study|dataset|survey)\b/,
+                subjectTopics: ['project'],
+                welcome: "Hi! \ud83d\udc4b I'm the **Mental Health Indicators assistant**.\n\nAsk me what the tech-worker survey shows about treatment, a country's suicide rate, which indicators are linked to suicide, or how well the machine-learning models worked.\n\nIf you're struggling yourself, ask me for **help lines** \u2014 you're not alone.",
+                greeting: "Hello! \ud83d\udc4b Ask me about this project \u2014 the survey, countries, indicators or models.",
+                starters: ['What did this project find?', 'Does family history affect treatment?', 'Which country has the highest suicide rate?', 'Which indicators relate to suicide rates?', 'How accurate were the models?', 'What errors were corrected?'],
+                helpText: (n) => "I'm the assistant for this project ({n}+ topics). Ask about:\n\n- **The survey** \u2014 e.g. \"does gender affect treatment?\"\n- **A country** \u2014 e.g. \"suicide rate in Japan\"\n- **Indicators** linked to suicide rates\n- **The ML models** and their accuracy\n- **Data corrections** and limitations\n- **Help lines**, if you need support".replace('{n}', n),
+                unknownTail: "\n\nI can explain this project's data, methods and findings, or general data-science concepts. If you need support, ask me for help lines."
+            }
+        };
     </script>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="assets/css/mental.css">
+    <link rel="stylesheet" href="assets/shared/chat/chat.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-nav">
+        <nav class="container nav-inner" aria-label="Main">
+            <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"><i class="fas fa-brain"></i></span><span>Mental Health Indicators</span></a>
+            <ul class="nav-links" id="navLinks"><li><a href="index.html" class="active" aria-current="page">Overview</a></li><li><a href="index.html#worldmap">World map</a></li><li><a href="ml.html">Models</a></li><li><a href="eda.html">Dashboards</a></li><li><a href="data.html">Data</a></li><li><a href="api.html">API</a></li><li><a href="https://ermiasgelaye.github.io/#projects"><i class="fas fa-arrow-left" aria-hidden="true"></i> Portfolio</a></li></ul>
+            <div class="nav-actions">
+                <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-circle-half-stroke" aria-hidden="true"></i></button>
+                <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="p-hero">
+            <div class="container">
+                <nav class="crumbs" aria-label="Breadcrumb"><a href="https://ermiasgelaye.github.io/">Portfolio</a> <span aria-hidden="true">/</span> <span aria-current="page">Mental Health Risk Indicators</span></nav>
+                <h1>What can data tell us about <span class="gradient-text">mental health and suicide risk?</span></h1>
+                <p class="lede">Two views of the same question: who seeks treatment in a survey of 1,258 tech workers, and how suicide rates in 185 countries changed from 2000 to 2021 and what goes with them — income, alcohol, education and employment — with an honest look at what machine learning can and can't predict.</p>
+                <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Tableau</span><span class="tag">World Bank WDI</span><span class="tag">OSMI survey</span><span class="tag">Chart.js</span></div>
+                <div class="hero-actions" style="margin:0">
+                    <a href="#survey" class="btn btn-primary"><i class="fas fa-chart-bar" aria-hidden="true"></i> Explore the findings</a>
+                    <a href="ml.html" class="btn btn-outline"><i class="fas fa-robot" aria-hidden="true"></i> Model results</a>
+                    <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                </div>
+                <div class="kpis">
+                    <div class="card kpi"><strong data-kpi="respondents">1,258</strong><span>Survey respondents</span></div>
+                    <div class="card kpi"><strong data-kpi="treated">51%</strong><span>Have sought treatment</span></div>
+                    <div class="card kpi"><strong data-kpi="countries">185</strong><span>Countries, 2000–2021</span></div>
+                    <div class="card kpi"><strong data-kpi="ratio">2.9×</strong><span>Male vs female suicide rate</span></div>
+                </div>
+            </div>
+        </section>
 
+        <section class="section" id="findings-sec" aria-labelledby="findingsTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">Key findings</p><h2 id="findingsTitle">What the data shows</h2><p>From the statistical analysis of both datasets — odds ratios, region-adjusted regressions and cross-validated models (<code>tools/analyze.py</code>).</p></div>
+                <ul class="findings reveal" id="findings" data-needs-data></ul>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="background" aria-labelledby="bgTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">Background</p><h2 id="bgTitle">Why this matters</h2></div>
+                <div class="two-panel reveal">
+                    <div><p style="color:var(--ink-2)">Suicide remains a significant global public-health concern: the World Health Organization estimates about 800,000 people die by suicide each year, with substantial variation across countries and over time, and many more experience suicidal ideation or attempts.</p>
+                    <p style="color:var(--ink-2)">Research identifies two broad domains associated with suicide mortality at the population level: <strong>structural and socio-economic conditions</strong> — income, education, employment and social protection — and <strong>mental-health factors</strong> such as the prevalence of mental disorders and access to care (Li et al., 2011). This project examines both.</p></div>
+                    <div class="card callout"><strong>Research question.</strong> Which population-level socio-economic and mental-health indicators are most strongly associated with national suicide mortality rates, and how can data-driven methods help identify patterns relevant to suicide-prevention planning?<br><br><em>This is population-level analysis. It does not predict individual risk or support clinical decisions.</em></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="worldmap" aria-labelledby="worldTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">World map · 2017–2019 average</p><h2 id="worldTitle">Suicide rates around the world</h2><p>World Bank suicide mortality (deaths per 100,000) and related indicators, plus each country's change since 2000. Pick a measure; click a country for its 22-year trend.</p></div>
+                <div class="card explorer reveal">
+                    <div class="seg" id="mapChips" role="group" aria-label="Map measure" style="margin-bottom:1rem"></div>
+                    <div class="map-layout">
+                        <div><div class="map-box" id="worldMap" data-needs-data></div><div class="map-scale" id="worldMap-scale" aria-hidden="true"></div></div>
+                        <div class="card country-card" id="countryCard" style="padding:1.1rem 1.25rem" aria-live="polite"></div>
+                    </div>
+                    <p class="chart-note" id="worldNote"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="survey" aria-labelledby="surveyTitle">
+
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="kicker">Workplace survey</p>
+                    <h2 id="surveyTitle">Who seeks treatment?</h2>
+                    <p>Share of OSMI <em>Mental Health in Tech</em> respondents (2014–2016) who have sought treatment for a mental-health condition, by their answer to another question. Pick a question.</p>
+                </div>
+                <div class="card explorer reveal">
+                    <div class="seg" id="factorChips" role="group" aria-label="Survey question" style="margin-bottom:1rem"></div>
+                    <div class="chart-box" style="height:clamp(260px,40vh,340px)" data-needs-data><canvas id="factorChart" role="img" aria-label="Bar chart of the share who sought treatment for each answer to the selected question"></canvas></div>
+                    <p class="chart-note" id="factorNote" aria-live="polite"></p>
+                </div>
+                <h3 id="adjusted" style="margin-top:2.5rem;font-size:1.15rem">Adjusted for everything else: what independently predicts treatment?</h3>
+                <div class="card explorer reveal">
+                    <div class="chart-box" style="height:440px" data-needs-data><canvas id="forestChart" role="img" aria-label="Forest plot of adjusted odds ratios with 95% confidence intervals for having sought treatment"></canvas></div>
+                    <p class="chart-note" id="forestNote" style="font-size:.9rem;color:var(--ink-2)"></p>
+                </div>
+                <div class="card callout reveal" style="margin-top:1rem" id="leakNote"></div>
+            </div>
+        </section>
+
+        <section class="section" id="trends" aria-labelledby="trendsTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">2000–2021</p><h2 id="trendsTitle">How suicide rates changed over two decades</h2><p>Population-weighted average of World Bank / WHO suicide mortality estimates for 185 countries.</p></div>
+                <div class="card explorer reveal">
+                    <div class="seg" id="trendChips" role="group" aria-label="Breakdown" style="margin-bottom:.75rem"></div>
+                    <div class="chart-box" style="height:360px" data-needs-data><canvas id="trendChart" role="img" aria-label="Line chart of suicide rates from 2000 to 2021"></canvas></div>
+                    <p class="chart-note" id="trendNote" style="font-size:.92rem;color:var(--ink-2)"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="countries" aria-labelledby="countriesTitle">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="kicker">185 countries · 2017–2019 average</p>
+                    <h2 id="countriesTitle">How do national suicide rates relate to social and economic conditions?</h2>
+                    <p>World Bank suicide mortality (deaths per 100,000) against a socio-economic indicator. Each point is a country; regional and income-group aggregates are excluded.</p>
+                </div>
+                <div class="card explorer reveal">
+                    <h3 class="panel-title">By world region</h3>
+                    <div class="chart-box" style="height:320px" data-needs-data><canvas id="regionChart" role="img" aria-label="Bar chart of mean suicide rate by World Bank region"></canvas></div>
+                    <p class="chart-note" id="regionNote"></p>
+                </div>
+                <div class="card explorer reveal" style="margin-top:1.5rem">
+                    <h3 class="panel-title">Against a socio-economic indicator</h3>
+                    <div class="seg" id="indChips" role="group" aria-label="Indicator" style="margin-bottom:1rem"></div>
+                    <div class="chart-box tall" data-needs-data><canvas id="indChart" role="img" aria-label="Scatter plot of suicide rate against the selected indicator, one point per country"></canvas></div>
+                    <p class="chart-note" id="indNote" aria-live="polite"></p>
+                </div>
+                <div class="two-panel reveal" style="margin-top:1.5rem">
+                    <div class="card explorer"><h3 class="panel-title">Highest suicide rates</h3><ol class="rank-list" id="topCountries" data-needs-data></ol></div>
+                    <div class="card explorer"><h3 class="panel-title">Lowest suicide rates</h3><ol class="rank-list low" id="lowCountries"></ol></div>
+                </div>
+                <h3 style="margin-top:2.5rem;font-size:1.15rem">Does each association survive controlling for region?</h3>
+                <div class="card table-wrap reveal"><table class="stats-table">
+                    <caption class="visually-hidden">Association of each indicator with national suicide rates, raw and adjusted for world region</caption>
+                    <thead><tr><th scope="col">Indicator</th><th scope="col" class="num">Countries</th><th scope="col" class="num">Raw effect</th><th scope="col" class="num">Region-adjusted</th><th scope="col"></th><th scope="col" class="num">Check: 2015–16 data</th></tr></thead>
+                    <tbody id="indTable" data-needs-data><tr><td colspan="6">Calculating…</td></tr></tbody>
+                </table></div>
+                <p class="chart-note reveal" id="assocNote" style="font-size:.9rem;color:var(--ink-2)"></p>
+                <h3 id="within" style="margin-top:2.5rem;font-size:1.15rem">Within countries: do rates move with a country's own changes?</h3>
+                <div class="card table-wrap reveal"><table class="stats-table">
+                    <caption class="visually-hidden">Two-way fixed-effects estimates of within-country associations, 2000–2021</caption>
+                    <thead><tr><th scope="col">Change in…</th><th scope="col" class="num">Effect on suicide per 100k [95% CI]</th><th scope="col" class="num">p</th><th scope="col"></th><th scope="col" class="num">Countries</th></tr></thead>
+                    <tbody id="withinTable" data-needs-data></tbody></table></div>
+                <p class="chart-note reveal" id="withinNote" style="font-size:.9rem;color:var(--ink-2)"></p>
+                <div class="card callout reveal" style="margin-top:1rem"><strong>Why region matters.</strong> Social-insurance coverage correlates with <em>higher</em> suicide rates — not because insurance causes harm, but because both are high in former Soviet states, which share history, alcohol policy and economic shocks. Very low rates in small island states and conflict zones may also reflect under-reporting.</div>
+            </div>
+        </section>
+
+        <section class="section" id="models" aria-labelledby="mlTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">Prediction</p><h2 id="mlTitle">Can these indicators predict a country's suicide rate?</h2><p>Re-analysis on all 185 countries (2017–2019 averages) with repeated 5-fold cross-validation — replacing the original single split of 58 countries.</p></div>
+                <div class="two-panel reveal">
+                    <div class="card table-wrap"><table class="stats-table"><caption class="visually-hidden">Cross-validated R² by model</caption><thead><tr><th scope="col">Model</th><th scope="col" class="num">Cross-validated R²</th></tr></thead><tbody id="cvTable" data-needs-data></tbody></table></div>
+                    <div class="card callout"><strong>Verdict.</strong> The indicators explain under a fifth of the variation between countries — little more than knowing the region. A random forest does no better than a regularised linear model, a sign there isn't enough signal for a flexible model to exploit. The original classifiers' 72% test accuracy came from 18 countries against a 61% always-"low" baseline. <a href="ml.html">Full model results →</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" aria-labelledby="qualityTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">Data quality</p><h2 id="qualityTitle">Corrections made in this version</h2><p>Fixes are scripted in <code>tools/clean_data.py</code> and <code>tools/build_static.py</code>.</p></div>
+                <div class="stat-grid reveal">
+                    <article class="card stat-card"><h3><span><i class="fas fa-calendar-xmark" aria-hidden="true"></i> Excel dates</span><span class="strength strong">Fixed</span></h3><p>Company sizes "1-5" and "6-25" had been turned into the dates "05-Jan" and "25-Jun" in 452 responses.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-user-xmark" aria-hidden="true"></i> Impossible ages</span><span class="strength strong">Fixed</span></h3><p>Ages such as −1726, 5, 329 and 99,999,999,999 (8 respondents) are treated as missing; one duplicate response was removed.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-globe" aria-hidden="true"></i> Mixed-in aggregates</span><span class="strength strong">Fixed</span></h3><p>46 World Bank rows like "World", "High income" and "Euro area" sat alongside the 217 countries and would double-count in any country statistic.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-scale-unbalanced" aria-hidden="true"></i> Overstated claims</span><span class="strength moderate">Corrected</span></h3><p>The old pages cited "200+ countries, 14 years", WHO data and "strong protective effects of healthcare access" — none of which the data contains. All figures are now calculated from the data.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="methodTitle">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">How it was done</p><h2 id="methodTitle">Methodology</h2></div>
+                <ol class="method-steps reveal">
+                    <li class="card"><h3>Collect</h3><p>OSMI Mental Health in Tech survey (Kaggle) and World Bank World Development Indicators 2000–2021 (<code>tools/fetch_external.py</code>).</p></li>
+                    <li class="card"><h3>Clean</h3><p>Reshaped the World Bank export with Pandas, fixed data errors and separated countries from aggregates.</p></li>
+                    <li class="card"><h3>Explore</h3><p>Tableau dashboards and correlation analysis — see the <a href="eda.html">dashboards</a>.</p></li>
+                    <li class="card"><h3>Analyse</h3><p>Odds ratios and logistic regression (survey); region-adjusted and within-country fixed-effects regressions, cross-validated models (countries) — <code>tools/analyze.py</code>.</p></li>
+                </ol>
+                <h3 style="margin-top:2.5rem;font-size:1.15rem">Indicators examined</h3>
+                <div class="two-panel">
+                    <div class="card" style="padding:1.1rem 1.25rem"><h4 style="font-size:1rem">Socio-economic &amp; structural (World Bank WDI)</h4><ul class="checklist"><li>Economic development (GDP per capita)</li><li>Alcohol consumption and government health spending</li><li>Labour-force participation and employment, by sex and education level</li><li>Primary-school completion; social insurance coverage</li><li>Life expectancy and population</li></ul></div>
+                    <div class="card" style="padding:1.1rem 1.25rem"><h4 style="font-size:1rem">Mental health &amp; workplace (OSMI survey)</h4><ul class="checklist"><li>Treatment and family history</li><li>Insurance coverage, benefits and care options</li><li>Workplace openness, stigma and consequences of disclosure</li><li>Wellness programmes and medical leave</li><li>Organisation size, remote work and tech-industry context</li></ul></div>
+                </div>
+                <div class="two-panel" style="margin-top:1.5rem">
+                    <figure class="card figure-wide"><img src="assets/img/architecture.jpg" alt="System architecture: data sources, Python cleaning, database, Flask API and web front end with Tableau dashboards" width="1200" height="900" loading="lazy" decoding="async"><figcaption>Original system architecture.</figcaption></figure>
+                    <figure class="card figure-wide"><img src="assets/img/data-map.jpg" alt="Data map showing the survey and World Bank fields used" width="1200" height="712" loading="lazy" decoding="async"><figcaption>Data map of the two sources.</figcaption></figure>
+                </div>
+
+                <h3 style="margin-top:2.5rem;font-size:1.15rem">The team</h3>
+                <ul class="team-list">
+                    <li><a href="https://www.linkedin.com/in/ermiasgaga/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> Ermias Gaga <small>lead</small></a></li>
+                    <li><a href="https://www.linkedin.com/in/amandaqianyuema/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> Amanda Qianyue Ma</a></li>
+                    <li><a href="https://www.linkedin.com/in/amosjohnson/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> Amos Johnson</a></li>
+                    <li><a href="https://www.linkedin.com/in/damola-atekoja/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> Adedamola Atekoja</a></li>
+                    <li><a href="https://www.linkedin.com/in/marialorena-nunez/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> Maria Lorena</a></li>
+                </ul>
+                <h3 style="margin-top:2.5rem;font-size:1.15rem">References</h3>
+                <ol class="refs"><li>Ferretti, F., &amp; Coluccia, A. (2009). Socio-economic factors and suicide rates in European Union countries. <em>Legal Medicine, 11</em>.</li><li>Li, Z., Page, A., Martin, G., &amp; Taylor, R. (2011). Attributable risk of psychiatric and socio-economic factors for suicide. <em>Social Science &amp; Medicine, 72</em>(4), 608–616.</li><li>Szanto, K. (2017). Cognitive deficits as contributors to suicide. <em>American Journal of Geriatric Psychiatry, 25</em>(6), 630–632.</li><li>World Bank (2020). World Development Indicators.</li><li>World Health Organization (2019). Suicide fact sheet.</li></ol>
+                <div style="margin-top:2rem"><div class="card support"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><div><strong>Need to talk?</strong> If you or someone you know is struggling, help is free and confidential: call or text <strong>988</strong> in the US and Canada, call Samaritans on <strong>116 123</strong> in the UK and Ireland, or find a line in your country at <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>.</div></div></div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><p>&copy; 2020–<span id="year"></span> Ermias Gelaye Gaga &amp; team · <a href="https://github.com/ermiasgelaye/Mental-Health-Predictor" target="_blank" rel="noopener">Source code</a> · <a href="api.html">API</a> · Crisis support: call or text 988 (US/Canada)</p><a href="https://ermiasgelaye.github.io/#projects" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to portfolio</a></div></footer>
+    <div class="dock"><button type="button" class="dock-btn dock-chat" id="chatToggle" aria-label="Open Mental Health Assistant" aria-controls="chatPanel" aria-expanded="false"><i class="fas fa-robot" aria-hidden="true"></i></button></div>
+    <section class="chat-panel" id="chatPanel" aria-label="Mental Health Assistant" hidden>
+        <header class="chat-head">
+            <div class="chat-avatar" aria-hidden="true"><i class="fas fa-robot"></i></div>
+            <div class="chat-title"><h2>Mental Health Assistant</h2><p><span class="dot" aria-hidden="true"></span><span id="chatStatus">Online</span></p></div>
+            <button type="button" data-chat="clear" aria-label="Clear conversation" title="Clear conversation"><i class="fas fa-trash-can" aria-hidden="true"></i></button>
+            <button type="button" data-chat="close" aria-label="Close assistant" title="Close"><i class="fas fa-times" aria-hidden="true"></i></button>
+        </header>
+        <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="chat-suggest" id="chatSuggest" aria-label="Suggested questions"></div>
+        <form class="chat-form" id="chatForm" autocomplete="off">
+            <label for="chatInput" class="visually-hidden">Your question</label>
+            <textarea id="chatInput" rows="1" maxlength="600" placeholder="Ask about the project…" enterkeyhint="send"></textarea>
+            <button type="submit" id="chatSend" aria-label="Send"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+        <p class="chat-foot-note">Answers come from this project's data and a data-science knowledge base. Not medical advice.</p>
+    </section>
+    <script src="assets/js/project.js" defer></script>
+    <script src="assets/data/mental.data.js" defer></script>
+    <script src="assets/data/worldmap.data.js" defer></script>
+    <script src="assets/data/analysis.data.js" defer></script>
+    <script src="assets/js/mental.js" defer></script>
+    <script src="assets/js/knowledge/project-mental.js" defer></script>
+    <script src="assets/js/knowledge/data-science.js" defer></script>
+    <script src="assets/shared/chat/engine.js" defer></script>
+    <script src="assets/shared/chat/ui.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', () => Mental.initOverview());</script>
+</body>
 </html>
