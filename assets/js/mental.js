@@ -374,7 +374,7 @@ const Mental = (() => {
     function renderTrend(mode) {
         const an = A(); if (!an || !document.getElementById('trendChart')) return;
         const c = ARC.themeColors(), T = an.countries.trend;
-        const REG_COLORS = ['#0a6cff', '#dc2626', '#16a34a', '#1e3a8a', '#f59e0b', '#0891b2', '#475569'];
+        const REG_COLORS = ['#0a6cff', '#dc2626', '#ea580c', '#1e3a8a', '#f59e0b', '#60a5fa', '#475569'];
         const ds = mode === 'region'
             ? Object.entries(T.regions).sort((a, b) => b[1][b[1].length - 1] - a[1][a[1].length - 1]).map(([r, v], i) => ({ label: r.replace(', Afghanistan & Pakistan', ' (+AFG, PAK)'), data: v, borderColor: REG_COLORS[i % 7], backgroundColor: REG_COLORS[i % 7], tension: .3, pointRadius: 0, borderWidth: 2.2 }))
             : [{ label: 'Men', data: T.male, borderColor: '#0a6cff', backgroundColor: '#0a6cff', tension: .3, pointRadius: 0, borderWidth: 2.2 },
