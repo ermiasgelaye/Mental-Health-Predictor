@@ -8,3 +8,12 @@ __pycache__/
 .DS_Store
 .history/
 .vscode/
+# OS
+Thumbs.db
+# Python
+*.pyc
+.venv/
+venv/
+# Node
+node_modules/
+# Secrets
