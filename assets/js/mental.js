@@ -169,7 +169,7 @@ const Mental = (() => {
     function renderWorld(M, box, key, selected, onPick) {
         const W = window.WORLD_MAP;
         if (!box) return;
-        if (!W) { box.innerHTML = '<div class="alert err">The map couldn\'t be loaded — please refresh the page.</div>'; return; }
+        if (!W) { box.innerHTML = '<div class="alert err">The map couldn\'t be loaded: please refresh the page.</div>'; return; }
         const info = MAP_METRICS[key];
         const by = Object.fromEntries(M.countries.map((c) => [c.code, c]));
         const tf = (v) => (info.log ? Math.log10(v) : v);
@@ -218,7 +218,7 @@ const Mental = (() => {
         const rank = M.sorted.indexOf(c) + 1;
         const row = (k, lab, f) => (c[k] == null ? '' : `<dt>${lab}</dt><dd>${f(c[k])}</dd>`);
         const reg = c.region || A()?.countries.regionOf[c.code];
-        box.innerHTML = `<h3>${esc(c.name)}</h3>${reg ? `<p style="margin:-.2rem 0 .5rem;font-size:.82rem;color:var(--ink-3)">${esc(reg)}</p>` : ''}${c[M.SR] == null ? '<p>No suicide-rate data.</p>' : `<p><strong>${c[M.SR].toFixed(1)}</strong> suicide deaths per 100,000 (2017–19) — <strong>#${rank}</strong> of ${M.withSuicide.length} countries (median ${M.medianSR.toFixed(1)}).</p>`}${spark(c)}
+        box.innerHTML = `<h3>${esc(c.name)}</h3>${reg ? `<p style="margin:-.2rem 0 .5rem;font-size:.82rem;color:var(--ink-3)">${esc(reg)}</p>` : ''}${c[M.SR] == null ? '<p>No suicide-rate data.</p>' : `<p><strong>${c[M.SR].toFixed(1)}</strong> suicide deaths per 100,000 (2017–19), <strong>#${rank}</strong> of ${M.withSuicide.length} countries (median ${M.medianSR.toFixed(1)}).</p>`}${spark(c)}
             <dl>${row('Suicide_mortality_rate_per_100k_male', 'Men', (v) => v.toFixed(1))}${row('Suicide_mortality_rate_per_100k_female', 'Women', (v) => v.toFixed(1))}
             ${row('GDP_per_capita', 'GDP per capita', (v) => `$${Math.round(v).toLocaleString()}`)}${row('Life_expectancy_total', 'Life expectancy', (v) => `${v.toFixed(1)} yrs`)}
             ${row('alcohol_per_capita', 'Alcohol per capita', (v) => `${v.toFixed(1)} L`)}${row('gov_health_spending_per_capita', 'Gov. health spending', (v) => `$${Math.round(v).toLocaleString()}`)}</dl>`;
@@ -248,7 +248,7 @@ const Mental = (() => {
         drawWorld(); renderCountry(M, world.sel);
         const missing = M.withSuicide.filter((c) => !(window.WORLD_MAP?.countries || []).some((s) => s.iso3 === c.code)).map((c) => c.name);
         const mn = document.getElementById('worldNote');
-        if (mn) mn.textContent = `Darker red = higher. Click a country for its profile. Hatched: no data. ${missing.length} small states with data (e.g. ${missing.slice(0, 4).join(', ')}) are too small to show at this scale — they're in the lists below and on the Data page.`;
+        if (mn) mn.textContent = `Darker red = higher. Click a country for its profile. Hatched: no data. ${missing.length} small states with data (e.g. ${missing.slice(0, 4).join(', ')}) are too small to show at this scale: they're in the lists below and on the Data page.`;
 
         const ui = { factor: 'family_history', ind: 'alcohol_per_capita' };
         chips(document.getElementById('factorChips'), Object.entries(FACTORS).map(([k, f]) => [k, f.label, f.icon]), ui.factor, (k) => { ui.factor = k; renderFactor(M, k); });
@@ -315,7 +315,7 @@ const Mental = (() => {
         const a = A()?.countries.assoc.find((x) => x.key === key);
         if (!a) return '';
         const held = a.adjP < 0.05;
-        return `<strong>Controlling for world region</strong>, the association ${held ? 'holds' : 'disappears'} (${a.adj >= 0 ? '+' : ''}${a.adj.toFixed(2)} deaths per 100k per standard deviation, p ${fmtP(a.adjP)}${held ? '' : ' — it was driven by regional differences'}). Values are ${esc(A().countries.window)} averages.`;
+        return `<strong>Controlling for world region</strong>, the association ${held ? 'holds' : 'disappears'} (${a.adj >= 0 ? '+' : ''}${a.adj.toFixed(2)} deaths per 100k per standard deviation, p ${fmtP(a.adjP)}${held ? '' : ', it was driven by regional differences'}). Values are ${esc(A().countries.window)} averages.`;
     };
 
     function renderForest() {
@@ -334,9 +334,9 @@ const Mental = (() => {
         const el = document.getElementById('forestNote');
         if (el) el.innerHTML = `Logistic regression on ${s.n.toLocaleString()} respondents, each factor adjusted for all the others. <strong>Family history</strong> multiplies the odds of having sought treatment by ${fh.aor.toFixed(1)} (95% CI ${fh.lo.toFixed(1)}–${fh.hi.toFixed(1)}); <strong>men</strong> have ${men.aor.toFixed(2)}× the odds of women. ` +
             `Workplace support still matters after adjustment: knowing the care options (aOR ${co.aor.toFixed(1)}) and having benefits (aOR ${be.aor.toFixed(1)}). Remote work (${nul[0].aor.toFixed(2)}) and working at a tech company (${nul[1].aor.toFixed(2)}) make no difference. ` +
-            `People who find medical leave "very difficult" are <em>more</em> likely to have been treated (aOR ${lv.aor.toFixed(1)}) — probably because they found out by needing it (reverse causation).`;
+            `People who find medical leave "very difficult" are <em>more</em> likely to have been treated (aOR ${lv.aor.toFixed(1)}): probably because they found out by needing it (reverse causation).`;
         const lk = document.getElementById('leakNote');
-        if (lk) lk.innerHTML = `<strong>Why "work interference" is left out:</strong> people without a condition answer it "NA", so it partly encodes the outcome. Including it lifts cross-validated AUC from ${s.aucClean.toFixed(2)} to ${s.aucLeaky.toFixed(2)} — target leakage, not insight. The honest model discriminates moderately well (AUC ${s.aucClean.toFixed(2)}).`;
+        if (lk) lk.innerHTML = `<strong>Why "work interference" is left out:</strong> people without a condition answer it "NA", so it partly encodes the outcome. Including it lifts cross-validated AUC from ${s.aucClean.toFixed(2)} to ${s.aucLeaky.toFixed(2)}: target leakage, not insight. The honest model discriminates moderately well (AUC ${s.aucClean.toFixed(2)}).`;
     }
 
     function renderRegions() {
@@ -350,7 +350,7 @@ const Mental = (() => {
         const sa = R.find((r) => r.region === 'South Asia');
         const el = document.getElementById('regionNote');
         if (el) el.innerHTML = `World region alone explains <strong>${Math.round(an.countries.eta2 * 100)}%</strong> of the variation between countries (${esc(an.countries.window)} average; one-way ANOVA, p ${fmtP(an.countries.anovaP)}): from ${lo.mean.toFixed(1)} per 100k in ${esc(lo.region)} to ${hi.mean.toFixed(1)} in ${esc(hi.region)} (${hi.n} countries)${small.length ? `; ${small.map((r) => `${esc(r.region)} has only ${r.n} countries (${r.mean.toFixed(1)})`).join(', ')}` : ''}. ` +
-            `High-income countries average ${inc.find((x) => x.income === 'High income').mean.toFixed(1)} vs ${inc.find((x) => x.income === 'Low income').mean.toFixed(1)} in low-income ones — partly real, partly better death registration. ` +
+            `High-income countries average ${inc.find((x) => x.income === 'High income').mean.toFixed(1)} vs ${inc.find((x) => x.income === 'Low income').mean.toFixed(1)} in low-income ones: partly real, partly better death registration. ` +
             (sa ? `The male-to-female ratio is lowest in South Asia (${sa.sexRatio.toFixed(1)}×), where women's suicide rates are unusually high.` : '');
     }
 
@@ -368,7 +368,7 @@ const Mental = (() => {
         if (el) el.innerHTML = `Effects are the change in suicide deaths per 100k for a one-standard-deviation higher indicator (${esc(an.countries.window)} average). <strong>Significant after controlling for region:</strong> ${esc(robust.join(', '))}. ` +
             (unstable.length ? `<strong>Not robust</strong> (significance changes between the 2015–16 and 2017–19 samples): ${esc(unstable.join(', '))}. ` : '') +
             (gone.length ? `<strong>Explained away by region:</strong> ${esc(gone.join(', '))}. ` : '') +
-            `Richer, better-educated countries with higher health spending record <em>higher</em> rates — partly better death registration. Where people with only basic education are more likely to be working, rates are lower.`;
+            `Richer, better-educated countries with higher health spending record <em>higher</em> rates: partly better death registration. Where people with only basic education are more likely to be working, rates are lower.`;
     }
 
     function renderTrend(mode) {
@@ -389,7 +389,7 @@ const Mental = (() => {
         const T = an.countries.trend, mv = an.countries.movers, ch = (a) => ((a[a.length - 1] - a[0]) / a[0]) * 100;
         const regs = Object.entries(T.regions).map(([r, v]) => ({ r, c: ch(v) })).sort((a, b) => a.c - b.c);
         const up = regs.filter((x) => x.c > 10).reverse();
-        el.innerHTML = `Worldwide, the population-weighted suicide rate fell <strong>${Math.abs(ch(T.global)).toFixed(0)}%</strong> from ${T.global[0].toFixed(1)} to ${T.global[T.global.length - 1].toFixed(1)} per 100,000 (2000–2021), and fell in ${mv.nFalling} of ${mv.n} countries — for men (${ch(T.male).toFixed(0)}%) and women (${ch(T.female).toFixed(0)}%) alike. ` +
+        el.innerHTML = `Worldwide, the population-weighted suicide rate fell <strong>${Math.abs(ch(T.global)).toFixed(0)}%</strong> from ${T.global[0].toFixed(1)} to ${T.global[T.global.length - 1].toFixed(1)} per 100,000 (2000–2021), and fell in ${mv.nFalling} of ${mv.n} countries, for men (${ch(T.male).toFixed(0)}%) and women (${ch(T.female).toFixed(0)}%) alike. ` +
             `The steepest regional fall was ${esc(regs[0].r)} (${regs[0].c.toFixed(0)}%); the largest national falls were ${esc(mv.falls.slice(0, 3).map(([n, v]) => `${n} (${v})`).join(', '))}. ` +
             (up.length ? `Against the trend, rates <strong>rose</strong> in ${esc(up.map((x) => `${x.r} (+${x.c.toFixed(0)}%)`).join(' and '))}; the largest national rises were ${esc(mv.rises.slice(0, 3).map(([n, v]) => `${n} (+${v})`).join(', '))}.` : '');
     }
@@ -402,8 +402,8 @@ const Mental = (() => {
         const gx = an.countries.assoc.find((a) => a.key === 'GDP_per_capita');
         const el = document.getElementById('withinNote');
         if (el) el.innerHTML = `Two-way fixed effects (each country compared with itself over 2000–2021, net of global year-to-year shifts; standard errors clustered by country). ` +
-            `<strong>The income paradox:</strong> across countries, richer ones record <em>higher</em> rates (+${gx.adj.toFixed(1)} per SD), but within a country, growing richer goes with <em>falling</em> rates — a tenfold rise in GDP per capita with ${Math.abs(g.b).toFixed(1)} fewer deaths per 100k (95% CI ${Math.abs(g.hi).toFixed(1)}–${Math.abs(g.lo).toFixed(1)}, p ${fmtP(g.p)}). ` +
-            `Alcohol shows the opposite pattern: strongly linked across countries, but changes in drinking don't track changes in suicide (p ${fmtP(al.p)}) — its association reflects long-standing national drinking cultures.`;
+            `<strong>The income paradox:</strong> across countries, richer ones record <em>higher</em> rates (+${gx.adj.toFixed(1)} per SD), but within a country, growing richer goes with <em>falling</em> rates, a tenfold rise in GDP per capita with ${Math.abs(g.b).toFixed(1)} fewer deaths per 100k (95% CI ${Math.abs(g.hi).toFixed(1)}–${Math.abs(g.lo).toFixed(1)}, p ${fmtP(g.p)}). ` +
+            `Alcohol shows the opposite pattern: strongly linked across countries, but changes in drinking don't track changes in suicide (p ${fmtP(al.p)}), its association reflects long-standing national drinking cultures.`;
     }
 
     function renderCv() {
@@ -432,20 +432,20 @@ const Mental = (() => {
             const best = [...C.models].sort((a, b) => b.r2 - a.r2)[0];
             const nMen = M.byFactor('Gender').find((x) => x.name === 'Male').n, nWomen = M.byFactor('Gender').find((x) => x.name === 'Female').n;
             const fall = (k) => Math.abs(+C.movers.falls[k][1]).toFixed(1);
-            items.push(['arrow-trend-down', `Suicide rates fell ${Math.abs(ch(T.global)).toFixed(0)}% worldwide from 2000 to 2021 — but rose in ${up.join(' and ')}`,
+            items.push(['arrow-trend-down', `Suicide rates fell ${Math.abs(ch(T.global)).toFixed(0)}% worldwide from 2000 to 2021, but rose in ${up.join(' and ')}`,
                 `They fell in ${C.movers.nFalling} of ${C.movers.n} countries, most steeply in the former Soviet Union (Russia down ${fall(0)} and Lithuania down ${fall(1)} deaths per 100,000 people).`,
                 'Population-weighted World Bank / WHO estimates.']);
-            items.push(['wine-bottle', 'Countries that drink more have higher suicide rates — even compared with their neighbours',
+            items.push(['wine-bottle', 'Countries that drink more have higher suicide rates, even compared with their neighbours',
                 'Of all the indicators, alcohol has the strongest link that still holds within the same world region. The link is stronger for men than for women.',
                 `+${al.adj.toFixed(1)} deaths per 100k per standard deviation of alcohol, adjusted for region (p ${fmtP(al.adjP)}); r = ${C.sexAlcohol.Suicide_mortality_rate_per_100k_male.toFixed(2)} for men's rates, ${C.sexAlcohol.Suicide_mortality_rate_per_100k_female.toFixed(2)} for women's.`]);
             items.push(['scale-balanced', 'The income paradox: richer countries record more suicides, yet getting richer goes with fewer',
-                'Comparing countries, wealthy ones report higher rates — partly because they record deaths more completely. But when a country\'s own income grows, its rate tends to fall.',
+                'Comparing countries, wealthy ones report higher rates: partly because they record deaths more completely. But when a country\'s own income grows, its rate tends to fall.',
                 `Within-country (fixed-effects) model, 2000–2021: a tenfold rise in GDP per capita goes with ${Math.abs(gw.b).toFixed(1)} fewer deaths per 100k (p ${fmtP(gw.p)}).`]);
             items.push(['people-roof', 'Family history is the strongest predictor of seeking treatment',
                 `Tech workers with a family history of mental illness had about ${fh.aor.toFixed(1)} times the odds of having sought treatment, even after accounting for gender, age and workplace.`,
                 `Adjusted odds ratio ${fh.aor.toFixed(1)} (95% CI ${fh.lo.toFixed(1)}–${fh.hi.toFixed(1)}); OSMI survey, ${an.survey.n.toLocaleString()} respondents.`]);
             items.push(['venus-mars', 'Men are much less likely to have sought treatment',
-                `Men had less than half the odds of women of having been treated — while, worldwide, men die by suicide about ${M.ratioMedian.toFixed(1)} times as often as women.`,
+                `Men had less than half the odds of women of having been treated, while, worldwide, men die by suicide about ${M.ratioMedian.toFixed(1)} times as often as women.`,
                 `Adjusted odds ratio ${men.aor.toFixed(2)}; men are ${Math.round((nMen / (nMen + nWomen)) * 100)}% of respondents.`]);
             items.push(['hand-holding-medical', 'Workplace support matters',
                 'Knowing what mental-health care is available roughly doubles the odds of seeking treatment, and having benefits helps too. Working remotely or at a tech company makes no difference.',
@@ -459,8 +459,8 @@ const Mental = (() => {
 
     function renderMl() {
         const tb = document.getElementById('mlTable'); if (!tb) return;
-        tb.innerHTML = ML.classification.map((m) => `<tr><th scope="row">${esc(m.model)}</th><td class="num">${pctf(m.train)}</td><td class="num"><strong>${pctf(m.test)}</strong></td><td class="num">${pctf(m.cv)} ± ${Math.round(m.cvsd * 100)}</td><td class="num">${m.f1 == null ? '—' : m.f1.toFixed(2)}</td></tr>`).join('') +
-            `<tr><th scope="row"><em>Baseline: always guess "low"</em></th><td class="num">—</td><td class="num">${pctf(ML.baseline)}</td><td class="num">—</td><td class="num">—</td></tr>`;
+        tb.innerHTML = ML.classification.map((m) => `<tr><th scope="row">${esc(m.model)}</th><td class="num">${pctf(m.train)}</td><td class="num"><strong>${pctf(m.test)}</strong></td><td class="num">${pctf(m.cv)} ± ${Math.round(m.cvsd * 100)}</td><td class="num">${m.f1 == null ? 'n/a' : m.f1.toFixed(2)}</td></tr>`).join('') +
+            `<tr><th scope="row"><em>Baseline: always guess "low"</em></th><td class="num">n/a</td><td class="num">${pctf(ML.baseline)}</td><td class="num">n/a</td><td class="num">n/a</td></tr>`;
         const rb = document.getElementById('regTable');
         if (rb) rb.innerHTML = ML.regression.map((m) => `<tr><th scope="row">${esc(m.model)}</th><td class="num">${m.train.toFixed(2)}</td><td class="num"><strong>${m.test.toFixed(2)}</strong></td></tr>`).join('');
     }
@@ -469,10 +469,10 @@ const Mental = (() => {
      * Runs before knowledge-base retrieval, so it can't be outranked. Matches first-person statements
      * ("I want to die", "kill myself") — not questions about statistics ("suicide rate in Japan"). */
     const CRISIS = /\b(kill(ing)? my ?self|end(ing)? (my|it all|my own) ?life|end it all|take my (own )?life|want(ed)? to die|wish i (was|were) dead|better off dead|(don'?t|do not) want to (live|be alive|be here)|no reason to (live|go on)|hurt(ing)? my ?self|harm(ing)? my ?self|self[- ]?harm(ing)?|cut(ting)? my ?self|i('?m| am)? ?(feel(ing)? |am feeling )?suicidal|suicidal (thoughts|feelings)|i('?m| am| feel) (so |really |very )?(depressed|hopeless|worthless))\b/i;
-    const SUPPORT_TEXT = "I'm really sorry you're feeling this way — thank you for saying it. You deserve support, and you don't have to go through this alone.\n\n" +
-        "- **US & Canada:** call or text **988** (Suicide & Crisis Lifeline) — free, confidential, 24/7\n- **UK & Ireland:** call Samaritans on **116 123**\n" +
+    const SUPPORT_TEXT = "I'm really sorry you're feeling this way, thank you for saying it. You deserve support, and you don't have to go through this alone.\n\n" +
+        "- **US & Canada:** call or text **988** (Suicide & Crisis Lifeline), free, confidential, 24/7\n- **UK & Ireland:** call Samaritans on **116 123**\n" +
         "- **Anywhere else:** findahelpline.com lists free services in your country\n- **If you're in immediate danger**, call your local emergency number.\n\n" +
-        "Talking to someone you trust — a friend, family member or doctor — can also help. I'm only a data assistant, but I'm glad you reached out.";
+        "Talking to someone you trust, a friend, family member or doctor, can also help. I'm only a data assistant, but I'm glad you reached out.";
     function installSafety() {
         const E = window.ARC && ARC.chatEngine;
         if (!E || E._safety) return;
@@ -494,7 +494,7 @@ const Mental = (() => {
             ARC.KB.push({ id: `mh-f-${f}`, topic: 'project', title: `Treatment by: ${info.label}`,
                 q: [`does ${info.label.toLowerCase()} affect treatment`, `treatment rate by ${info.label.toLowerCase()}`],
                 k: info.label.toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 3).concat(['treatment', 'survey']),
-                a: `**${info.label}** — share of the ${M.S.n.toLocaleString()} OSMI survey respondents who have sought mental-health treatment:\n\n${g.map((x) => `- ${FACTORS[f].note?.[x.name] || x.name}: **${pctf(x.rate)}** (n = ${x.n})`).join('\n')}\n\nThese are associations in a self-selected survey of tech workers, not causal effects.`,
+                a: `**${info.label}**: share of the ${M.S.n.toLocaleString()} OSMI survey respondents who have sought mental-health treatment:\n\n${g.map((x) => `- ${FACTORS[f].note?.[x.name] || x.name}: **${pctf(x.rate)}** (n = ${x.n})`).join('\n')}\n\nThese are associations in a self-selected survey of tech workers, not causal effects.`,
                 actions: [{ label: 'Open the survey chart', action: 'link:index.html#survey' }] });
         });
         M.withSuicide.forEach((c) => {
@@ -503,7 +503,7 @@ const Mental = (() => {
             ARC.KB.push({ id: `mh-c-${c.code}`, topic: 'project', title: `${c.name}: suicide rate`,
                 q: [`what is the suicide rate in ${c.name.toLowerCase()}`, `${c.name.toLowerCase()} suicide rate`],
                 k: c.name.toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 2 && !['the', 'and', 'rep', 'dem'].includes(w)),
-                a: `**${c.name}** — ${c[M.SR].toFixed(1)} suicide deaths per 100,000 people (World Bank, 2017–2019 average), **#${rank} of ${M.withSuicide.length}** countries (median ${M.medianSR.toFixed(1)}).` +
+                a: `**${c.name}**: ${c[M.SR].toFixed(1)} suicide deaths per 100,000 people (World Bank, 2017–2019 average), **#${rank} of ${M.withSuicide.length}** countries (median ${M.medianSR.toFixed(1)}).` +
                    (f != null && m != null ? `\n\n- Men: ${m.toFixed(1)} · Women: ${f.toFixed(1)}${f > 0 ? ` (${(m / f).toFixed(1)}×)` : ''}` : '') +
                    (c.GDP_per_capita ? `\n- GDP per capita: $${Math.round(c.GDP_per_capita).toLocaleString()}` : '') +
                    (c.Life_expectancy_total ? `\n- Life expectancy: ${c.Life_expectancy_total.toFixed(1)} years` : '') +
@@ -533,19 +533,19 @@ const Mental = (() => {
             ARC.KB.push({ id: 'mh-within', topic: 'project', title: 'Does economic growth lower suicide rates?',
                 q: ['does economic growth reduce suicide', 'do richer countries have more suicide', 'income and suicide', 'does alcohol cause suicide', 'within country analysis'],
                 k: ['growth', 'income', 'richer', 'wealth', 'gdp', 'alcohol', 'within', 'fixed effects', 'paradox', 'drinking'],
-                a: `Across countries, richer ones record *higher* suicide rates — but within each country over 2000–2021, growing richer goes with **falling** rates: a tenfold rise in GDP per capita ≈ ${Math.abs(gw.b).toFixed(1)} fewer deaths per 100k (95% CI ${Math.abs(gw.hi).toFixed(1)}–${Math.abs(gw.lo).toFixed(1)}, p ${fmtP(gw.p)}; two-way fixed effects, clustered errors).\n\nAlcohol is the strongest cross-country correlate after controlling for region, but changes in drinking don't track changes in suicide — the link reflects long-standing national drinking cultures, not a short-term effect.`,
+                a: `Across countries, richer ones record *higher* suicide rates, but within each country over 2000–2021, growing richer goes with **falling** rates: a tenfold rise in GDP per capita ≈ ${Math.abs(gw.b).toFixed(1)} fewer deaths per 100k (95% CI ${Math.abs(gw.hi).toFixed(1)}–${Math.abs(gw.lo).toFixed(1)}, p ${fmtP(gw.p)}; two-way fixed effects, clustered errors).\n\nAlcohol is the strongest cross-country correlate after controlling for region, but changes in drinking don't track changes in suicide: the link reflects long-standing national drinking cultures, not a short-term effect.`,
                 actions: [{ label: 'See the analysis', action: 'link:index.html#within' }] });
             ARC.KB.push({ id: 'mh-cv', topic: 'project', title: 'Re-analysis of the prediction models',
                 q: ['can suicide rates be predicted', 'cross validation results', 'how good is the improved model', 're-analysis of the models'],
                 k: ['cross', 'validation', 'cv', 'r2', 'predict', 'prediction', 'reanalysis', 'improved', 'ridge'],
-                a: `Re-run on all ${C.n} countries (${C.window} averages) with repeated 5-fold cross-validation (median imputation):\n\n${C.models.map((m) => `- ${m.model}: R² ${m.r2.toFixed(2)} ± ${m.sd.toFixed(2)}`).join('\n')}\n\nThe indicators explain about a fifth of the variation at best, barely more than region alone — they describe patterns but can't predict a country's rate.`,
+                a: `Re-run on all ${C.n} countries (${C.window} averages) with repeated 5-fold cross-validation (median imputation):\n\n${C.models.map((m) => `- ${m.model}: R² ${m.r2.toFixed(2)} ± ${m.sd.toFixed(2)}`).join('\n')}\n\nThe indicators explain about a fifth of the variation at best, barely more than region alone: they describe patterns but can't predict a country's rate.`,
                 actions: [{ label: 'See model results', action: 'link:ml.html' }] });
         }
         const ranked = Object.entries(IND).filter(([k]) => M.stats[k]).sort((a, b) => Math.abs(M.stats[b[0]].r) - Math.abs(M.stats[a[0]].r));
         ARC.KB.push({ id: 'mh-ind', topic: 'project', title: 'Which indicators relate to suicide rates?',
             q: ['which factors are associated with suicide', 'what predicts suicide rates', 'which indicators correlate with suicide', 'does gdp affect suicide'],
             k: ['indicator', 'indicators', 'factor', 'factors', 'correlation', 'correlated', 'predict', 'gdp', 'education', 'social insurance', 'associated'],
-            a: `Correlation with national suicide rates (countries, 2017–2019 average):\n\n${ranked.map(([k, f]) => `- ${f.short}: r = ${M.stats[k].r.toFixed(2)} (p ${fmtP(M.stats[k].p)}, ${M.stats[k].n} countries)`).join('\n')}\n\nNo single indicator explains more than about a quarter of the variation. Several links are confounded by region — e.g. high social-insurance coverage and high suicide rates both cluster in former Soviet states.`,
+            a: `Correlation with national suicide rates (countries, 2017–2019 average):\n\n${ranked.map(([k, f]) => `- ${f.short}: r = ${M.stats[k].r.toFixed(2)} (p ${fmtP(M.stats[k].p)}, ${M.stats[k].n} countries)`).join('\n')}\n\nNo single indicator explains more than about a quarter of the variation. Several links are confounded by region: e.g. high social-insurance coverage and high suicide rates both cluster in former Soviet states.`,
             actions: [{ label: 'Explore indicators', action: 'link:index.html#countries' }] });
         ARC.KB.push({ id: 'mh-top', topic: 'project', title: 'Highest and lowest suicide rates',
             q: ['which country has the highest suicide rate', 'countries with the lowest suicide rate', 'where are suicide rates highest'],
@@ -572,7 +572,7 @@ const Mental = (() => {
                 const res = await fetch(b.dataset.try);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const j = await res.json();
-                out.textContent = `// ${j.length.toLocaleString()} records — fields: ${Object.keys(j[0]).join(', ')}\n${JSON.stringify(j.slice(0, 2), null, 2)}\n…`;
+                out.textContent = `// ${j.length.toLocaleString()} records, fields: ${Object.keys(j[0]).join(', ')}\n${JSON.stringify(j.slice(0, 2), null, 2)}\n…`;
             } catch (err) {
                 out.textContent = location.protocol === 'file:' ? 'Browsers block requests from pages opened as files. Open the site from its web address (or run python3 app.py) to try the endpoints.' : `Couldn't load the endpoint (${err.message}).`;
             }
@@ -611,7 +611,7 @@ const Mental = (() => {
         const IL = { Suicide_mortality_rate_per_100k: 'Suicide /100k', Suicide_mortality_rate_per_100k_male: 'Male /100k', Suicide_mortality_rate_per_100k_female: 'Female /100k', change: 'Change 2000–21', GDP_per_capita: 'GDP per capita ($)', Life_expectancy_total: 'Life expectancy', alcohol_per_capita: 'Alcohol (L)', gov_health_spending_per_capita: 'Gov. health $', Labour_force_with_basic_education: 'Work particip., basic ed. %' };
         DataTable.mount(document.getElementById('indicatorTable'), {
             id: 'ind', rows: M.countries, fileName: 'world-bank-indicators-2017-2019', pageSize: 25, caption: 'World Bank indicators by country, 2017–2019 average',
-            columns: [{ key: 'name', label: 'Country' }, { key: 'code', label: 'Code' }, ...keys.map((k) => ({ key: k, label: IL[k], type: 'number', format: (v) => (v == null ? '—' : ['GDP_per_capita', 'gov_health_spending_per_capita'].includes(k) ? Math.round(v).toLocaleString() : `${k === 'change' && v > 0 ? '+' : ''}${v.toFixed(1)}`) })), { key: 'region', label: 'Region', filter: true, filterLabel: 'regions' }]
+            columns: [{ key: 'name', label: 'Country' }, { key: 'code', label: 'Code' }, ...keys.map((k) => ({ key: k, label: IL[k], type: 'number', format: (v) => (v == null ? 'n/a' : ['GDP_per_capita', 'gov_health_spending_per_capita'].includes(k) ? Math.round(v).toLocaleString() : `${k === 'change' && v > 0 ? '+' : ''}${v.toFixed(1)}`) })), { key: 'region', label: 'Region', filter: true, filterLabel: 'regions' }]
         });
     }
 
