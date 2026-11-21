@@ -270,7 +270,7 @@ const Mental = (() => {
         const names = g.map((x) => FACTORS[f].note?.[x.name] || x.name);
         draw('factorChart', {
             type: 'bar',
-            data: { labels: names, datasets: [{ label: 'Sought treatment', data: g.map((x) => x.rate * 100), backgroundColor: g.map((x) => (x.rate >= overall ? '#0a6cff' : 'rgba(124,58,237,.55)')), borderRadius: 6, maxBarThickness: 38 }] },
+            data: { labels: names, datasets: [{ label: 'Sought treatment', data: g.map((x) => x.rate * 100), backgroundColor: g.map((x) => (x.rate >= overall ? '#0a6cff' : 'rgba(100,116,139,.55)')), borderRadius: 6, maxBarThickness: 38 }] },
             options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
                 plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(0)}% sought treatment (n = ${g[ctx.dataIndex].n})` } } },
                 scales: { x: { ...axis(c, '% who have sought treatment'), min: 0, max: 100 }, y: { ...axis(c), grid: { display: false } } } }
@@ -291,7 +291,7 @@ const Mental = (() => {
             type: 'scatter',
             data: { datasets: [
                 { label: 'Countries', data: st.pts.map((p) => ({ x: x(p[key]), y: p[M.SR], p })), backgroundColor: 'rgba(10,108,255,.5)', borderColor: 'rgba(10,108,255,.9)', pointRadius: 3.8, pointHoverRadius: 6 },
-                { type: 'line', label: 'Least-squares fit', data: [{ x: x0, y: st.intercept + st.slope * x0 }, { x: x1, y: st.intercept + st.slope * x1 }], borderColor: '#7c3aed', borderWidth: 2.5, pointRadius: 0, borderDash: st.p < 0.05 ? [] : [6, 6] }
+                { type: 'line', label: 'Least-squares fit', data: [{ x: x0, y: st.intercept + st.slope * x0 }, { x: x1, y: st.intercept + st.slope * x1 }], borderColor: '#ea580c', borderWidth: 2.5, pointRadius: 0, borderDash: st.p < 0.05 ? [] : [6, 6] }
             ] },
             options: { responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
                 plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => (ctx.raw.p ? `${ctx.raw.p.name}: ${ctx.raw.p[M.SR].toFixed(1)} per 100k, ${info.log ? `$${Math.round(ctx.raw.p[key]).toLocaleString()}` : ctx.raw.p[key].toFixed(1)}` : 'Fit') } } },
@@ -374,12 +374,12 @@ const Mental = (() => {
     function renderTrend(mode) {
         const an = A(); if (!an || !document.getElementById('trendChart')) return;
         const c = ARC.themeColors(), T = an.countries.trend;
-        const REG_COLORS = ['#0a6cff', '#dc2626', '#16a34a', '#7c3aed', '#f59e0b', '#0891b2', '#db2777'];
+        const REG_COLORS = ['#0a6cff', '#dc2626', '#16a34a', '#1e3a8a', '#f59e0b', '#0891b2', '#475569'];
         const ds = mode === 'region'
             ? Object.entries(T.regions).sort((a, b) => b[1][b[1].length - 1] - a[1][a[1].length - 1]).map(([r, v], i) => ({ label: r.replace(', Afghanistan & Pakistan', ' (+AFG, PAK)'), data: v, borderColor: REG_COLORS[i % 7], backgroundColor: REG_COLORS[i % 7], tension: .3, pointRadius: 0, borderWidth: 2.2 }))
             : [{ label: 'Men', data: T.male, borderColor: '#0a6cff', backgroundColor: '#0a6cff', tension: .3, pointRadius: 0, borderWidth: 2.2 },
                { label: 'All people', data: T.global, borderColor: c.ink, backgroundColor: c.ink, tension: .3, pointRadius: 0, borderWidth: 3 },
-               { label: 'Women', data: T.female, borderColor: '#db2777', backgroundColor: '#db2777', tension: .3, pointRadius: 0, borderWidth: 2.2 }];
+               { label: 'Women', data: T.female, borderColor: '#ea580c', backgroundColor: '#ea580c', tension: .3, pointRadius: 0, borderWidth: 2.2 }];
         draw('trendChart', { type: 'line', data: { labels: T.years, datasets: ds },
             options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { position: 'bottom', labels: { color: c.ink2, usePointStyle: true, boxWidth: 8 } }, tooltip: { callbacks: { label: (x) => `${x.dataset.label}: ${x.raw.toFixed(1)}` } } },
                 scales: { x: axis(c), y: { ...axis(c, 'Suicide deaths per 100,000 (population-weighted)'), beginAtZero: true } } } });
