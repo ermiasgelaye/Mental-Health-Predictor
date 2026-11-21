@@ -35,13 +35,13 @@
         <div class="container">
             <nav class="crumbs" aria-label="Breadcrumb"><a href="https://ermiasgelaye.github.io/">Portfolio</a> <span aria-hidden="true">/</span> <a href="index.html">Mental Health Risk Indicators</a> <span aria-hidden="true">/</span> <span aria-current="page">Tableau dashboards</span></nav>
             <h1>Exploratory dashboards</h1>
-            <p style="color:var(--ink-2);max-width:72ch">The team's original exploratory analysis, built in Tableau Public. Each dashboard loads only when you ask for it, so this page stays fast. The <a href="index.html">overview</a> has lighter, mobile-friendly versions of the key charts.</p>
+            <p style="color:var(--ink-2);max-width:72ch">The team's original exploratory analysis, built in Tableau Public. The dashboards load automatically; if one doesn't appear (for example, if Tableau Public is blocked on your network), use the link under it to open it on Tableau Public. The <a href="index.html">overview</a> has lighter, mobile-friendly versions of the key charts.</p>
             <h2 style="margin-top:2.5rem;font-size:1.3rem">Regional analysis</h2>
-            <div class="viz-frame card" data-src="https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link&:embed=y&:showVizHome=no"><div><button type="button" class="btn btn-primary" data-load><i class="fas fa-play" aria-hidden="true"></i> Load the regional analysis dashboard</button><p>Opens Tableau Public inside this page (about 2–5 MB). <a href="https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1" target="_blank" rel="noopener">Open on Tableau Public</a></p></div></div>
+            <div class="viz-frame card" data-src="https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link&:embed=y&:showVizHome=no"><p class="viz-loading"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading the regional analysis dashboard…</p></div><p class="chart-note viz-link"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> <a href="https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1" target="_blank" rel="noopener">Open on Tableau Public</a></p>
             <h2 style="margin-top:2.5rem;font-size:1.3rem">Mental health survey</h2>
-            <div class="viz-frame card" data-src="https://public.tableau.com/views/mentalhelath_2/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link&:embed=y&:showVizHome=no"><div><button type="button" class="btn btn-primary" data-load><i class="fas fa-play" aria-hidden="true"></i> Load the mental health survey dashboard</button><p>Opens Tableau Public inside this page (about 2–5 MB). <a href="https://public.tableau.com/views/mentalhelath_2/Dashboard1" target="_blank" rel="noopener">Open on Tableau Public</a></p></div></div>
+            <div class="viz-frame card" data-src="https://public.tableau.com/views/mentalhelath_2/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link&:embed=y&:showVizHome=no"><p class="viz-loading"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading the mental health survey dashboard…</p></div><p class="chart-note viz-link"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> <a href="https://public.tableau.com/views/mentalhelath_2/Dashboard1" target="_blank" rel="noopener">Open on Tableau Public</a></p>
             <h2 style="margin-top:2.5rem;font-size:1.3rem">Data table</h2>
-            <div class="viz-frame card" data-src="https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard?:language=en&:display_count=y&:origin=viz_share_link&:embed=y&:showVizHome=no"><div><button type="button" class="btn btn-primary" data-load><i class="fas fa-play" aria-hidden="true"></i> Load the data table dashboard</button><p>Opens Tableau Public inside this page (about 2–5 MB). <a href="https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard" target="_blank" rel="noopener">Open on Tableau Public</a></p></div></div>
+            <div class="viz-frame card" data-src="https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard?:language=en&:display_count=y&:origin=viz_share_link&:embed=y&:showVizHome=no"><p class="viz-loading"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading the data table dashboard…</p></div><p class="chart-note viz-link"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> <a href="https://public.tableau.com/views/Mental_helath/Data_Table_Dashboard" target="_blank" rel="noopener">Open on Tableau Public</a></p>
             <h2 style="margin-top:2.5rem;font-size:1.3rem">What the dashboards show</h2>
             <ul class="findings" style="margin-top:1rem">
                 <li class="card"><i class="fas fa-earth-europe" aria-hidden="true"></i><div><strong>Regional variation</strong><p>Suicide mortality differs widely between regions — the highest national rates are in Eastern Europe and the former Soviet Union (Lithuania, Russia, Belarus), Guyana and Suriname, and South Korea. See the <a href="index.html#worldmap">world map</a>.</p></div></li>
@@ -81,12 +81,14 @@
     <script src="assets/shared/chat/ui.js" defer></script>
     <script>document.addEventListener('DOMContentLoaded', () => Mental.initAssistant());</script>
     <script>
-        document.addEventListener('click', (e) => {
-            const b = e.target.closest('[data-load]'); if (!b) return;
-            const box = b.closest('.viz-frame');
-            const f = Object.assign(document.createElement('iframe'), { src: box.dataset.src, title: box.previousElementSibling.textContent + ' (Tableau dashboard)', loading: 'lazy' });
-            f.setAttribute('allowfullscreen', '');
-            box.replaceChildren(f);
+        // Embed every Tableau Public dashboard as soon as the page loads.
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.viz-frame[data-src]').forEach((box) => {
+                const f = Object.assign(document.createElement('iframe'), { src: box.dataset.src, title: box.previousElementSibling.textContent + ' (Tableau dashboard)' });
+                f.setAttribute('allowfullscreen', '');
+                f.addEventListener('load', () => box.classList.add('loaded'));
+                box.appendChild(f);
+            });
         });
     </script>
 </body>
