@@ -101,8 +101,15 @@ The OSMI Mental Health in Tech Survey provides aggregated survey data related to
 
 ## Deployment and Presentation
 
-The application is deployed at:  
-https://mindyourhealth.herokuapp.com/
+**Live site:** [ermiasgelaye.github.io/Mental-Health-Predictor](https://ermiasgelaye.github.io/Mental-Health-Predictor/)
+
+The site is fully static and hosted free on **GitHub Pages**, so it never sleeps or fails because of a free-tier server or database:
+
+- Pages: `index.html`, `eda.html` (exploratory analysis), `ml.html` (machine learning), `data.html` (data explorer).
+- **Data endpoints** are static JSON files: `static/data/mental_health.json` and `static/data/indicator.json`. After editing `Data/survey.csv` or `Data/database/indicator.csv`, rebuild them with `python3 tools/build_static.py`.
+- **Optional:** `python3 app.py` serves the site locally (old URLs such as `/eda` and `/mental_health` keep working) with no database.
+
+To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, folder `/ (root)`.
 
 Presentation slides are available at:  
 https://docs.google.com/presentation/d/1rNV9OyZRwMOkwW4LZzD71AB5QalhNDm-tOZPK2t0Pyc/edit

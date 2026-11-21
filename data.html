@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="../static/images/logo1.png" type="image/png">
+    <link rel="icon" href="static/images/logo1.png" type="image/png">
 
     <style>
         /* Data-specific styles */
@@ -213,7 +213,7 @@
     <!-- Enhanced Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light enhanced-navbar">
         <div class="container">
-            <a class="navbar-brand enhanced-navbar-brand" href="/">
+            <a class="navbar-brand enhanced-navbar-brand" href="index.html">
                 <i class="fas fa-brain mr-2"></i> Mind Health Analytics
             </a>
 
@@ -224,7 +224,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="/">
+                        <a class="nav-link enhanced-nav-link" href="index.html">
                             <i class="fas fa-home mr-1"></i>Home
                         </a>
                     </li>
@@ -234,10 +234,10 @@
                             <i class="fas fa-chart-bar mr-1"></i>Visualizations
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="/eda">
+                            <a class="dropdown-item enhanced-dropdown-item" href="eda.html">
                                 <i class="fas fa-search mr-2"></i>Exploratory Data Analysis
                             </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="/ml">
+                            <a class="dropdown-item enhanced-dropdown-item" href="ml.html">
                                 <i class="fas fa-robot mr-2"></i>Machine Learning Analysis
                             </a>
                         </div>
@@ -248,17 +248,17 @@
                             <i class="fas fa-code mr-1"></i>API
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="/mental_health">
+                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/mental_health.json">
                                 <i class="fas fa-brain mr-2"></i>Mental Health Data
                             </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="/indicator">
+                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/indicator.json">
                                 <i class="fas fa-chart-line mr-2"></i>Development Indicators
                             </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link active" href="/data">
+                        <a class="nav-link enhanced-nav-link active" href="data.html">
                             <i class="fas fa-database mr-1"></i>Data
                         </a>
                     </li>
@@ -395,7 +395,7 @@
         <!-- API Access -->
         <div class="content-box">
             <h2 class="section-title">API Access</h2>
-            <p class="mb-4">Access cleaned and processed datasets through these REST API endpoints for your own analysis and applications.</p>
+            <p class="mb-4">Access cleaned and processed datasets as static JSON files (no server needed) for your own analysis and applications.</p>
 
             <div class="api-endpoints">
                 <h5 class="mb-3"><i class="fas fa-cloud mr-2"></i>Available Endpoints</h5>
@@ -403,7 +403,7 @@
                 <div class="endpoint">
                     <div>
                         <span class="endpoint-method">GET</span>
-                        <span class="endpoint-url ml-3">/mental_health</span>
+                        <span class="endpoint-url ml-3">static/data/mental_health.json</span>
                     </div>
                     <div>
                         <span class="text-muted">Returns the mental health survey dataset</span>
@@ -413,36 +413,12 @@
                 <div class="endpoint">
                     <div>
                         <span class="endpoint-method">GET</span>
-                        <span class="endpoint-url ml-3">/indicator</span>
+                        <span class="endpoint-url ml-3">static/data/indicator.json</span>
                     </div>
                     <div>
                         <span class="text-muted">Returns World Bank development indicators</span>
                     </div>
                 </div>
-
-                <div class="endpoint">
-                    <div>
-                        <span class="endpoint-method">GET</span>
-                        <span class="endpoint-url ml-3">/health</span>
-                    </div>
-                    <div>
-                        <span class="text-muted">API health check and status</span>
-                    </div>
-                </div>
-
-                <div class="mt-3">
-                    <h6>Usage Example:</h6>
-                    <pre style="background: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto;">
-<code>// Fetch mental health data
-fetch('/mental_health')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    // Process your data here
-  });</code></pre>
-                </div>
-            </div>
-        </div>
 
         <!-- Interactive Data Table -->
         <div class="content-box">
@@ -550,7 +526,7 @@ fetch('/mental_health')
                     <p class="mb-0">&copy; 2025 Mind Health Analytics. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <p class="mb-0">Data updated: December 2025 | API Status: <span class="text-success">● Operational</span></p>
+                    <p class="mb-0">Data updated: December 2025 | Hosting: <span class="text-success">● Static (always on)</span></p>
                 </div>
             </div>
         </div>
@@ -605,7 +581,7 @@ fetch('/mental_health')
             
             // Fix active link state
             $('.nav-link').removeClass('active');
-            $('.nav-link[href="/data"]').addClass('active');
+            $('.nav-link[href="data.html"]').addClass('active');
             $('.dropdown-item').removeClass('active');
             
             // Animation for cards

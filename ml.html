@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="../static/images/logo1.png" type="image/png">
+    <link rel="icon" href="static/images/logo1.png" type="image/png">
 
     <style>
         /* ML-specific styles */
@@ -256,7 +256,7 @@
     <!-- Enhanced Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light enhanced-navbar">
         <div class="container">
-            <a class="navbar-brand enhanced-navbar-brand" href="/">
+            <a class="navbar-brand enhanced-navbar-brand" href="index.html">
                 <i class="fas fa-brain mr-2"></i> Mind Health Analytics
             </a>
 
@@ -268,7 +268,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="/">
+                        <a class="nav-link enhanced-nav-link" href="index.html">
                             <i class="fas fa-home mr-1"></i>Home
                         </a>
                     </li>
@@ -280,10 +280,10 @@
                             <i class="fas fa-chart-bar mr-1"></i>Visualizations
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="/eda">
+                            <a class="dropdown-item enhanced-dropdown-item" href="eda.html">
                                 <i class="fas fa-search mr-2"></i>Exploratory Data Analysis
                             </a>
-                            <a class="dropdown-item enhanced-dropdown-item active" href="/ml">
+                            <a class="dropdown-item enhanced-dropdown-item active" href="ml.html">
                                 <i class="fas fa-robot mr-2"></i>Machine Learning Analysis
                             </a>
                         </div>
@@ -295,10 +295,10 @@
                             <i class="fas fa-code mr-1"></i>API
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="/mental_health">
+                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/mental_health.json">
                                 <i class="fas fa-brain mr-2"></i>Mental Health Data
                             </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="/indicator">
+                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/indicator.json">
                                 <i class="fas fa-chart-line mr-2"></i>Development Indicators
                             </a>
                         </div>
@@ -306,7 +306,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="/data">
+                        <a class="nav-link enhanced-nav-link" href="data.html">
                             <i class="fas fa-database mr-1"></i>Data
                         </a>
                     </li>
@@ -390,12 +390,12 @@
             <div class="visualization-grid">
                 <div class="viz-card">
                     <h5 class="viz-title">Correlation Heatmap</h5>
-                    <img src="../static/images/corr.png" alt="Correlation Heatmap" class="enhanced-image"
+                    <img src="static/images/corr.png" alt="Correlation Heatmap" class="enhanced-image"
                         style="width: 100%; height: auto;">
                 </div>
                 <div class="viz-card">
                     <h5 class="viz-title">Correlation Matrix</h5>
-                    <img src="../static/images/corrmatt.png" alt="Correlation Matrix" class="enhanced-image"
+                    <img src="static/images/corrmatt.png" alt="Correlation Matrix" class="enhanced-image"
                         style="width: 100%; height: auto;">
                 </div>
             </div>
@@ -445,12 +445,12 @@
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Residual Plot</h5>
-                        <img src="../static/images/Linear_re.png" alt="Linear Regression Residual Plot"
+                        <img src="static/images/Linear_re.png" alt="Linear Regression Residual Plot"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/Linear_re_importance.png" alt="Linear Regression Feature Importance"
+                        <img src="static/images/Linear_re_importance.png" alt="Linear Regression Feature Importance"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
@@ -492,12 +492,12 @@
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Classification Report</h5>
-                        <img src="../static/images/logistic_before_classifier.png" alt="Logistic Regression Classifier"
+                        <img src="static/images/logistic_before_classifier.png" alt="Logistic Regression Classifier"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/logistic_importance.png" alt="Logistic Regression Feature Importance"
+                        <img src="static/images/logistic_importance.png" alt="Logistic Regression Feature Importance"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
@@ -523,12 +523,12 @@
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Classification Report</h5>
-                        <img src="../static/images/svm_classifier.png" alt="SVM Classifier" class="enhanced-image"
+                        <img src="static/images/svm_classifier.png" alt="SVM Classifier" class="enhanced-image"
                             style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/svm_featureimportance.png" alt="SVM Feature Importance"
+                        <img src="static/images/svm_featureimportance.png" alt="SVM Feature Importance"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
@@ -554,12 +554,12 @@
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Decision Tree Plot</h5>
-                        <img src="../static/images/tree.png" alt="Decision Tree" class="enhanced-image"
+                        <img src="static/images/tree.png" alt="Decision Tree" class="enhanced-image"
                             style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/decision_tree_importance.png" alt="Decision Tree Feature Importance"
+                        <img src="static/images/decision_tree_importance.png" alt="Decision Tree Feature Importance"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
@@ -586,12 +586,12 @@
                 <div class="visualization-grid">
                     <div class="viz-card">
                         <h5 class="viz-title">Classification Report</h5>
-                        <img src="../static/images/randomforest_classifier.png" alt="Random Forest Classifier"
+                        <img src="static/images/randomforest_classifier.png" alt="Random Forest Classifier"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                     <div class="viz-card">
                         <h5 class="viz-title">Feature Importance</h5>
-                        <img src="../static/images/rf_featureimportance.png" alt="Random Forest Feature Importance"
+                        <img src="static/images/rf_featureimportance.png" alt="Random Forest Feature Importance"
                             class="enhanced-image" style="width: 100%; height: auto;">
                     </div>
                 </div>
@@ -611,7 +611,7 @@
                 with Support Vector Machine performing best after grid search with 72.2% accuracy.</p>
 
             <div class="text-center mb-4">
-                <img src="../static/images/compare.png" alt="Model Comparison" class="enhanced-image"
+                <img src="static/images/compare.png" alt="Model Comparison" class="enhanced-image"
                     style="max-width: 800px; width: 100%;">
             </div>
 

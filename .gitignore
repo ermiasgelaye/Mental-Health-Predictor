@@ -1,0 +1,10 @@
+# Database credentials (no longer needed — the site is static)
+.env
+config.py
+
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+.history/
+.vscode/

@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="../static/images/logo1.png" type="image/png">
+    <link rel="icon" href="static/images/logo1.png" type="image/png">
     
     <style>
         /* EDA-specific styles */
@@ -309,7 +309,7 @@
     <!-- Enhanced Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light enhanced-navbar">
         <div class="container">
-            <a class="navbar-brand enhanced-navbar-brand" href="/">
+            <a class="navbar-brand enhanced-navbar-brand" href="index.html">
                 <i class="fas fa-brain mr-2"></i> Mind Health Analytics
             </a>
 
@@ -320,7 +320,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="/">
+                        <a class="nav-link enhanced-nav-link" href="index.html">
                             <i class="fas fa-home mr-1"></i>Home
                         </a>
                     </li>
@@ -330,10 +330,10 @@
                             <i class="fas fa-chart-bar mr-1"></i>Visualizations
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="visualizationsDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item active" href="/eda">
+                            <a class="dropdown-item enhanced-dropdown-item active" href="eda.html">
                                 <i class="fas fa-search mr-2"></i>Exploratory Data Analysis
                             </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="/ml">
+                            <a class="dropdown-item enhanced-dropdown-item" href="ml.html">
                                 <i class="fas fa-robot mr-2"></i>Machine Learning Analysis
                             </a>
                         </div>
@@ -344,17 +344,17 @@
                             <i class="fas fa-code mr-1"></i>API
                         </a>
                         <div class="dropdown-menu enhanced-dropdown" aria-labelledby="apiDropdown">
-                            <a class="dropdown-item enhanced-dropdown-item" href="/mental_health">
+                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/mental_health.json">
                                 <i class="fas fa-brain mr-2"></i>Mental Health Data
                             </a>
-                            <a class="dropdown-item enhanced-dropdown-item" href="/indicator">
+                            <a class="dropdown-item enhanced-dropdown-item" href="static/data/indicator.json">
                                 <i class="fas fa-chart-line mr-2"></i>Development Indicators
                             </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link enhanced-nav-link" href="/data">
+                        <a class="nav-link enhanced-nav-link" href="data.html">
                             <i class="fas fa-database mr-1"></i>Data
                         </a>
                     </li>
@@ -533,7 +533,7 @@
                         </div>
                         <h4>Machine Learning Analysis</h4>
                         <p>Dive deeper into predictive modeling with our machine learning analysis of suicide risk factors.</p>
-                        <a href="/ml" class="btn btn-primary-custom">
+                        <a href="ml.html" class="btn btn-primary-custom">
                             <i class="fas fa-arrow-right mr-2"></i>Explore ML Models
                         </a>
                     </div>
@@ -546,7 +546,7 @@
                         </div>
                         <h4>Raw Data Explorer</h4>
                         <p>Access and explore the raw datasets used in our analysis through interactive tables and filters.</p>
-                        <a href="/data" class="btn btn-primary-custom">
+                        <a href="data.html" class="btn btn-primary-custom">
                             <i class="fas fa-arrow-right mr-2"></i>Explore Data
                         </a>
                     </div>
@@ -587,14 +587,14 @@
             url: "Regional Analysis",
             title: "Regional Analysis",
             description: "Exploring mental health patterns and suicide rates across different regions and demographics with geographic visualizations.",
-            thumbnail: "../static/images/dashboard1.jpg",
+            thumbnail: "static/images/dashboard1.jpg",
             url: "https://public.tableau.com/views/dashboard2_16043477016730/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
         },
         {
             url: "Mental Health Survey",
             title: "Mental Health Survey",
             description: "Detailed analysis of socio-economic factors, temporal trends, and demographic variations in suicide rates.",
-            thumbnail: "../static/images/dashboard2.jpg",
+            thumbnail: "static/images/dashboard2.jpg",
             url:"https://public.tableau.com/views/mentalhelath_2/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
 
         }
