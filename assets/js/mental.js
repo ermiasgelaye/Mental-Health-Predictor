@@ -432,7 +432,7 @@ const Mental = (() => {
             const best = [...C.models].sort((a, b) => b.r2 - a.r2)[0];
             const nMen = M.byFactor('Gender').find((x) => x.name === 'Male').n, nWomen = M.byFactor('Gender').find((x) => x.name === 'Female').n;
             const fall = (k) => Math.abs(+C.movers.falls[k][1]).toFixed(1);
-            items.push(['arrow-trend-down', `Suicide rates fell ${Math.abs(ch(T.global)).toFixed(0)}% worldwide from 2000 to 2021, but rose in ${up.join(' and ')}`,
+            items.push(['arrow-trend-down', `Suicide rates fell ${Math.abs(ch(T.global)).toFixed(0)}% across ${C.movers.n} countries from 2000 to 2021, but rose in ${up.join(' and ')}`,
                 `They fell in ${C.movers.nFalling} of ${C.movers.n} countries, most steeply in the former Soviet Union (Russia down ${fall(0)} and Lithuania down ${fall(1)} deaths per 100,000 people).`,
                 'Population-weighted World Bank / WHO estimates.']);
             items.push(['wine-bottle', 'Countries that drink more have higher suicide rates, even compared with their neighbours',
@@ -445,7 +445,7 @@ const Mental = (() => {
                 `Tech workers with a family history of mental illness had about ${fh.aor.toFixed(1)} times the odds of having sought treatment, even after accounting for gender, age and workplace.`,
                 `Adjusted odds ratio ${fh.aor.toFixed(1)} (95% CI ${fh.lo.toFixed(1)}–${fh.hi.toFixed(1)}); OSMI survey, ${an.survey.n.toLocaleString()} respondents.`]);
             items.push(['venus-mars', 'Men are much less likely to have sought treatment',
-                `Men had less than half the odds of women of having been treated, while, worldwide, men die by suicide about ${M.ratioMedian.toFixed(1)} times as often as women.`,
+                `Men had less than half the odds of women of having been treated, while in the typical country men die by suicide about ${M.ratioMedian.toFixed(1)} times as often as women.`,
                 `Adjusted odds ratio ${men.aor.toFixed(2)}; men are ${Math.round((nMen / (nMen + nWomen)) * 100)}% of respondents.`]);
             items.push(['hand-holding-medical', 'Workplace support matters',
                 'Knowing what mental-health care is available roughly doubles the odds of seeking treatment, and having benefits helps too. Working remotely or at a tech company makes no difference.',

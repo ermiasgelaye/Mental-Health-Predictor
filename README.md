@@ -2,7 +2,7 @@
 
 ## Background
 
-Suicide remains a significant global public health concern. According to the World Health Organization (WHO), approximately 800,000 people die by suicide each year worldwide, with substantial variation across countries and over time. Beyond mortality, many more individuals experience suicidal ideation or attempts, underscoring the importance of prevention-focused research and policy responses.
+Suicide remains a significant global public health concern. According to the [World Health Organization](https://www.who.int/news-room/fact-sheets/detail/suicide) (WHO), about 746,000 people die by suicide each year worldwide, with substantial variation across countries and over time. Beyond mortality, many more individuals experience suicidal ideation or attempts, underscoring the importance of prevention-focused research and policy responses.
 
 Existing literature consistently identifies two broad domains associated with suicide mortality at the population level. The first concerns **structural and socio-economic conditions**, including income, education, employment, and social protection systems. The second focuses on **mental health–related factors**, such as the prevalence of mental disorders, access to care, and treatment availability (Li et al., 2011). Prior studies suggest that prevention strategies targeting either domain may yield comparable population-level effects.
 
@@ -133,7 +133,7 @@ To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, fol
 
 | # | Finding | Evidence |
 |---|---|---|
-| 1 | **Suicide rates fell 27% worldwide from 2000 to 2021** — but rose in North America (+33%) and Latin America (+26%). | Population-weighted WHO/World Bank estimates ([`SH.STA.SUIC.P5`](https://data.worldbank.org/indicator/SH.STA.SUIC.P5)), 185 countries: 12.5 → 9.1 per 100k, matching the World Bank's own world aggregate; falling in 124 countries. Largest falls: Russia (−31.7), Lithuania (−28.3); largest rises: Lesotho, Eswatini, South Korea. |
+| 1 | **Suicide rates fell 27% across 185 countries from 2000 to 2021** — but rose in North America (+33%) and Latin America (+26%). | Population-weighted WHO/World Bank estimates ([`SH.STA.SUIC.P5`](https://data.worldbank.org/indicator/SH.STA.SUIC.P5)), 185 countries: 12.5 → 9.1 per 100k, matching the World Bank's own world aggregate; falling in 124 countries. Largest falls: Russia (−31.7), Lithuania (−28.3); largest rises: Lesotho, Eswatini, South Korea. |
 | 2 | **Alcohol is the strongest country-level correlate that survives controlling for region.** | +1.9 deaths per 100k per SD of alcohol per capita (p < 0.001, 182 countries, 2017–19); stronger for men (r = 0.44) than women (0.29). Changes in drinking don't track changes in suicide (within-country p = 0.24). |
 | 3 | **The income paradox:** richer countries record higher rates, yet getting richer lowers them. | Cross-country +1.2 per SD (region-adjusted, p = 0.03); within countries (two-way fixed effects, clustered SEs) a tenfold GDP rise ≈ −2.9 per 100k (95% CI −4.7 to −1.1, p = 0.002). |
 | 4 | **Robust across samples:** where people with only basic education are more often working, rates are lower; primary-school completion and GDP go with higher recorded rates. | Significant after region control in both 2015–16 and 2017–19 samples. Social-insurance coverage and male labour participation are **not** robust (significance flips; coverage data for only 45–64 countries). |
