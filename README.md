@@ -127,13 +127,13 @@ To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, fol
 - **Excel date corruption:** company sizes "1-5" and "6-25" were stored as "05-Jan" and "25-Jun" (452 rows) — fixed in `survey.csv`.
 - **Impossible ages** (−1726, 5, 329, 99,999,999,999 …; 8 respondents) are treated as missing, and one duplicate response is dropped.
 - **46 World Bank aggregates** ("World", "High income", "Euro area" …) were mixed in with 217 countries; they're flagged and excluded from country statistics.
-- Suicide-rate data exists only for **2015–2016**, so country comparisons use that period.
+- The original database table (`Data/database/indicator.csv`) keeps suicide rates only for **2015–2016**; the raw extract (`Data/Development_Indicators.csv`) adds 2000, 2005 and 2010. The re-analysis downloads the full **2000–2021** series (`tools/fetch_external.py`) and compares countries on their **2017–2019 average**.
 
 ### Key findings (2026 re-analysis, World Bank data 2000–2021)
 
 | # | Finding | Evidence |
 |---|---|---|
-| 1 | **Suicide rates fell 27% worldwide from 2000 to 2021** — but rose in North America (+33%) and Latin America (+26%). | Population-weighted WHO/World Bank estimates, 185 countries: 12.5 → 9.1 per 100k; falling in 124 countries. Largest falls: Russia (−31.7), Lithuania (−28.3); largest rises: Lesotho, Eswatini, South Korea. |
+| 1 | **Suicide rates fell 27% worldwide from 2000 to 2021** — but rose in North America (+33%) and Latin America (+26%). | Population-weighted WHO/World Bank estimates ([`SH.STA.SUIC.P5`](https://data.worldbank.org/indicator/SH.STA.SUIC.P5)), 185 countries: 12.5 → 9.1 per 100k, matching the World Bank's own world aggregate; falling in 124 countries. Largest falls: Russia (−31.7), Lithuania (−28.3); largest rises: Lesotho, Eswatini, South Korea. |
 | 2 | **Alcohol is the strongest country-level correlate that survives controlling for region.** | +1.9 deaths per 100k per SD of alcohol per capita (p < 0.001, 182 countries, 2017–19); stronger for men (r = 0.44) than women (0.29). Changes in drinking don't track changes in suicide (within-country p = 0.24). |
 | 3 | **The income paradox:** richer countries record higher rates, yet getting richer lowers them. | Cross-country +1.2 per SD (region-adjusted, p = 0.03); within countries (two-way fixed effects, clustered SEs) a tenfold GDP rise ≈ −2.9 per 100k (95% CI −4.7 to −1.1, p = 0.002). |
 | 4 | **Robust across samples:** where people with only basic education are more often working, rates are lower; primary-school completion and GDP go with higher recorded rates. | Significant after region control in both 2015–16 and 2017–19 samples. Social-insurance coverage and male labour participation are **not** robust (significance flips; coverage data for only 45–64 countries). |
