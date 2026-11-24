@@ -107,14 +107,14 @@ The site uses the same design system as the [portfolio](https://ermiasgelaye.git
 
 | Path | What it is |
 |---|---|
-| `index.html` | Overview: background, real world map of suicide rates, survey explorer, findings, country indicators, model summary, corrections, methodology, references |
+| `index.html` | Overview: background, real world map of suicide rates, survey explorer, findings, country indicators, model summary, limitations, methodology, team, references |
 | `ml.html` | Machine-learning results with the notebook's figures and an honest evaluation |
 | `eda.html` | The original Tableau Public dashboards (loaded on request) |
 | `data.html` | Filterable/exportable survey and indicator tables, data quality & limitations |
 | `api.html` | The API endpoints (`/mental_health`, `/indicator`) with live "Try it" |
 | `assets/js/mental.js` | All statistics and charts, computed in the browser from `assets/data/mental.data.js` |
 | `static/data/*.json` | The former `/mental_health` and `/indicator` API endpoints as static files |
-| `tools/clean_data.py`, `tools/build_static.py` | Data corrections and data build |
+| `tools/clean_data.py`, `tools/build_static.py` | Data preparation and data build |
 | `tools/build_map.py` | Projects Natural Earth country shapes (`Data/geo/`, world-atlas) into `assets/data/worldmap.data.js` |
 | `tools/sync_design.sh` | Re-copies the shared CSS/JS/chat from the portfolio repo |
 | `app.py` | Optional: serves the site locally and keeps the old URLs working |
@@ -123,13 +123,13 @@ After editing `Data/survey.csv` or `Data/database/indicator.csv`: `python3 tools
 
 To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, folder `/ (root)`.
 
-### Data corrections (2026 audit)
-- **Excel date corruption:** company sizes "1-5" and "6-25" were stored as "05-Jan" and "25-Jun" (452 rows) — fixed in `survey.csv`.
-- **Impossible ages** (−1726, 5, 329, 99,999,999,999 …; 8 respondents) are treated as missing, and one duplicate response is dropped.
-- **46 World Bank aggregates** ("World", "High income", "Euro area" …) were mixed in with 217 countries; they're flagged and excluded from country statistics.
-- The original database table (`Data/database/indicator.csv`) keeps suicide rates only for **2015–2016**; the raw extract (`Data/Development_Indicators.csv`) adds 2000, 2005 and 2010. The re-analysis downloads the full **2000–2021** series (`tools/fetch_external.py`) and compares countries on their **2017–2019 average**.
+### Data preparation
+- Company-size answers that Excel had stored as dates ("05-Jan", "25-Jun") are restored to "1-5" and "6-25".
+- Impossible ages are treated as missing, and one duplicate response is dropped.
+- World Bank regional aggregates ("World", "High income", "Euro area" …) are excluded from country statistics.
+- The full 2000–2021 World Bank series is downloaded with `tools/fetch_external.py`; countries are compared on their 2017–2019 average.
 
-### Key findings (2026 re-analysis, World Bank data 2000–2021)
+### Key findings (World Bank data 2000–2021)
 
 | # | Finding | Evidence |
 |---|---|---|
@@ -146,7 +146,7 @@ To publish: GitHub → *Settings → Pages* → Deploy from branch `master`, fol
 
 Reproduce: `python3 tools/fetch_external.py && python3 tools/clean_data.py && python3 tools/build_static.py && python3 tools/build_map.py && python3 tools/analyze.py`.
 
-### Original model results
+### Notebook model results
 Only 58 countries had every indicator. Regression models failed on held-out countries (test R² −0.60 to 0.13). The best classifiers (linear SVM, tuned random forest) reached 72% test accuracy on 18 countries, against a 61% baseline of always predicting "low".
 
 ---
@@ -208,6 +208,15 @@ https://github.com/ermiasgelaye/Mental-Health-Predictor/blob/master/machine_lear
 For comparative purposes, suicide mortality rates were categorized into above- and below-average groups. Classification models were evaluated to assess relative accuracy, with support vector machines demonstrating higher performance following parameter tuning (72% test accuracy on 18 countries, vs. a 61% baseline of always predicting "low").
 
 <img src="/static/images/compare.png" height="500" width="900" />
+
+---
+
+## Limitations & responsible use
+
+- **Two separate datasets.** The survey describes help-seeking among tech workers; the country data describes national suicide rates. Findings from one shouldn't be applied to the other.
+- **Associations, not causes.** Country results compare populations, not people; even adjusted and within-country links show what goes together, not what causes what.
+- **Data quality.** The survey (2014–2016, n = 1,258) is self-selected and 60% US-based. Suicide rates are WHO estimates, and under-reporting differs between countries.
+- **Responsible use.** Indicators explain under a fifth of country differences out of sample (cross-validated R² ≤ 0.17). Nothing here predicts individual risk or should inform screening or clinical decisions. Both datasets are anonymous and public, and the site collects no data.
 
 ---
 

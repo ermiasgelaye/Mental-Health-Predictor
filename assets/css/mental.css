@@ -62,7 +62,7 @@
 .endpoint { padding: 1.1rem 1.2rem; }
 .endpoint-head { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: .5rem; font-size: .85rem; }
 .endpoint-head code { font-weight: 600; color: var(--ink); word-break: break-all; }
-.method { font-size: .72rem; font-weight: 800; letter-spacing: .05em; color: #fff; background: var(--success); padding: .15rem .5rem; border-radius: 6px; }
+.method { font-size: .72rem; font-weight: 800; letter-spacing: .05em; color: var(--on-brand); background: var(--success); padding: .15rem .5rem; border-radius: 6px; }
 .legacy { color: var(--ink-3); font-size: .78rem; }
 .endpoint h3 { font-size: 1rem; margin-bottom: .25rem; }
 .endpoint p { font-size: .88rem; color: var(--ink-2); margin-bottom: .75rem; }
