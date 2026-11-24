@@ -52,7 +52,7 @@
             <div class="container">
                 <nav class="crumbs" aria-label="Breadcrumb"><a href="https://ermiasgelaye.github.io/">Portfolio</a> <span aria-hidden="true">/</span> <span aria-current="page">Mental Health Risk Indicators</span></nav>
                 <h1>What can data tell us about <span class="gradient-text">mental health and suicide risk?</span></h1>
-                <p class="lede">Two views of the same question: who seeks treatment in a survey of 1,258 tech workers, and how suicide rates in 185 countries changed from 2000 to 2021 and what goes with them: income, alcohol, education and employment, with an honest look at what machine learning can and can't predict.</p>
+                <p class="lede">Mental health at two levels: who seeks treatment among 1,258 surveyed tech workers, and which social and economic conditions go with national suicide rates in 185 countries from 2000 to 2021, with an honest test of what machine learning can and can't predict.</p>
                 <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span><span class="tag">Tableau</span><span class="tag">World Bank WDI</span><span class="tag">OSMI survey</span><span class="tag">Chart.js</span></div>
                 <div class="hero-actions" style="margin:0">
                     <a href="#survey" class="btn btn-primary"><i class="fas fa-chart-bar" aria-hidden="true"></i> Explore the findings</a>
@@ -80,7 +80,7 @@
             <div class="container">
                 <div class="section-head reveal"><p class="kicker">Background</p><h2 id="bgTitle">Why this matters</h2></div>
                 <div class="two-panel reveal">
-                    <div><p style="color:var(--ink-2)">Suicide remains a significant global public-health concern: the World Health Organization estimates about 800,000 people die by suicide each year, with substantial variation across countries and over time, and many more experience suicidal ideation or attempts.</p>
+                    <div><p style="color:var(--ink-2)">Suicide remains a significant global public-health concern: the <a href="https://www.who.int/news-room/fact-sheets/detail/suicide" target="_blank" rel="noopener noreferrer">World Health Organization</a> estimates about 746,000 people die by suicide each year, with substantial variation across countries and over time, and many more experience suicidal ideation or attempts.</p>
                     <p style="color:var(--ink-2)">Research identifies two broad domains associated with suicide mortality at the population level: <strong>structural and socio-economic conditions</strong>: income, education, employment and social protection, and <strong>mental-health factors</strong> such as the prevalence of mental disorders and access to care (Li et al., 2011). This project examines both.</p></div>
                     <div class="card callout"><strong>Research question.</strong> Which population-level socio-economic and mental-health indicators are most strongly associated with national suicide mortality rates, and how can data-driven methods help identify patterns relevant to suicide-prevention planning?<br><br><em>This is population-level analysis. It does not predict individual risk or support clinical decisions.</em></div>
                 </div>
@@ -190,7 +190,19 @@
         </section>
 
 
-        <section class="section section--alt" id="method" aria-labelledby="methodTitle">
+        <section class="section section--alt" id="limits" aria-labelledby="limitsT">
+            <div class="container">
+                <div class="section-head reveal"><p class="kicker">Reading the results</p><h2 id="limitsT">Limitations &amp; responsible use</h2><p>What this analysis can and can't support.</p></div>
+                <div class="stat-grid reveal">
+                    <article class="card stat-card"><h3><span><i class="fas fa-layer-group" aria-hidden="true"></i> Two separate datasets</span></h3><p>The survey describes help-seeking among tech workers; the country data describes national suicide rates. They are analyzed side by side, and findings from one shouldn't be applied to the other.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-people-group" aria-hidden="true"></i> Associations, not causes</span></h3><p>Country results compare populations, not people. Even adjusted and within-country links show what goes together, not what causes what.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-clipboard-list" aria-hidden="true"></i> Data quality</span></h3><p>The survey (2014–2016) is self-selected and 60% US-based. Suicide rates are WHO estimates, and under-reporting differs between countries.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-user-shield" aria-hidden="true"></i> Not for individual use</span></h3><p>Indicators explain under a fifth of country differences out of sample. Nothing here predicts individual risk or should inform screening or clinical decisions.</p></article>
+                    <article class="card stat-card"><h3><span><i class="fas fa-lock" aria-hidden="true"></i> Privacy</span></h3><p>Both datasets are anonymous and public. The site collects nothing; the assistant runs in your browser and keeps its history there.</p></article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="method" aria-labelledby="methodTitle">
             <div class="container">
                 <div class="section-head reveal"><p class="kicker">How it was done</p><h2 id="methodTitle">Methodology &amp; architecture</h2></div>
                 <ol class="method-steps reveal">
@@ -213,7 +225,7 @@
                 <ol class="refs"><li>Ferretti, F., &amp; Coluccia, A. (2009). Socio-economic factors and suicide rates in European Union countries. <em>Legal Medicine, 11</em>.</li><li>Li, Z., Page, A., Martin, G., &amp; Taylor, R. (2011). Attributable risk of psychiatric and socio-economic factors for suicide. <em>Social Science &amp; Medicine, 72</em>(4), 608–616.</li><li>Szanto, K. (2017). Cognitive deficits as contributors to suicide. <em>American Journal of Geriatric Psychiatry, 25</em>(6), 630–632.</li><li>World Bank (2020). World Development Indicators.</li><li>World Health Organization (2019). Suicide fact sheet.</li></ol>
             </div>
         </section>
-        <section class="section" id="team" aria-labelledby="teamTitle">
+        <section class="section section--alt" id="team" aria-labelledby="teamTitle">
             <div class="container">
                 <div class="section-head reveal"><p class="kicker">Team Eagle</p><h2 id="teamTitle">The team</h2><p>Built as a group project in the University of Toronto Data Analytics &amp; Visualization program.</p></div>
                 <div class="team-grid reveal">

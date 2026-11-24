@@ -118,3 +118,6 @@
 .dt th:first-child, .dt td:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface-2); box-shadow: 1px 0 0 var(--border); }
 .dt thead th:first-child { z-index: 2; background: var(--surface); }
 .dt tbody tr:hover td:first-child { background: color-mix(in srgb, var(--brand) 10%, var(--surface-2)); }
+
+/* Links inside running text are underlined so they don't rely on colour alone (WCAG 1.4.1) */
+main p a:not(.btn), main li a:not(.btn), .callout a, .section-head a, .chart-note a, figcaption a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
