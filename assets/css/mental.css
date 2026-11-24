@@ -19,10 +19,6 @@
 .support i { color: var(--success); font-size: 1.2rem; margin-top: .15rem; }
 .support strong { color: var(--ink); }
 
-.team-list { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 0; }
-.team-list a { display: inline-flex; gap: .45rem; align-items: center; padding: .5rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); color: var(--ink-2); font-weight: 500; font-size: .9rem; }
-.team-list a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
-.team-list small { color: var(--ink-3); }
 
 .viz-frame { position: relative; aspect-ratio: 16 / 10; width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--surface); display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem; }
 .viz-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
@@ -103,3 +99,12 @@
 .glossary dt { font-weight: 600; color: var(--ink); }
 .glossary dd { margin: 0; color: var(--ink-2); }
 @media (max-width: 640px) { .glossary dl { grid-template-columns: 1fr; gap: .1rem; } .glossary dd { margin-bottom: .65rem; } }
+
+/* Team (same layout as the Google Health Search project) */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.member { padding: 1.25rem; text-align: center; }
+.member img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto .8rem; border: 3px solid var(--surface-2); box-shadow: var(--shadow-sm); }
+.member h3 { font-size: 1rem; margin-bottom: .15rem; }
+.member p { font-size: .85rem; color: var(--ink-3); margin: 0 0 .75rem; }
+.member .social { justify-content: center; gap: .4rem; }
+.member .icon-btn { width: 36px; height: 36px; font-size: .9rem; }
