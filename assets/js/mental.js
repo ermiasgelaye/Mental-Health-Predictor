@@ -63,9 +63,9 @@ const Mental = (() => {
         alcohol_per_capita: { label: 'Alcohol consumption per capita (litres of pure alcohol, 15+)', short: 'Alcohol per capita' },
         GDP_per_capita: { label: 'GDP per capita (US$, log scale)', short: 'GDP per capita', log: true },
         gov_health_spending_per_capita: { label: 'Government health spending per capita (US$, log scale)', short: 'Government health spending', log: true },
-        Labour_force_with_basic_education: { label: 'Labour-force participation of people with only basic education (%)', short: 'Work participation, basic education' },
+        Labour_force_with_basic_education: { label: 'Labor-force participation of people with only basic education (%)', short: 'Work participation, basic education' },
         Educational_attainment: { label: 'Adults 25+ who completed at least primary school (%)', short: 'Completed primary school' },
-        Labor_force_rate_male: { label: 'Male labour-force participation (%)', short: 'Male labour participation' },
+        Labor_force_rate_male: { label: 'Male labor-force participation (%)', short: 'Male labor participation' },
         Life_expectancy_total: { label: 'Life expectancy (years)', short: 'Life expectancy' },
         unemployment_with_basic_education_total: { label: 'Unemployment among people with basic education (%)', short: 'Unemployment (basic education)' },
         Female_employment: { label: 'Female employment-to-population ratio (%)', short: 'Female employment' }
@@ -308,7 +308,7 @@ const Mental = (() => {
         'care_options_Not sure': 'Unsure of care options (vs no)', benefits_Yes: "Has benefits (vs doesn't know)", benefits_No: "No benefits (vs doesn't know)",
         obs_consequence_Yes: 'Seen colleagues suffer for disclosing', 'leave_Very difficult': 'Medical leave very difficult (vs don\'t know)', 'leave_Somewhat difficult': 'Leave somewhat difficult',
         'leave_Somewhat easy': 'Leave somewhat easy', 'leave_Very easy': 'Leave very easy', remote_work_Yes: 'Works remotely ≥ 50%', tech_company_Yes: 'Works at a tech company',
-        wellness_program_Yes: 'Wellness programme', anonymity_Yes: 'Anonymity protected', seek_help_Yes: 'Employer help resources', age_per_10y: 'Age (per 10 years)',
+        wellness_program_Yes: 'Wellness program', anonymity_Yes: 'Anonymity protected', seek_help_Yes: 'Employer help resources', age_per_10y: 'Age (per 10 years)',
         'no_employees_More than 1000': 'Company > 1,000 staff (vs 1–5)', 'no_employees_6-25': 'Company 6–25 staff (vs 1–5)' };
     const FOREST_TERMS = ['family_history_Yes', 'Gender_Male', 'care_options_Yes', 'benefits_Yes', 'obs_consequence_Yes', 'leave_Very difficult', 'wellness_program_Yes', 'anonymity_Yes', 'age_per_10y', 'remote_work_Yes', 'tech_company_Yes', 'no_employees_More than 1000'];
     const adjNote = (key) => {
@@ -435,7 +435,7 @@ const Mental = (() => {
             items.push(['arrow-trend-down', `Suicide rates fell ${Math.abs(ch(T.global)).toFixed(0)}% across ${C.movers.n} countries from 2000 to 2021, but rose in ${up.join(' and ')}`,
                 `They fell in ${C.movers.nFalling} of ${C.movers.n} countries, most steeply in the former Soviet Union (Russia down ${fall(0)} and Lithuania down ${fall(1)} deaths per 100,000 people).`,
                 'Population-weighted World Bank / WHO estimates.']);
-            items.push(['wine-bottle', 'Countries that drink more have higher suicide rates, even compared with their neighbours',
+            items.push(['wine-bottle', 'Countries that drink more have higher suicide rates, even compared with their neighbors',
                 'Of all the indicators, alcohol has the strongest link that still holds within the same world region. The link is stronger for men than for women.',
                 `+${al.adj.toFixed(1)} deaths per 100k per standard deviation of alcohol, adjusted for region (p ${fmtP(al.adjP)}); r = ${C.sexAlcohol.Suicide_mortality_rate_per_100k_male.toFixed(2)} for men's rates, ${C.sexAlcohol.Suicide_mortality_rate_per_100k_female.toFixed(2)} for women's.`]);
             items.push(['scale-balanced', 'The income paradox: richer countries record more suicides, yet getting richer goes with fewer',
@@ -535,7 +535,7 @@ const Mental = (() => {
                 k: ['growth', 'income', 'richer', 'wealth', 'gdp', 'alcohol', 'within', 'fixed effects', 'paradox', 'drinking'],
                 a: `Across countries, richer ones record *higher* suicide rates, but within each country over 2000–2021, growing richer goes with **falling** rates: a tenfold rise in GDP per capita ≈ ${Math.abs(gw.b).toFixed(1)} fewer deaths per 100k (95% CI ${Math.abs(gw.hi).toFixed(1)}–${Math.abs(gw.lo).toFixed(1)}, p ${fmtP(gw.p)}; two-way fixed effects, clustered errors).\n\nAlcohol is the strongest cross-country correlate after controlling for region, but changes in drinking don't track changes in suicide: the link reflects long-standing national drinking cultures, not a short-term effect.`,
                 actions: [{ label: 'See the analysis', action: 'link:index.html#within' }] });
-            ARC.KB.push({ id: 'mh-cv', topic: 'project', title: 'Re-analysis of the prediction models',
+            ARC.KB.push({ id: 'mh-cv', topic: 'project', title: 'Cross-validated prediction models',
                 q: ['can suicide rates be predicted', 'cross validation results', 'how good is the improved model', 're-analysis of the models'],
                 k: ['cross', 'validation', 'cv', 'r2', 'predict', 'prediction', 'reanalysis', 'improved', 'ridge'],
                 a: `Re-run on all ${C.n} countries (${C.window} averages) with repeated 5-fold cross-validation (median imputation):\n\n${C.models.map((m) => `- ${m.model}: R² ${m.r2.toFixed(2)} ± ${m.sd.toFixed(2)}`).join('\n')}\n\nThe indicators explain about a fifth of the variation at best, barely more than region alone: they describe patterns but can't predict a country's rate.`,

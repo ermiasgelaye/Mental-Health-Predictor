@@ -1,4 +1,4 @@
-/* Shared behaviour for project pages: theme toggle, mobile menu, footer year,
+/* Shared behavior for project pages: theme toggle, mobile menu, footer year,
  * plus the small ARC.* helpers the shared chat assistant needs (when a page includes it). */
 'use strict';
 
@@ -28,7 +28,7 @@ ARC.toast = ARC.toast || ((message, { type = 'info' } = {}) => {
     setTimeout(() => el.remove(), 3500);
 });
 
-/** Theme-aware colours for charts (read from CSS custom properties). */
+/** Theme-aware colors for charts (read from CSS custom properties). */
 ARC.themeColors = () => {
     const cs = getComputedStyle(document.documentElement);
     const v = (n) => cs.getPropertyValue(n).trim();
