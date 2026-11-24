@@ -465,28 +465,9 @@ const Mental = (() => {
         if (rb) rb.innerHTML = ML.regression.map((m) => `<tr><th scope="row">${esc(m.model)}</th><td class="num">${m.train.toFixed(2)}</td><td class="num"><strong>${m.test.toFixed(2)}</strong></td></tr>`).join('');
     }
 
-    /* ---------- Assistant safety: first-person distress always gets support info first ----------
-     * Runs before knowledge-base retrieval, so it can't be outranked. Matches first-person statements
-     * ("I want to die", "kill myself") — not questions about statistics ("suicide rate in Japan"). */
-    const CRISIS = /\b(kill(ing)? my ?self|end(ing)? (my|it all|my own) ?life|end it all|take my (own )?life|want(ed)? to die|wish i (was|were) dead|better off dead|(don'?t|do not) want to (live|be alive|be here)|no reason to (live|go on)|hurt(ing)? my ?self|harm(ing)? my ?self|self[- ]?harm(ing)?|cut(ting)? my ?self|i('?m| am)? ?(feel(ing)? |am feeling )?suicidal|suicidal (thoughts|feelings)|i('?m| am| feel) (so |really |very )?(depressed|hopeless|worthless))\b/i;
-    const SUPPORT_TEXT = "I'm really sorry you're feeling this way, thank you for saying it. You deserve support, and you don't have to go through this alone.\n\n" +
-        "- **US & Canada:** call or text **988** (Suicide & Crisis Lifeline), free, confidential, 24/7\n- **UK & Ireland:** call Samaritans on **116 123**\n" +
-        "- **Anywhere else:** findahelpline.com lists free services in your country\n- **If you're in immediate danger**, call your local emergency number.\n\n" +
-        "Talking to someone you trust, a friend, family member or doctor, can also help. I'm only a data assistant, but I'm glad you reached out.";
-    function installSafety() {
-        const E = window.ARC && ARC.chatEngine;
-        if (!E || E._safety) return;
-        const answer = E.answer;
-        E.answer = (message, session) => (CRISIS.test(String(message || ''))
-            ? { text: SUPPORT_TEXT, confidence: 'high', source: 'assistant', actions: [{ label: 'Find a helpline', action: 'link:https://findahelpline.com' }] }
-            : answer(message, session));
-        E._safety = true;
-    }
-
     /* ---------- Assistant knowledge generated from the data ---------- */
     let kbAdded = false;
     function addKnowledge(M) {
-        installSafety();
         if (kbAdded || !window.ARC || !ARC.KB) return;
         kbAdded = true;
         Object.entries(FACTORS).forEach(([f, info]) => {
@@ -556,7 +537,6 @@ const Mental = (() => {
 
     /* ---------- Pages without charts: assistant + API explorer ---------- */
     function initAssistant() {
-        installSafety();
         try { addKnowledge(load()); } catch { /* the static knowledge still works */ }
     }
     function initApi() {
@@ -583,7 +563,6 @@ const Mental = (() => {
     function initModels() {
         renderMl();
         renderCv();
-        installSafety();
         try { addKnowledge(load()); } catch { /* assistant still has the static knowledge */ }
     }
 
